@@ -15,6 +15,13 @@
             padding: 15px;
             margin-bottom: 10px;
             border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .message img {
+            width: 40px; /* Adjust the size of the image */
+            height: 40px;
+            margin-right: 10px; /* Add space between the image and the text */
         }
         .info {
             background-color: #e7f3fe;
@@ -33,13 +40,22 @@
 <body>
     <h1>Messages</h1>
     <div class="message info">
-        <strong>Info:</strong> This is an informational message for the user.
+        <img src="info-icon.png" alt="Info Icon"> <!-- Add the image for the info message -->
+        <div>
+            <strong>Info:</strong> This is an informational message for the user.
+        </div>
     </div>
     <div class="message warning">
-        <strong>Warning:</strong> Please be cautious while proceeding.
+        <img src="warning-icon.png" alt="Warning Icon"> <!-- Add the image for the warning message -->
+        <div>
+            <strong>Warning:</strong> Please be cautious while proceeding.
+        </div>
     </div>
     <div class="message success">
-        <strong>Success:</strong> Your action was completed successfully!
+        <img src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg" alt="Success Icon"> <!-- Add the image for the success message -->
+        <div>
+            <strong>Success:</strong> Your action was completed successfully!
+        </div>
     </div>
 </body>
 </html>

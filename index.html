@@ -35,32 +35,51 @@
             background-color: #d4edda;
             color: #155724;
         }
+        .video-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        iframe {
+            width: 80%; /* Make the video responsive */
+            max-width: 600px; /* Maximum width for the video */
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <h1>Messages</h1>
     <div class="message info">
-        <img src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg" alt="Info Icon"> <!-- Add the image for the info message -->
+        <img src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg" alt="Info Icon">
         <div>
             <strong>Info:</strong> This is an informational message for the user.
         </div>
     </div>
     <div class="message warning">
-        <img src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg" alt="Warning Icon"> <!-- Add the image for the warning message -->
+        <img src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg" alt="Warning Icon">
         <div>
             <strong>Warning:</strong> Please be cautious while proceeding.
         </div>
     </div>
     <div class="message success">
-        <img src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg" alt="Success Icon"> <!-- Add the image for the success message -->
+        <img src="https://gratisography.com/wp-content/uploads/2024/10/gratisography-cool-cat-800x525.jpg" alt="Success Icon">
         <div>
             <strong>Success:</strong> Your action was completed successfully!
         </div>
     </div>
-     <div class="video-container">
+
+    <!-- YouTube Video Embed -->
+    <div class="video-container">
         <h2>Watch This Video:</h2>
-        <video controls>
-            <source src="https://youtu.be/1cjh7Gpwgzc?si=cH49wRRruNK21eqP" type="video/mp4">
+        <!-- Embed YouTube Video using iframe -->
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/1cjh7Gpwgzc" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
     </div>
 </body>
 </html>

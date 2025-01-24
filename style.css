@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgb(0, 56, 147), rgb(220,20,60));
+    background-image:  url(images/main.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+<style>
+  #carouselExampleIndicators {
+    max-width: 800px; /* Set the maximum width */
+    margin: auto;    /* Center the carousel */
+  }
+
+  #carouselExampleIndicators img {
+    height: 600px;   /* Set a fixed height */
+    object-fit: cover; /* Adjust how images are cropped */
+  }
+</style>
+
+
+<!-- Custom CSS -->
+<style>
+  .carousel-inner img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 5px solid #007bff;
+      display: block;
+      margin: auto;
+  }
+</style>
+

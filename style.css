@@ -1,41 +1,260 @@
-*{
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
     margin: 0;
     padding: 0;
 }
 
-.header{
-    min-height: 100vh;
-    width: 100%;
-    background-image: linear-gradient(rgb(0, 56, 147), rgb(220,20,60));
-    background-image:  url(images/main.jpg);
-    background-position: center;
-    background-size: cover;
-    position: relative;
+/* Navbar Styling */
+.custom-navbar {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px;
+    backdrop-filter: blur(10px);
 }
 
-<style>
-  #carouselExampleIndicators {
-    max-width: 800px; /* Set the maximum width */
-    margin: auto;    /* Center the carousel */
-  }
+.navbar-brand img {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
+}
 
-  #carouselExampleIndicators img {
-    height: 600px;   /* Set a fixed height */
-    object-fit: cover; /* Adjust how images are cropped */
-  }
-</style>
+.navbar-nav .nav-link {
+    color: white !important;
+    font-size: 1.1rem;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8b400 !important;
+    transform: translateY(-2px);
+}
+
+/* Center the Carousel */
+.carousel {
+    position: relative;
+    width: 1200px;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    background: none;
+    padding: 0;
+    margin: auto; /* Center alignment */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure Image Fills the Carousel */
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.6s ease-in-out, filter 0.4s ease-in-out;
+}
+
+/* Fix Caption Position */
+.carousel-caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+    padding: 15px;
+    border-radius: 10px;
+    bottom: 10%; /* Prevents caption from going below */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    text-align: center;
+    max-height: 90%; /* Ensures it doesn't overflow */
+    overflow: hidden; /* Prevents text overflow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Adjust Caption Text */
+.carousel-caption h3 {
+    color: #ffcc00;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 5px 0;
+}
+
+.carousel-caption p {
+    color: #ddd;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .carousel {
+        width: 90%;
+        height: 50vh;
+    }
+
+    .carousel-caption {
+        width: 90%;
+        font-size: 14px;
+        bottom: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+        height: 45vh;
+    }
+
+    .carousel-caption {
+        padding: 10px;
+        bottom: 5%;
+    }
+
+    .carousel-caption h3 {
+        font-size: 16px;
+    }
+
+    .carousel-caption p {
+        font-size: 12px;
+    }
+}
 
 
-<!-- Custom CSS -->
-<style>
-  .carousel-inner img {
-      width: 100%;
-      height: 600px;
-      object-fit: cover;
-      border-radius: 15px;
-      border: 5px solid #007bff;
-      display: block;
-      margin: auto;
-  }
-</style>
+/* Animated Fade In & Slide Up Effect */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
 
+/* Caption Text Styling */
+.carousel-caption h3 {
+    color: #ffcc00;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption p {
+    color: #ddd;
+    font-size: 16px;
+    margin-top: 5px;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-control-prev, .carousel-control-next {
+    width: 6%;
+    filter: brightness(0.8);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-color: #f8b400;
+    box-shadow: 0 0 10px #f8b400;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .carousel {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .carousel-caption {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 18px;
+    }
+
+    .carousel-caption p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+        height: 45vh;
+    }
+
+    .carousel-caption {
+        padding: 10px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 16px;
+    }
+
+    .carousel-caption p {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+/* Footer Styling */
+.footer {
+    background-color: #222;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #ddd;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    color: #f39c12;
+}
+
+.footer-social a {
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+}
+
+.footer-social img:hover {
+    transform: scale(1.2);
+}
+
+.footer-text {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}

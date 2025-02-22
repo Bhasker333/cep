@@ -1,131 +1,623 @@
-const container = document.querySelector('.video-container');
-const scrollAmount = 300; // Amount of pixels to scroll
+/* Modern 3D Glassmorphic Design System */
+:root {
+    --primary: #00b4d8;
+    --secondary: #ff9800;
+    --glass: rgba(255, 255, 255, 0.08);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --radius-sm: 12px;
+    --radius-lg: 24px;
+    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', system-ui;
+  }
 
-function smoothScroll(direction) {
-    let start = container.scrollLeft;
-    let change = direction === 'left' ? -scrollAmount : scrollAmount;
-    let duration = 400; // Duration of the scroll in milliseconds
-    let startTime = null;
-
-    function animateScroll(currentTime) {
-        if (!startTime) startTime = currentTime;
-        let elapsedTime = currentTime - startTime;
-        let progress = Math.min(elapsedTime / duration, 1); // Ensure it stops at 1
-        container.scrollLeft = start + change * easeInOutQuad(progress);
-
-        if (progress < 1) {
-            requestAnimationFrame(animateScroll);
-        }
-    }
-
-    function easeInOutQuad(t) {
-        return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-    }
-
-    requestAnimationFrame(animateScroll);
+  /* General Styling */
+body {
+  background: radial-gradient(circle at 50% 50%, #0a192f, #172a45 60%, #2a4a6e);
+  color: rgba(255, 255, 255, 0.95);
+  min-height: 100vh;
+  line-height: 1.7;
+  letter-spacing: 0.3px;
 }
 
-document.querySelector('.left-btn').addEventListener('click', () => smoothScroll('left'));
-document.querySelector('.right-btn').addEventListener('click', () => smoothScroll('right'));
+
+/* Enhanced 3D Navbar */
+.custom-navbar {
+    background: linear-gradient(145deg, 
+      rgba(0, 0, 0, 0.6) 0%, 
+      rgba(0, 0, 0, 0.4) 100%) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-lg);
+    margin: 1.5rem;
+    padding: 1rem 2rem;
+    box-shadow: 
+      0 16px 30px -12px rgba(0, 0, 0, 0.4),
+      0 4px 6px -4px rgba(255, 255, 255, 0.05);
+    transform: perspective(1000px) rotateX(1deg);
+    transition: var(--transition);
+  }
+  
+  .custom-navbar:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-2px);
+    box-shadow: 
+      0 24px 40px -16px rgba(0, 0, 0, 0.5),
+      0 8px 12px -6px rgba(255, 255, 255, 0.08);
+  }
+  
+  .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    padding: 0.8rem 1.5rem !important;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    position: relative;
+    transform-style: preserve-3d;
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--primary);
+    border-radius: var(--radius-sm);
+    transform: translateZ(-1px);
+    opacity: 0;
+    transition: var(--transition);
+  }
+  
+  .nav-link:hover {
+    color: #fff !important;
+    transform: translateY(-3px) translateZ(10px);
+  }
+  
+  .nav-link:hover::before {
+    opacity: 0.15;
+  }
 
 
+/* Hero Section with Parallax Depth */
+.hero {
+    background: linear-gradient(
+      45deg, 
+      rgba(42, 74, 110, 0.95) 0%, 
+      rgba(102, 16, 242, 0.85) 100%
+    );
+    padding: 8rem 2rem;
+    border-radius: var(--radius-lg);
+    margin: 3rem;
+    position: relative;
+    transform-style: preserve-3d;
+  }
+  
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('noise.png');
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 8px 24px rgba(0, 180, 216, 0.3);
+    margin-bottom: 1.5rem;
+    transform: translateZ(50px);
+  }
 
-function getWeather() {
-    const apiKey = '3fade62dc5230fad5b1507164daac77c';
-    const city = document.getElementById('city').value;
+.text-center section-title{
+    font-size: 32px;
+    margin-bottom: 20px;
+    margin-top: 20px ;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    if (!city) {
-        alert('Please enter a city');
-        return;
+.mountain{
+    font-size: 32px;
+    margin-top: 20px ;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mountain1{
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Center the Carousel */
+.carousel {
+    position: relative;
+    width: 1200px;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    background: none;
+    padding: 0;
+    margin: auto; /* Center alignment */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure Image Fills the Carousel */
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.6s ease-in-out, filter 0.4s ease-in-out;
+}
+
+/* Fix Caption Position */
+.carousel-caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+    padding: 15px;
+    border-radius: 10px;
+    bottom: 10%; /* Prevents caption from going below */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    text-align: center;
+    max-height: 90%; /* Ensures it doesn't overflow */
+    overflow: hidden; /* Prevents text overflow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Adjust Caption Text */
+.carousel-caption h3 {
+    color: #ffcc00;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 5px 0;
+}
+
+.carousel-caption p {
+    color: #ddd;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .carousel {
+        width: 90%;
+        height: 50vh;
     }
 
-    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
-
-    fetch(currentWeatherUrl)
-        .then(response => response.json())
-        .then(data => {
-            displayWeather(data);
-        })
-        .catch(error => {
-            console.error('Error fetching current weather data:', error);
-            alert('Error fetching current weather data. Please try again.');
-        });
-
-    fetch(forecastUrl)
-        .then(response => response.json())
-        .then(data => {
-            displayHourlyForecast(data.list);
-        })
-        .catch(error => {
-            console.error('Error fetching hourly forecast data:', error);
-            alert('Error fetching hourly forecast data. Please try again.');
-        });
-}
-
-function displayWeather(data) {
-    const tempDivInfo = document.getElementById('temp-div');
-    const weatherInfoDiv = document.getElementById('weather-info');
-    const weatherIcon = document.getElementById('weather-icon');
-    const hourlyForecastDiv = document.getElementById('hourly-forecast');
-
-    // Clear previous content
-    weatherInfoDiv.innerHTML = '';
-    hourlyForecastDiv.innerHTML = '';
-    tempDivInfo.innerHTML = '';
-
-    if (data.cod === '404') {
-        weatherInfoDiv.innerHTML = `<p>${data.message}</p>`;
-    } else {
-        const cityName = data.name;
-        const temperature = Math.round(data.main.temp - 273.15); // Convert to Celsius
-        const description = data.weather[0].description;
-        const iconCode = data.weather[0].icon;
-        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
-
-        const temperatureHTML = `
-            <p>${temperature}°C</p>
-        `;
-
-        const weatherHtml = `
-            <p>${cityName}</p>
-            <p>${description}</p>
-        `;
-
-        tempDivInfo.innerHTML = temperatureHTML;
-        weatherInfoDiv.innerHTML = weatherHtml;
-        weatherIcon.src = iconUrl;
-        weatherIcon.alt = description;
-
-        showImage();
+    .carousel-caption {
+        width: 90%;
+        font-size: 14px;
+        bottom: 5%;
     }
 }
 
-function displayHourlyForecast(hourlyData) {
-    const hourlyForecastDiv = document.getElementById('hourly-forecast');
+@media (max-width: 480px) {
+    .carousel {
+        height: 45vh;
+    }
 
-    const next24Hours = hourlyData.slice(0, 8); // Display the next 24 hours (3-hour intervals)
+    .carousel-caption {
+        padding: 10px;
+        bottom: 5%;
+    }
 
-    next24Hours.forEach(item => {
-        const dateTime = new Date(item.dt * 1000); // Convert timestamp to milliseconds
-        const hour = dateTime.getHours();
-        const temperature = Math.round(item.main.temp - 273.15); // Convert to Celsius
-        const iconCode = item.weather[0].icon;
-        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+    .carousel-caption h3 {
+        font-size: 16px;
+    }
 
-        const hourlyItemHtml = `
-            <div class="hourly-item">
-                <span>${hour}:00</span>
-                <img src="${iconUrl}" alt="Hourly Weather Icon">
-                <span>${temperature}°C</span>
-            </div>
-        `;
-
-        hourlyForecastDiv.innerHTML += hourlyItemHtml;
-    });
+    .carousel-caption p {
+        font-size: 12px;
+    }
 }
 
-function showImage() {
-    const weatherIcon = document.getElementById('weather-icon');
-    weatherIcon.style.display = 'block'; // Make the image visible once it's loaded
+
+/* Animated Fade In & Slide Up Effect */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Caption Text Styling */
+.carousel-caption h3 {
+    color: #ffcc00;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption p {
+    color: #ddd;
+    font-size: 16px;
+    margin-top: 5px;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-control-prev, .carousel-control-next {
+    width: 6%;
+    filter: brightness(0.8);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-color: #f8b400;
+    box-shadow: 0 0 10px #f8b400;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .carousel {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .carousel-caption {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 18px;
+    }
+
+    .carousel-caption p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+        height: 45vh;
+    }
+
+    .carousel-caption {
+        padding: 10px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 16px;
+    }
+
+    .carousel-caption p {
+        font-size: 12px;
+    }
+}
+
+/* Animation Enhancements */
+@keyframes carousel-float {
+    0%, 100% { transform: translateY(0) rotateY(var(--card-rotate)); }
+    50% { transform: translateY(-20px) rotateY(var(--card-rotate)); }
+  }
+  
+  .carousel-item:not(.active) {
+    animation: carousel-float 6s ease-in-out infinite;
+  }
+  
+  .active .carousel-img {
+    transform: scale(1.08);
+    filter: saturate(1.2);
+  }
+  
+  
+
+
+
+
+
+/* Footer Styling */
+.footer {
+    background-color: #222;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #ddd;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    color: #f39c12;
+}
+
+.footer-social a {
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+}
+
+.footer-social img:hover {
+    transform: scale(1.2);
+}
+
+.footer-text {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+
+
+/* video css */
+
+/* General Styles */
+
+
+/* Center Heading */
+.heading {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Scrollable Container */
+.scroll-container {
+    position: relative;
+    max-width: 90%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center; /* Centering content vertically */
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Video Container */
+.video-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: center; /* Center items */
+    align-items: center; /* Align vertically */
+    padding-bottom: 10px;
+}
+
+/* Hide Scrollbar */
+.video-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Video Card Hover Effect */
+.video-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 220px;
+    flex: 0 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect - Slightly Scale Up & Add Shadow */
+.video-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Video - Add a slight brightness effect */
+.video-card video {
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+
+/* Video Hover Effect - Brighten */
+.video-card:hover video {
+    filter: brightness(1.2);
+}
+
+
+/* Tag Button */
+.tag {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    font-size: 12px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.tag:hover {
+    background-color: #005bb5;
+}
+
+/* Video Title */
+.video-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+    color: #333;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.left-btn {
+    left: -5%;
+}
+
+.right-btn {
+    right: -5%;
+}
+
+.scroll-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .scroll-container {
+        max-width: 100%;
+    }
+
+    .left-btn {
+        left: 0;
+    }
+
+    .right-btn {
+        right: 0;
+    }
+}
+
+
+
+
+
+
+
+.weather-strip {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    color: #222; /* Ensuring text inside is dark */
+}
+
+input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #222; /* Dark text inside input */
+    background: white;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.weather-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    color: #222; /* Dark text for weather details */
+}
+
+#temp-div {
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #000; /* Ensuring temperature is visible */
+}
+
+#weather-info {
+    font-size: 18px;
+    color: #333;
+}
+
+#weather-icon {
+    width: 80px;
+    height: 80px;
+    display: none;
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
+.hourly-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    min-width: 70px;
+    color: #222;
+    font-weight: bold;
+}
+
+.hourly-item img {
+    width: 40px;
+    height: 40px;
 }

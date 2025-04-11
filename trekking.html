@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trekking in Nepal - Beyond Everest</title>
+    
+    <div id="header"></div>
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+</script>
+    
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #457b9d;
+            --accent-color: #ffffff;
+            --dark-color: #1d3557;
+            --light-color: #f8f9fa;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: var(--accent-color);
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 40px 0 20px;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
+        }
+
+        .trek-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .trek-card {
+            background-color: var(--accent-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .trek-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .trek-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .trek-content {
+            padding: 20px;
+        }
+
+        .trek-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .trek-content p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .trek-details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .trek-details span {
+            font-size: 0.9rem;
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-bottom: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: #c1121f;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+        }
+
+        .planning-section {
+            background-color: var(--dark-color);
+            color: var(--accent-color);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .planning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .planning-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .planning-card:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .planning-card h3 {
+            margin: 20px 0;
+            font-size: 1.5rem;
+        }
+
+        .planning-card p {
+            margin-bottom: 20px;
+        }
+
+        .season-section {
+            margin: 60px 0;
+        }
+
+        .season-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .season-tab {
+            padding: 10px 20px;
+            margin: 0 5px 10px;
+            background-color: var(--accent-color);
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .season-tab.active {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+        }
+
+        .season-content {
+            background-color: var(--accent-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: none;
+        }
+
+        .season-content.active {
+            display: block;
+        }
+
+        .season-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .season-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .season-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .faq-section {
+            margin: 60px 0;
+        }
+
+        .accordion {
+            background-color: var(--accent-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .accordion-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            background-color: var(--accent-color);
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--dark-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .accordion-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .accordion-button:after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .accordion-button.active:after {
+            content: '-';
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content-inner {
+            padding: 0 20px 20px;
+        }
+
+        .equipment-section {
+            margin: 60px 0;
+        }
+
+        .checklist {
+            background-color: var(--accent-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .checklist-category {
+            margin-bottom: 30px;
+        }
+
+        .checklist-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .checklist-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist-item input {
+            margin-right: 10px;
+        }
+
+        .contact-section {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 60px 0;
+            margin: 60px 0 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-form {
+            background-color: var(--accent-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        .contact-info {
+            color: var(--accent-color);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 992px) {
+            .trek-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Trek the Roof of the World</h1>
+            <p>Discover Nepal's majestic mountains, ancient trails, and rich culture through unforgettable trekking experiences</p>
+        </div>
+    </section>
+
+    <!-- Popular Treks Section -->
+    <section class="container">
+        <h2 class="section-title">Popular Trekking Routes</h2>
+        <p class="section-subtitle">Nepal offers a diverse range of trekking experiences for all skill levels</p>
+
+        <div class="trek-grid">
+            <!-- Everest Base Camp Trek -->
+            <div class="trek-card">
+                <img src="/api/placeholder/400/320" alt="Everest Base Camp Trek" class="trek-image">
+                <div class="trek-content">
+                    <h3>Everest Base Camp Trek</h3>
+                    <div class="trek-details">
+                        <span>14 Days</span>
+                        <span>Difficulty: Challenging</span>
+                        <span>5,364m Max Altitude</span>
+                    </div>
+                    <p>The classic trek to the foot of the world's highest mountain. Experience breathtaking Himalayan vistas, rich Sherpa culture, and iconic landmarks like Kala Patthar.</p>
+                    <a href="#" class="btn" onclick="showTrekDetails('everest')">Explore Route</a>
+                </div>
+            </div>
+
+            <!-- Annapurna Circuit -->
+            <div class="trek-card">
+                <img src="/api/placeholder/400/320" alt="Annapurna Circuit" class="trek-image">
+                <div class="trek-content">
+                    <h3>Annapurna Circuit</h3>
+                    <div class="trek-details">
+                        <span>12-21 Days</span>
+                        <span>Difficulty: Moderate-Hard</span>
+                        <span>5,416m Max Altitude</span>
+                    </div>
+                    <p>Often called the world's best long-distance trek, the Annapurna Circuit offers incredible diversity of landscapes, cultures, and ecosystems around the Annapurna massif.</p>
+                    <a href="#" class="btn" onclick="showTrekDetails('annapurna')">Explore Route</a>
+                </div>
+            </div>
+
+            <!-- Langtang Valley -->
+            <div class="trek-card">
+                <img src="/api/placeholder/400/320" alt="Langtang Valley Trek" class="trek-image">
+                <div class="trek-content">
+                    <h3>Langtang Valley Trek</h3>
+                    <div class="trek-details">
+                        <span>7-10 Days</span>
+                        <span>Difficulty: Moderate</span>
+                        <span>4,984m Max Altitude</span>
+                    </div>
+                    <p>A shorter trek close to Kathmandu, offering spectacular mountain views, diverse flora and fauna, and the chance to experience authentic Tamang culture.</p>
+                    <a href="#" class="btn" onclick="showTrekDetails('langtang')">Explore Route</a>
+                </div>
+            </div>
+
+            <!-- Manaslu Circuit -->
+            <div class="trek-card">
+                <img src="/api/placeholder/400/320" alt="Manaslu Circuit Trek" class="trek-image">
+                <div class="trek-content">
+                    <h3>Manaslu Circuit Trek</h3>
+                    <div class="trek-details">
+                        <span>14-18 Days</span>
+                        <span>Difficulty: Challenging</span>
+                        <span>5,160m Max Altitude</span>
+                    </div>
+                    <p>A remote and less crowded alternative to the Annapurna Circuit, offering pristine mountain views, diverse landscapes, and a glimpse into traditional Buddhist villages.</p>
+                    <a href="#" class="btn" onclick="showTrekDetails('manaslu')">Explore Route</a>
+                </div>
+            </div>
+
+            <!-- Upper Mustang -->
+            <div class="trek-card">
+                <img src="/api/placeholder/400/320" alt="Upper Mustang Trek" class="trek-image">
+                <div class="trek-content">
+                    <h3>Upper Mustang Trek</h3>
+                    <div class="trek-details">
+                        <span>10-14 Days</span>
+                        <span>Difficulty: Moderate</span>
+                        <span>3,810m Max Altitude</span>
+                    </div>
+                    <p>Venture into the "forbidden kingdom" with its unique desert-like landscape, ancient Tibetan culture, and cave monasteries. The trek requires a special permit.</p>
+                    <a href="#" class="btn" onclick="showTrekDetails('mustang')">Explore Route</a>
+                </div>
+            </div>
+
+            <!-- Gokyo Lakes and Renjo La -->
+            <div class="trek-card">
+                <img src="/api/placeholder/400/320" alt="Gokyo Lakes Trek" class="trek-image">
+                <div class="trek-content">
+                    <h3>Gokyo Lakes Trek</h3>
+                    <div class="trek-details">
+                        <span>12-14 Days</span>
+                        <span>Difficulty: Challenging</span>
+                        <span>5,380m Max Altitude</span>
+                    </div>
+                    <p>An alternative to the busy EBC trek, featuring the stunning turquoise Gokyo Lakes, breathtaking views from Gokyo Ri, and the challenging Renjo La pass.</p>
+                    <a href="#" class="btn" onclick="showTrekDetails('gokyo')">Explore Route</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trek Planning Section -->
+    <section class="planning-section">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--accent-color);">Plan Your Trek</h2>
+            <p class="section-subtitle" style="color: var(--light-color);">Everything you need to know to prepare for your Himalayan adventure</p>
+
+            <div class="planning-grid">
+                <div class="planning-card">
+                    <h3>Permits & Regulations</h3>
+                    <p>Learn about the necessary trekking permits, conservation area fees, and regulations for your chosen trek.</p>
+                    <a href="#" class="btn btn-outline" onclick="showPlanningInfo('permits')">Learn More</a>
+                </div>
+
+                <div class="planning-card">
+                    <h3>Trek Difficulty Levels</h3>
+                    <p>Understand different trek difficulty ratings to choose the route that matches your fitness and experience.</p>
+                    <a href="#" class="btn btn-outline" onclick="showPlanningInfo('difficulty')">Learn More</a>
+                </div>
+
+                <div class="planning-card">
+                    <h3>Guided vs. Independent</h3>
+                    <p>Discover the pros and cons of hiring guides and porters versus trekking independently.</p>
+                    <a href="#" class="btn btn-outline" onclick="showPlanningInfo('guided')">Learn More</a>
+                </div>
+
+                <div class="planning-card">
+                    <h3>Accommodation Options</h3>
+                    <p>Find information about teahouses, lodges, camping, and what facilities to expect on different treks.</p>
+                    <a href="#" class="btn btn-outline" onclick="showPlanningInfo('accommodation')">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Seasons Section -->
+    <section class="season-section container">
+        <h2 class="section-title">Best Seasons for Trekking</h2>
+        <p class="section-subtitle">Nepal's climate creates distinct trekking seasons, each with unique advantages</p>
+
+        <div class="season-tabs">
+            <div class="season-tab active" data-season="spring">Spring (Mar-May)</div>
+            <div class="season-tab" data-season="monsoon">Monsoon (Jun-Aug)</div>
+            <div class="season-tab" data-season="autumn">Autumn (Sep-Nov)</div>
+            <div class="season-tab" data-season="winter">Winter (Dec-Feb)</div>
+        </div>
+
+        <div class="season-content active" id="spring">
+            <h3>Spring Season (March to May)</h3>
+            <p>Spring is one of the best times to trek in Nepal, with moderate temperatures, blooming rhododendron forests, and clear mountain views, especially in the mornings.</p>
+            
+            <div class="season-grid">
+                <div>
+                    <h4>Advantages:</h4>
+                    <ul>
+                        <li>Colorful rhododendron blooms in forests</li>
+                        <li>Pleasant temperatures at all altitudes</li>
+                        <li>Clear morning views of mountains</li>
+                        <li>Less crowded than peak autumn season</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Challenges:</h4>
+                    <ul>
+                        <li>Afternoon clouds can obstruct views</li>
+                        <li>Potential for pre-monsoon showers in late May</li>
+                        <li>Some higher passes may still have snow early in the season</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="season-content" id="monsoon">
+            <h3>Monsoon Season (June to August)</h3>
+            <p>While monsoon brings heavy rainfall to much of Nepal, it's actually an excellent time to trek in rain-shadow areas like Upper Mustang and Dolpo.</p>
+            
+            <div class="season-grid">
+                <div>
+                    <h4>Advantages:</h4>
+                    <ul>
+                        <li>Perfect for rain-shadow treks (Mustang, Dolpo)</li>
+                        <li>Fewer tourists and better accommodation availability</li>
+                        <li>Lush green landscapes and active waterfalls</li>
+                        <li>Lower prices for accommodation and services</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Challenges:</h4>
+                    <ul>
+                        <li>Heavy rainfall in most regions</li>
+                        <li>Leeches in lower altitude forests</li>
+                        <li>Potential landslides affecting trails and roads</li>
+                        <li>Limited mountain views due to clouds</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="season-content" id="autumn">
+            <h3>Autumn Season (September to November)</h3>
+            <p>Considered the peak trekking season in Nepal with stable weather, crystal clear mountain views, and comfortable temperatures.</p>
+            
+            <div class="season-grid">
+                <div>
+                    <h4>Advantages:</h4>
+                    <ul>
+                        <li>Stable weather with minimal precipitation</li>
+                        <li>Excellent mountain visibility</li>
+                        <li>Comfortable temperatures at most altitudes</li>
+                        <li>Vibrant festival season in Nepal</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Challenges:</h4>
+                    <ul>
+                        <li>Peak tourist season - crowded trails</li>
+                        <li>Higher prices for accommodation and services</li>
+                        <li>Need to book teahouses in advance on popular routes</li>
+                        <li>Cold nights at higher altitudes by November</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="season-content" id="winter">
+            <h3>Winter Season (December to February)</h3>
+            <p>Winter offers crystal-clear mountain views and empty trails for those who can handle the cold temperatures at higher altitudes.</p>
+            
+            <div class="season-grid">
+                <div>
+                    <h4>Advantages:</h4>
+                    <ul>
+                        <li>Exceptionally clear mountain views</li>
+                        <li>Empty trails and teahouses</li>
+                        <li>Lower prices and negotiable rates</li>
+                        <li>Perfect for lower-altitude treks</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Challenges:</h4>
+                    <ul>
+                        <li>Very cold temperatures, especially at night</li>
+                        <li>Heavy snowfall may block high passes</li>
+                        <li>Shortened daylight hours for trekking</li>
+                        <li>Some teahouses may be closed on less popular routes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Common questions from first-time trekkers in Nepal</p>
+
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-button">Do I need a guide for trekking in Nepal?</button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Legally, guides are mandatory for some restricted areas like Upper Mustang, Upper Dolpo, and Kanchenjunga. For popular routes like Everest Base Camp and Annapurna, independent trekking is allowed. However, even on these trails, a guide is highly recommended for safety, cultural insights, and logistical support. Guides help with navigation, communication with locals, arranging accommodation, and managing emergencies.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button">How physically fit do I need to be?</button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Different treks require different fitness levels. For popular treks like Everest Base Camp or Annapurna Circuit, you should be able to walk 5-7 hours daily with a light backpack for multiple consecutive days. Regular cardio exercise (running, swimming, cycling) for 2-3 months before your trek will help prepare you. Remember that altitude affects everyone differently regardless of fitness level, so proper acclimatization is essential.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button">What permits do I need for trekking?</button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>You'll need two main permits for most treks: the TIMS (Trekkers' Information Management System) card and the relevant conservation area permit. For example, the Annapurna region requires an ACAP permit, while the Everest region requires a Sagarmatha National Park permit. Restricted areas like Upper Mustang require special permits that cost $500-$700 for a 10-day trek. Your trekking agency can arrange these permits, or you can obtain them in Kathmandu at the Nepal Tourism Board office.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button">What about altitude sickness?</button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Altitude sickness can affect anyone regardless of fitness or experience. The key prevention strategy is proper acclimatization—follow the "climb high, sleep low" principle and limit daily altitude gain to 300-500 meters above 3,000m. Stay hydrated, avoid alcohol, and consider medications like Diamox after consulting with your doctor. Be aware of symptoms like headache, nausea, dizziness, and fatigue. If symptoms worsen, descending immediately is the only reliable cure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button">What about food and water on the trek?</button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Teahouses along popular trekking routes offer a variety of food options, with dal bhat (rice, lentil soup, and vegetables) being the most reliable and filling choice. Many also offer pasta, pizza, soups, and local specialties. For water, it's essential to avoid tap water. Use water purification tablets, SteriPen, or purchase bottled water (though this creates plastic waste). Most teahouses sell boiled water which is safe to drink after cooling.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button">How much does trekking in Nepal cost?</button>
+                <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                        <p>Costs vary widely depending on the trek, your style, and whether you go independently or with a guide/agency. For popular treks, budget approximately $20-30 per day for independent trekkers (covering food, accommodation, and basic expenses). With a guide and porter, expect to add $25-35 per day. All-inclusive packages with reputable agencies start from $60-100 per day. Additional costs include permits ($20-50 for standard areas, $500+ for restricted regions), equipment rental, and transportation to/from trailheads.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Essential Equipment Section -->
+    <section class="equipment-section container">
+        <h2 class="section-title">Essential Trekking Equipment</h2>
+        <p class="section-subtitle">Be prepared with the right gear for your Himalayan adventure</p>
+
+        <div class="checklist">
+            <div class="checklist-category">
+                <h3>Clothing</h3>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item1">
+                        <label for="item1">Moisture-wicking base layers</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item2">
+                        <label for="item2">Insulating mid-layers</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item3">
+                        <label for="item3">Waterproof jacket and pants</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item4">
+                        <label for="item4">Down jacket for high altitudes</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item5">
+                        <label for="item5">Trekking pants (convertible recommended)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item6">
+                        <label for="item6">Warm hat and sun hat</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item7">
+                        <label for="item7">Gloves (thin liner + warm outer)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item8">
+                        <label for="item8">Moisture-wicking underwear</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item9">
+                        <label for="item9">Hiking socks (3-4 pairs)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checklist-category">
+                <h3>Footwear</h3>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item10">
+                        <label for="item10">Waterproof hiking boots (broken in)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item11">
+                        <label for="item11">Camp shoes/sandals</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item12">
+                        <label for="item12">Gaiters (for snow or rain)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checklist-category">
+                <h3>Equipment</h3>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item13">
+                        <label for="item13">Backpack (30-40L day pack)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item14">
+                        <label for="item14">Sleeping bag (-10°C to -20°C rating)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item15">
+                        <label for="item15">Trekking poles</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item16">
+                        <label for="item16">Headlamp with spare batteries</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item17">
+                        <label for="item17">Water bottles/hydration system (2L capacity)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item18">
+                        <label for="item18">Water purification (tablets or SteriPen)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item19">
+                        <label for="item19">Sun protection (sunglasses, sunscreen, lip balm)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item20">
+                        <label for="item20">First aid kit with altitude sickness medication</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checklist-category">
+                <h3>Documentation</h3>
+                <div class="checklist-items">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item21">
+                        <label for="item21">Passport and visa</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item22">
+                        <label for="item22">Trekking permits</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item23">
+                        <label for="item23">Travel insurance documents</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="item24">
+                        <label for="item24">Emergency contacts list</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="#" class="btn" onclick="downloadChecklist()">Download Printable Checklist</a>
+        </div>
+    </section>
+
+    <!-- Health & Safety Section -->
+    <section class="container">
+        <h2 class="section-title">Health & Safety</h2>
+        <p class="section-subtitle">Essential information to stay safe in the mountains</p>
+
+        <div style="background-color: var(--accent-color); padding: 30px; border-radius: 10px; box-shadow: var(--shadow);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Altitude Sickness Prevention</h3>
+                    <ul>
+                        <li><strong>Acclimatize properly:</strong> Follow the "climb high, sleep low" principle and limit daily altitude gain to 300-500m above 3,000m</li>
+                        <li><strong>Stay hydrated:</strong> Drink 3-4 liters of water daily</li>
+                        <li><strong>Eat well:</strong> Maintain calorie intake even if appetite decreases</li>
+                        <li><strong>Avoid alcohol and tobacco:</strong> These worsen symptoms and dehydration</li>
+                        <li><strong>Consider Diamox:</strong> Consult your doctor about acetazolamide (Diamox) for prevention</li>
+                        <li><strong>Know the symptoms:</strong> Headache, nausea, dizziness, fatigue, shortness of breath</li>
+                        <li><strong>When in doubt, descend:</strong> The only reliable cure is descending to lower altitude</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Travel Insurance</h3>
+                    <p>Comprehensive travel insurance with high-altitude trekking coverage and emergency evacuation is essential. Make sure your policy covers:</p>
+                    <ul>
+                        <li>Trekking at your maximum planned altitude (5,500m+ for EBC)</li>
+                        <li>Helicopter evacuation and medical repatriation</li>
+                        <li>Medical expenses of at least $100,000</li>
+                        <li>Search and rescue operations</li>
+                    </ul>
+                    <p style="margin-top: 15px;">Recommended providers with comprehensive trekking coverage include World Nomads, SafetyWing, and Heymondo.</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Emergency Procedures</h3>
+                    <p>In case of emergency:</p>
+                    <ul>
+                        <li>Alert your guide or nearby teahouse owners immediately</li>
+                        <li>For serious emergencies, contact your travel insurance's emergency assistance number</li>
+                        <li>Nepal's emergency number: 100 (police), though cell service is limited at high altitudes</li>
+                        <li>Helicopter rescue coordinates for popular treks are known to teahouse owners</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Tip:</strong> Register with your country's embassy in Kathmandu before your trek.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsible Trekking Section -->
+    <section class="container" style="margin: 60px auto;">
+        <h2 class="section-title">Responsible Trekking</h2>
+        <p class="section-subtitle">Help preserve Nepal's natural beauty and cultural heritage</p>
+
+        <div style="background-color: var(--accent-color); padding: 30px; border-radius: 10px; box-shadow: var(--shadow);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Environmental Impact</h3>
+                    <ul>
+                        <li>Pack out all trash (including toilet paper)</li>
+                        <li>Use refillable water bottles with purification methods</li>
+                        <li>Stick to established trails to prevent erosion</li>
+                        <li>Use biodegradable soap and shampoo</li>
+                        <li>Minimize plastic use (avoid buying bottled water)</li>
+                        <li>Consider carbon offsetting your flights to Nepal</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Cultural Respect</h3>
+                    <ul>
+                        <li>Ask permission before photographing people</li>
+                        <li>Dress modestly, especially in villages and monasteries</li>
+                        <li>Learn basic Nepali greetings and thank-you phrases</li>
+                        <li>Follow local customs when visiting religious sites</li>
+                        <li>Walk clockwise around stupas and mani walls</li>
+                        <li>Respect porters and guides by following their advice</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Economic Sustainability</h3>
+                    <ul>
+                        <li>Hire local guides and porters at fair wages</li>
+                        <li>Support community-run teahouses and lodges</li>
+                        <li>Buy handicrafts directly from artisans</li>
+                        <li>Avoid excessive bargaining for services</li>
+                        <li>Consider donating to local schools or conservation efforts</li>
+                        <li>Tip guides and porters appropriately (10-15% recommended)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Inquiry Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--accent-color);">Need More Information?</h2>
+            <p class="section-subtitle" style="color: var(--light-color);">We're here to help plan your perfect Himalayan adventure</p>
+
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3 style="color: var(--dark-color); margin-bottom: 20px;">Send an Inquiry</h3>
+                    <form id="trekking-inquiry">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="trek">Interested Trek</label>
+                            <select id="trek">
+                                <option value="">Select a Trek</option>
+                                <option value="everest">Everest Base Camp</option>
+                                <option value="annapurna">Annapurna Circuit</option>
+                                <option value="langtang">Langtang Valley</option>
+                                <option value="manaslu">Manaslu Circuit</option>
+                                <option value="mustang">Upper Mustang</option>
+                                <option value="gokyo">Gokyo Lakes</option>
+                                <option value="other">Other/Custom Trek</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Approximate Trek Date</label>
+                            <input type="month" id="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Questions</label>
+                            <textarea id="message"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>Beyond Everest Trekking</strong><br>
+                    Thamel, Kathmandu, Nepal</p>
+                    <p>Phone: +977 1 4xxxxxx</p>
+                    <p>WhatsApp: +977 98xxxxxxxx</p>
+                    <p>Email: info@beyondeverest.com</p>
+                    
+                    <h3 style="margin-top: 30px;">Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">FB</a>
+                        <a href="#" class="social-link">IG</a>
+                        <a href="#" class="social-link">YT</a>
+                        <a href="#" class="social-link">TW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="container" style="margin: 60px auto;">
+        <h2 class="section-title">Additional Resources</h2>
+        <p class="section-subtitle">Helpful links and information to further research your trek</p>
+
+        <div style="background-color: var(--accent-color); padding: 30px; border-radius: 10px; box-shadow: var(--shadow);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Official Information</h3>
+                    <ul>
+                        <li><a href="https://www.welcomenepal.com/" target="_blank">Nepal Tourism Board</a> - Official tourism site</li>
+                        <li><a href="https://www.nepalmountaineering.org/" target="_blank">Nepal Mountaineering Association</a> - For peak climbing permits</li>
+                        <li><a href="https://www.timsnepal.com/" target="_blank">TIMS Card Information</a> - Trekker registration system</li>
+                        <li><a href="https://www.immigration.gov.np/" target="_blank">Nepal Immigration</a> - Visa information</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Trekking Information</h3>
+                    <ul>
+                        <li><a href="https://en.wikipedia.org/wiki/Mount_Everest" target="_blank">Mount Everest</a> - Wikipedia information</li>
+                        <li><a href="https://en.wikipedia.org/wiki/Annapurna_Circuit" target="_blank">Annapurna Circuit</a> - Trek details</li>
+                        <li><a href="https://www.himalayantrust.org/" target="_blank">Himalayan Trust</a> - Sir Edmund Hillary's organization</li>
+                        <li><a href="https://www.greathimalayatrails.com/" target="_blank">Great Himalaya Trails</a> - Comprehensive trail network</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Weather & Safety</h3>
+                    <ul>
+                        <li><a href="http://www.mfd.gov.np/" target="_blank">Nepal Meteorological Department</a> - Weather forecasts</li>
+                        <li><a href="https://www.himalayanrescue.org/" target="_blank">Himalayan Rescue Association</a> - Health posts in trekking regions</li>
+                        <li><a href="https://www.ciwec-clinic.com/" target="_blank">CIWEC Clinic</a> - Travel medicine specialists in Kathmandu</li>
+                        <li><a href="https://www.mountainsafety.org/" target="_blank">Mountain Safety</a> - High altitude safety information</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Tab system for seasons
+        const seasonTabs = document.querySelectorAll('.season-tab');
+        const seasonContents = document.querySelectorAll('.season-content');
+
+        seasonTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const season = tab.getAttribute('data-season');
+                
+                // Remove active class from all tabs
+                seasonTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all content sections
+                seasonContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show the selected content section
+                document.getElementById(season).classList.add('active');
+            });
+        });
+
+        // Accordion for FAQs
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const isActive = button.classList.contains('active');
+                
+                // Close all accordions
+                accordionButtons.forEach(b => {
+                    b.classList.remove('active');
+                    const content = b.nextElementSibling;
+                    content.style.maxHeight = null;
+                });
+                
+                // If the clicked button wasn't already active, open it
+                if (!isActive) {
+                    button.classList.add('active');
+                    const content = button.nextElementSibling;
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Function to show trek details
+        function showTrekDetails(trekId) {
+            const trekInfo = {
+                'everest': {
+                    title: 'Everest Base Camp Trek',
+                    description: 'The iconic trek to the base of the world\'s highest mountain takes you through Sherpa villages, Buddhist monasteries, and stunning Himalayan landscapes.',
+                    itinerary: [
+                        'Day 1: Fly from Kathmandu to Lukla (2,860m), trek to Phakding (2,610m)',
+                        'Day 2: Trek to Namche Bazaar (3,440m)',
+                        'Day 3: Acclimatization day in Namche Bazaar',
+                        'Day 4: Trek to Tengboche (3,860m)',
+                        'Day 5: Trek to Dingboche (4,410m)',
+                        'Day 6: Acclimatization day in Dingboche',
+                        'Day 7: Trek to Lobuche (4,940m)',
+                        'Day 8: Trek to Gorak Shep (5,170m) and EBC (5,364m)',
+                        'Day 9: Hike Kala Patthar (5,545m), trek to Pheriche (4,280m)',
+                        'Day 10: Trek to Namche Bazaar (3,440m)',
+                        'Day 11: Trek to Lukla (2,860m)',
+                        'Day 12: Fly to Kathmandu'
+                    ],
+                    highlights: [
+                        'Standing at the base of the world\'s highest mountain',
+                        'Panoramic views from Kala Patthar',
+                        'Sherpa culture and Buddhist monasteries',
+                        'Dramatic suspension bridges over glacial rivers',
+                        'Namche Bazaar, the gateway to Everest',
+                        'Tengboche Monastery with stunning mountain backdrop'
+                    ],
+                    moreInfo: 'https://en.wikipedia.org/wiki/Mount_Everest_Base_Camp'
+                },
+                'annapurna': {
+                    title: 'Annapurna Circuit Trek',
+                    description: 'One of the world\'s classic treks that circumnavigates the Annapurna massif, passing through diverse landscapes and cultures.',
+                    itinerary: [
+                        'Day 1: Drive from Kathmandu to Besisahar, continue to Khudi',
+                        'Day 2: Trek to Bahundanda',
+                        'Day 3: Trek to Chamje',
+                        'Day 4: Trek to Dharapani',
+                        'Day 5: Trek to Chame',
+                        'Day 6: Trek to Upper Pisang',
+                        'Day 7: Trek to Manang',
+                        'Day 8-9: Acclimatization in Manang',
+                        'Day 10: Trek to Yak Kharka',
+                        'Day 11: Trek to Thorong Phedi',
+                        'Day 12: Cross Thorong La Pass (5,416m), trek to Muktinath',
+                        'Day 13: Trek to Marpha',
+                        'Day 14: Trek to Kalopani',
+                        'Day 15: Trek to Tatopani',
+                        'Day 16: Trek to Ghorepani',
+                        'Day 17: Hike Poon Hill, trek to Tikhedhunga',
+                        'Day 18: Trek to Nayapul, drive to Pokhara'
+                    ],
+                    highlights: [
+                        'Crossing the challenging Thorong La Pass (5,416m)',
+                        'Sunrise views from Poon Hill',
+                        'Diverse ecosystems from subtropical to alpine',
+                        'Hindu and Buddhist cultural influences',
+                        'Muktinath Temple, sacred to both Hindus and Buddhists',
+                        'Apple orchards and stone houses of Marpha'
+                    ],
+                    moreInfo: 'https://en.wikipedia.org/wiki/Annapurna_Circuit'
+                },
+                'langtang': {
+                    title: 'Langtang Valley Trek',
+                    description: 'A shorter, more accessible trek with spectacular mountain views and rich cultural experiences in the Langtang National Park.',
+                    itinerary: [
+                        'Day 1: Drive from Kathmandu to Syabrubesi',
+                        'Day 2: Trek to Lama Hotel',
+                        'Day 3: Trek to Langtang Village',
+                        'Day 4: Trek to Kyanjin Gompa',
+                        'Day 5: Acclimatization day, hike to Kyanjin Ri or Tserko Ri',
+                        'Day 6: Trek to Lama Hotel',
+                        'Day 7: Trek to Syabrubesi',
+                        'Day 8: Drive back to Kathmandu'
+                    ],
+                    highlights: [
+                        'Spectacular views of Langtang Lirung (7,227m)',
+                        'Ancient Buddhist monasteries and prayer walls',
+                        'Traditional Tamang villages',
+                        'Diverse flora and fauna in Langtang National Park',
+                        'Views from Kyanjin Ri (4,773m) or Tserko Ri (4,984m)',
+                        'Shorter duration but authentic mountain experience'
+                    ],
+                    moreInfo: 'https://en.wikipedia.org/wiki/Langtang_National_Park'
+                },
+                'manaslu': {
+                    title: 'Manaslu Circuit Trek',
+                    description: 'A remote and challenging trek around the world\'s eighth highest mountain, offering solitude and pristine landscapes.',
+                    itinerary: [
+                        'Day 1: Drive from Kathmandu to Soti Khola',
+                        'Day 2: Trek to Machha Khola',
+                        'Day 3: Trek to Jagat',
+                        'Day 4: Trek to Deng',
+                        'Day 5: Trek to Namrung',
+                        'Day 6: Trek to Samagaon',
+                        'Day 7: Acclimatization day in Samagaon',
+                        'Day 8: Trek to Samdo',
+                        'Day 9: Acclimatization day in Samdo',
+                        'Day 10: Trek to Dharamsala/Larkya Phedi',
+                        'Day 11: Cross Larkya La Pass (5,160m), trek to Bimthang',
+                        'Day 12: Trek to Tilije',
+                        'Day 13: Trek to Dharapani',
+                        'Day 14: Drive to Besisahar, then to Kathmandu'
+                    ],
+                    highlights: [
+                        'Crossing the challenging Larkya La Pass (5,160m)',
+                        'Views of Manaslu (8,163m) and other peaks',
+                        'Remote Buddhist villages with Tibetan influence',
+                        'Less crowded trails compared to Everest or Annapurna',
+                        'Diverse landscapes from subtropical forests to alpine meadows',
+                        'Traditional stone villages and ancient monasteries'
+                    ],
+                    moreInfo: 'https://en.wikipedia.org/wiki/Manaslu'
+                },
+                'mustang': {
+                    title: 'Upper Mustang Trek',
+                    description: 'Journey to the ancient "forbidden kingdom" with its distinctive desert landscape, cave monasteries, and preserved Tibetan culture.',
+                    itinerary: [
+                        'Day 1: Fly from Pokhara to Jomsom, trek to Kagbeni',
+                        'Day 2: Trek to Chele',
+                        'Day 3: Trek to Syangboche',
+                        'Day 4: Trek to Ghami',
+                        'Day 5: Trek to Charang',
+                        'Day 6: Trek to Lo Manthang',
+                        'Day 7-8: Explore Lo Manthang and surrounding areas',
+                        'Day 9: Trek to Dhakmar',
+                        'Day 10: Trek to Syangboche',
+                        'Day 11: Trek to Chuksang',
+                        'Day 12: Trek to Jomsom',
+                        'Day 13: Fly to Pokhara'
+                    ],
+                    highlights: [
+                        'Lo Manthang\'s walled city and royal palace',
+                        'Stunning desert landscape with colorful rock formations',
+                        'Ancient cave monasteries with preserved paintings',
+                        'Tibetan Buddhist culture largely unchanged for centuries',
+                        'Traditional mud-brick white houses',
+                        'Tiji Festival (spring) with masked dances and rituals'
+                    ],
+                    moreInfo: 'https://en.wikipedia.org/wiki/Upper_Mustang'
+                },
+                'gokyo': {
+                    title: 'Gokyo Lakes & Renjo La Trek',
+                    description: 'An alternative to the classic Everest Base Camp trek, featuring turquoise glacial lakes, stunning mountain views, and challenging passes.',
+                    itinerary: [
+                        'Day 1: Fly from Kathmandu to Lukla, trek to Phakding',
+                        'Day 2: Trek to Namche Bazaar',
+                        'Day 3: Acclimatization day in Namche Bazaar',
+                        'Day 4: Trek to Dole',
+                        'Day 5: Trek to Machhermo',
+                        'Day 6: Trek to Gokyo',
+                        'Day 7: Acclimatization day, hike to Gokyo Ri',
+                        'Day 8: Trek to Lungden via Renjo La Pass',
+                        'Day 9: Trek to Thame',
+                        'Day 10: Trek to Namche Bazaar',
+                        'Day 11: Trek to Lukla',
+                        'Day 12: Fly to Kathmandu'
+                    ],
+                    highlights: [
+                        'Turquoise Gokyo Lakes (the highest freshwater lake system)',
+                        'Panoramic views from Gokyo Ri (5,357m)',
+                        'Crossing the challenging Renjo La Pass (5,360m)',
+                        'Ngozumpa Glacier, the largest in Nepal',
+                        'Less crowded than standard Everest Base Camp route',
+                        'Stunning views of Everest, Lhotse, Makalu, and Cho Oyu'
+                    ],
+                    moreInfo: 'https://en.wikipedia.org/wiki/Gokyo'
+                }
+            };
+
+            const trek = trekInfo[trekId];
+            
+            if (!trek) return;
+            
+            const modalHTML = `
+                <div id="trekModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1000; display: flex; justify-content: center; align-items: center; padding: 20px;">
+                    <div style="background-color: white; width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; border-radius: 10px; padding: 30px; position: relative;">
+                        <button id="closeModal" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+                        <h2 style="color: var(--primary-color); margin-bottom: 15px;">${trek.title}</h2>
+                        <p style="margin-bottom: 20px;">${trek.description}</p>
+                        
+                        <h3 style="color: var(--secondary-color); margin: 20px 0 10px;">Typical Itinerary</h3>
+                        <ul style="margin-bottom: 20px;">
+                            ${trek.itinerary.map(day => `<li style="margin-bottom: 5px;">${day}</li>`).join('')}
+                        </ul>
+                        
+                        <h3 style="color: var(--secondary-color); margin: 20px 0 10px;">Highlights</h3>
+                        <ul style="margin-bottom: 20px;">
+                            ${trek.highlights.map(highlight => `<li style="margin-bottom: 5px;">${highlight}</li>`).join('')}
+                        </ul>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                            <a href="${trek.moreInfo}" target="_blank" class="btn">More Information</a>
+                           <a href="#" class="btn" onclick="document.getElementById('trek').value='${trekId}'; document.getElementById('trekking-inquiry').scrollIntoView({behavior: 'smooth'}); closeModal(); return false;">Inquire About This Trek</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Create modal element
+            const modalElement = document.createElement('div');
+            modalElement.innerHTML = modalHTML;
+            document.body.appendChild(modalElement);
+            
+            // Add event listener to close button
+            document.getElementById('closeModal').addEventListener('click', closeModal);
+            
+            // Add event listener to close when clicking outside
+            document.getElementById('trekModal').addEventListener('click', (e) => {
+                if (e.target.id === 'trekModal') {
+                    closeModal();
+                }
+            });
+            
+            // Prevent scrolling on body
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('trekModal');
+            if (modal) {
+                modal.parentNode.removeChild(modal);
+                document.body.style.overflow = '';
+            }
+        }
+        
+        // Function to show planning information
+        function showPlanningInfo(infoType) {
+            const planningInfo = {
+                'permits': {
+                    title: 'Trekking Permits & Regulations',
+                    content: `
+                        <h3>Required Permits</h3>
+                        <p>Most treks in Nepal require the following permits:</p>
+                        <ul>
+                            <li><strong>TIMS Card (Trekkers' Information Management System)</strong>: $10 for individual trekkers, $20 for organized groups. Available from the Nepal Tourism Board in Kathmandu or Pokhara.</li>
+                            <li><strong>National Park Entry Permit</strong>: Varies by park ($30 for Sagarmatha, $30 for Annapurna, $20 for Langtang)</li>
+                        </ul>
+                        
+                        <h3>Restricted Area Permits</h3>
+                        <p>Some regions require special restricted area permits:</p>
+                        <ul>
+                            <li><strong>Upper Mustang</strong>: $500 for 10 days, $50 for each additional day (March-November)</li>
+                            <li><strong>Upper Dolpo</strong>: $500 for 10 days, $50 for each additional day</li>
+                            <li><strong>Manaslu Circuit</strong>: $100 per week in peak season</li>
+                            <li><strong>Kanchenjunga</strong>: $10 per week</li>
+                            <li><strong>Tsum Valley</strong>: $40 per week</li>
+                        </ul>
+                        
+                        <h3>Important Regulations</h3>
+                        <ul>
+                            <li>Trekking solo is not permitted in restricted areas</li>
+                            <li>A licensed guide is mandatory for restricted areas</li>
+                            <li>Minimum of two trekkers required for some restricted areas</li>
+                            <li>Permits must be carried at all times and shown at checkpoints</li>
+                            <li>Trekking beyond permitted areas without proper documentation can result in fines</li>
+                        </ul>
+                        
+                        <h3>Where to Obtain Permits</h3>
+                        <p>Permits can be obtained from:</p>
+                        <ul>
+                            <li><strong>TIMS and Conservation Area Permits</strong>: Nepal Tourism Board offices in Kathmandu (Pradarshani Marg) or Pokhara (Dam-side)</li>
+                            <li><strong>Restricted Area Permits</strong>: Nepal Immigration Office, Kathmandu (Kalikasthan)</li>
+                        </ul>
+                        <p>Most trekking agencies can arrange all necessary permits if you're booking through them.</p>
+                    `
+                },
+                'difficulty': {
+                    title: 'Trek Difficulty Levels Explained',
+                    content: `
+                        <h3>Easy Treks (Suitable for beginners)</h3>
+                        <ul>
+                            <li><strong>Elevation</strong>: Generally below 3,000m</li>
+                            <li><strong>Walking Time</strong>: 4-5 hours per day</li>
+                            <li><strong>Terrain</strong>: Well-maintained trails with gentle ascents/descents</li>
+                            <li><strong>Fitness Level</strong>: Basic fitness, able to walk for several hours</li>
+                            <li><strong>Examples</strong>: Ghandruk Loop, Poon Hill Trek, Royal Trek</li>
+                        </ul>
+                        
+                        <h3>Moderate Treks</h3>
+                        <ul>
+                            <li><strong>Elevation</strong>: 3,000-4,000m</li>
+                            <li><strong>Walking Time</strong>: 5-6 hours per day</li>
+                            <li><strong>Terrain</strong>: Some steep sections, may include stone steps</li>
+                            <li><strong>Fitness Level</strong>: Good fitness, regular exercise recommended</li>
+                            <li><strong>Examples</strong>: Langtang Valley, Annapurna Base Camp, Mardi Himal</li>
+                        </ul>
+                        
+                        <h3>Challenging Treks</h3>
+                        <ul>
+                            <li><strong>Elevation</strong>: 4,000-5,500m</li>
+                            <li><strong>Walking Time</strong>: 6-7 hours per day</li>
+                            <li><strong>Terrain</strong>: Steep ascents/descents, rough trails, possible snow</li>
+                            <li><strong>Fitness Level</strong>: Very good fitness, prior trekking experience helpful</li>
+                            <li><strong>Examples</strong>: Everest Base Camp, Annapurna Circuit, Manaslu Circuit</li>
+                        </ul>
+                        
+                        <h3>Strenuous Treks</h3>
+                        <ul>
+                            <li><strong>Elevation</strong>: Above 5,500m, crossing high passes</li>
+                            <li><strong>Walking Time</strong>: 7-8+ hours on difficult days</li>
+                            <li><strong>Terrain</strong>: Difficult terrain, snow/ice, off-trail sections</li>
+                            <li><strong>Fitness Level</strong>: Excellent fitness, previous high-altitude experience necessary</li>
+                            <li><strong>Examples</strong>: Three Passes Trek, Dhaulagiri Circuit, Dolpo to Mustang</li>
+                        </ul>
+                        
+                        <h3>Factors Affecting Difficulty</h3>
+                        <ul>
+                            <li><strong>Altitude</strong>: Higher elevations make everything more challenging</li>
+                            <li><strong>Duration</strong>: Longer treks are more physically and mentally demanding</li>
+                            <li><strong>Season</strong>: Winter treks are more difficult due to cold and possible snow</li>
+                            <li><strong>Remoteness</strong>: Less infrastructure means more self-sufficiency required</li>
+                            <li><strong>Trail Conditions</strong>: Varies by season and maintenance</li>
+                        </ul>
+                    `
+                },
+                'guided': {
+                    title: 'Guided vs. Independent Trekking',
+                    content: `
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                            <div>
+                                <h3>Guided Trekking: Pros</h3>
+                                <ul>
+                                    <li>Local knowledge and cultural insights</li>
+                                    <li>Navigation and language assistance</li>
+                                    <li>Help with logistics and accommodation</li>
+                                    <li>Safety and emergency support</li>
+                                    <li>Required for restricted areas</li>
+                                    <li>Employment for local communities</li>
+                                    <li>Educational experience about local culture</li>
+                                </ul>
+                                
+                                <h3>Guided Trekking: Cons</h3>
+                                <ul>
+                                    <li>Higher cost</li>
+                                    <li>Less flexibility with itinerary</li>
+                                    <li>Less independence and solitude</li>
+                                    <li>Quality varies between guides/agencies</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3>Independent Trekking: Pros</h3>
+                                <ul>
+                                    <li>Lower cost</li>
+                                    <li>Complete flexibility with schedule</li>
+                                    <li>Sense of adventure and achievement</li>
+                                    <li>Freedom to change plans</li>
+                                    <li>More opportunities for personal interactions</li>
+                                </ul>
+                                
+                                <h3>Independent Trekking: Cons</h3>
+                                <ul>
+                                    <li>Navigation challenges</li>
+                                    <li>Language barriers</li>
+                                    <li>Missing cultural context and information</li>
+                                    <li>Security concerns if trekking solo</li>
+                                    <li>More preparation required</li>
+                                    <li>Not permitted in restricted areas</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h3>Guide and Porter Options</h3>
+                        <ul>
+                            <li><strong>Full-Service Agency</strong>: Everything arranged including permits, transportation, guide, porter, meals, accommodation</li>
+                            <li><strong>Guide Only</strong>: Local guide who helps with navigation, cultural information, and logistics</li>
+                            <li><strong>Porter-Guide</strong>: Carries your gear and provides basic guidance (less English/knowledge than dedicated guides)</li>
+                            <li><strong>Porter Only</strong>: Carries your gear but doesn't provide guidance (language may be limited)</li>
+                        </ul>
+                        
+                        <h3>Finding Reputable Guides</h3>
+                        <p>Look for guides with:</p>
+                        <ul>
+                            <li>Government license and registration</li>
+                            <li>First aid training</li>
+                            <li>Good English skills</li>
+                            <li>Positive reviews from previous trekkers</li>
+                            <li>Proper equipment and insurance</li>
+                            <li>Transparent pricing policies</li>
+                            <li>Fair treatment of porters (proper clothing, weight limits)</li>
+                        </ul>
+                    `
+                },
+                'accommodation': {
+                    title: 'Trekking Accommodation Options',
+                    content: `
+                        <h3>Teahouses/Lodges</h3>
+                        <p>The most common accommodation on popular trekking routes:</p>
+                        <ul>
+                            <li><strong>Room Types</strong>: Basic twin rooms with thin mattresses and pillows, often unheated</li>
+                            <li><strong>Facilities</strong>: Shared toilets (western-style on popular routes, squat toilets in remote areas)</li>
+                            <li><strong>Hot water</strong>: Available for an extra charge in lower regions, rare at high altitude</li>
+                            <li><strong>Electricity</strong>: Usually available for charging devices (often for a fee)</li>
+                            <li><strong>Wi-Fi</strong>: Available on major routes up to certain altitudes (unreliable and paid)</li>
+                            <li><strong>Meals</strong>: All teahouses serve meals, with decreasing variety at higher altitudes</li>
+                            <li><strong>Cost</strong>: $3-10 per night (room rates are low because you're expected to eat meals there)</li>
+                        </ul>
+                        
+                        <h3>Accommodation by Region</h3>
+                        <ul>
+                            <li><strong>Everest Region</strong>: Well-developed teahouse network, some higher-end lodges ($5-15/night)</li>
+                            <li><strong>Annapurna Region</strong>: Best infrastructure, some luxury options in lower areas ($3-15/night)</li>
+                            <li><strong>Langtang</strong>: Basic teahouses, rebuilt after 2015 earthquake ($3-8/night)</li>
+                            <li><strong>Manaslu Circuit</strong>: Improving, but more basic with fewer facilities ($3-8/night)</li>
+                            <li><strong>Upper Mustang</strong>: Simple guesthouses with more traditional character ($5-10/night)</li>
+                            <li><strong>Remote Areas</strong>: Very basic facilities, camping may be necessary in some sections</li>
+                        </ul>
+                        
+                        <h3>Camping Treks</h3>
+                        <p>Less common on popular routes but necessary in remote areas:</p>
+                        <ul>
+                            <li><strong>Equipment</strong>: Tents, sleeping bags, mats, cooking gear (provided by agencies)</li>
+                            <li><strong>Staff</strong>: Usually includes guides, porters, cook, kitchen helpers for organized treks</li>
+                            <li><strong>Facilities</strong>: Toilet tents and shower tents on organized treks</li>
+                            <li><strong>Advantages</strong>: Access to remote areas, more flexible itineraries</li>
+                            <li><strong>Disadvantages</strong>: More expensive, more staff required, more complex logistics</li>
+                        </ul>
+                        
+                        <h3>Accommodation Tips</h3>
+                        <ul>
+                            <li>Bring your own sleeping bag even when staying in teahouses (for hygiene and warmth)</li>
+                            <li>Arrive at popular teahouse locations by early afternoon in peak season</li>
+                            <li>Teahouse prices are often negotiable in off-season</li>
+                            <li>Room prices are kept low because you're expected to eat meals at the same place</li>
+                            <li>Some basic luxury items (wet wipes, travel pillow, earplugs) greatly improve comfort</li>
+                        </ul>
+                    `
+                }
+            };
+
+            const info = planningInfo[infoType];
+            
+            if (!info) return;
+            
+            const modalHTML = `
+                <div id="infoModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1000; display: flex; justify-content: center; align-items: center; padding: 20px;">
+                    <div style="background-color: white; width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; border-radius: 10px; padding: 30px; position: relative;">
+                        <button id="closeInfoModal" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer;">&times;</button>
+                        <h2 style="color: var(--primary-color); margin-bottom: 20px;">${info.title}</h2>
+                        <div>${info.content}</div>
+                    </div>
+                </div>
+            `;
+            
+            // Create modal element
+            const modalElement = document.createElement('div');
+            modalElement.innerHTML = modalHTML;
+            document.body.appendChild(modalElement);
+            
+            // Add event listener to close button
+            document.getElementById('closeInfoModal').addEventListener('click', closeInfoModal);
+            
+            // Add event listener to close when clicking outside
+            document.getElementById('infoModal').addEventListener('click', (e) => {
+                if (e.target.id === 'infoModal') {
+                    closeInfoModal();
+                }
+            });
+            
+            // Prevent scrolling on body
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeInfoModal() {
+            const modal = document.getElementById('infoModal');
+            if (modal) {
+                modal.parentNode.removeChild(modal);
+                document.body.style.overflow = '';
+            }
+        }
+        
+        // Function to download checklist
+        function downloadChecklist() {
+            alert('Checklist PDF would download here in a real implementation.');
+        }
+        
+        // Form submission handler
+        document.getElementById('trekking-inquiry').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you shortly.');
+            this.reset();
+        });
+    </script>
+
+<div id="footer"></div>
+<script>
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+</script>
+
+</body>
+</html>

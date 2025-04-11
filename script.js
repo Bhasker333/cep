@@ -1490,3 +1490,59 @@ function getDepartureAirportCode(city) {
 function capitalizeFirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const hero = document.querySelector('.hero');
+    const heroBackground = document.querySelector('.hero-background');
+    const heroContent = document.querySelector('.hero-content');
+    
+    // Handle scroll events
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+        const heroHeight = hero.offsetHeight;
+        const scrollProgress = Math.min(scrollPosition / heroHeight, 1);
+        
+        // Parallax effect - background moves slower than content
+        heroBackground.style.transform = `scale(${1.1 - scrollProgress * 0.1}) translateY(${scrollProgress * 50}px)`;
+        
+        // Fade out and move up content as user scrolls
+        heroContent.style.opacity = 1 - scrollProgress * 1.5;
+        heroContent.style.transform = `translateY(${scrollProgress * -100}px)`;
+    });
+    
+    // Optional: Add image slideshow functionality
+    const imageUrls = [
+        'https://images.unsplash.com/photo-1544461772-722f499fa2a9', // Prayer flags with mountains
+        'https://images.unsplash.com/photo-1539652048370-9cf5d8e789c0', // Annapurna Base Camp
+        'https://images.unsplash.com/photo-1519055548599-6d4d129508c4', // Mount Everest
+        'https://images.unsplash.com/photo-1526772662000-3f88f10405ff'  // Nepal landscape
+    ];
+    
+    let currentImageIndex = 0;
+    
+    function changeBackgroundImage() {
+        // Fade out
+        heroBackground.style.opacity = 0;
+        heroBackground.style.transition = 'opacity 1s ease';
+        
+        setTimeout(() => {
+            // Change image
+            currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+            heroBackground.style.backgroundImage = `url('${imageUrls[currentImageIndex]}')`;
+            
+            // Fade in
+            heroBackground.style.opacity = 1;
+        }, 1000);
+    }
+    
+    // Change image every 8 seconds
+    setInterval(changeBackgroundImage, 8000);
+});

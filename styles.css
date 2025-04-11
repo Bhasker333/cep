@@ -2,7 +2,7 @@
 :root {
     --primary-color: #e63946;
     --secondary-color: #457b9d;
-    --accent-color: #f1faee;
+    --accent-color: #ffffff;
     --dark-color: #1d3557;
     --light-color: #f8f9fa;
     --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -180,97 +180,149 @@ section {
     transition: var(--transition);
 }
 
-/* Hero Section */
 .hero {
-    height: 100vh;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100vh;
+    width: 100%;
     overflow: hidden;
-    padding-top: 80px;
 }
 
-#hero-3d-scene {
+.hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    background-image: url('images/hero1.jpeg'); /* Replace with your Himalayan image */
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.1);
+    transition: transform 0.5s ease-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.884), rgba(69, 123, 157, 0.4));
 }
 
 .hero-content {
-    text-align: center;
-    color: white;
+    position: relative;
+    z-index: 10;
     max-width: 800px;
-    padding: 2rem;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--light-color);
+    text-align: center;
     transform: translateY(0);
-    animation: float 6s ease-in-out infinite;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 1;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
+.hero h1 {
+    font-size: 4rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards 0.3s;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
+.hero p {
+    font-size: 1.5rem;
     margin-bottom: 2rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards 0.6s;
 }
 
 .cta-buttons {
     display: flex;
+    gap: 1.5rem;
     justify-content: center;
-    gap: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards 0.9s;
 }
 
 .cta-primary, .cta-secondary {
-    padding: 0.8rem 1.8rem;
-    border-radius: 30px;
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-decoration: none;
     transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow);
 }
 
 .cta-primary {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--light-color);
     border: 2px solid var(--primary-color);
-}
-
-.cta-secondary {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
 }
 
 .cta-primary:hover {
     background-color: transparent;
-    color: var(--primary-color);
+    color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
 }
 
 .cta-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .cta-primary, .cta-secondary {
+        padding: 0.8rem 1.5rem;
+    }
 }
 
 /* Weather Widget */
@@ -1085,7 +1137,7 @@ footer {
   
   .planner-card i {
     font-size: 2.5rem;
-    color: #1e88e5;
+    color: #457b9d;
     margin-bottom: 1rem;
   }
   
@@ -1105,7 +1157,7 @@ footer {
   .planner-btn {
     display: inline-block;
     padding: 0.6rem 1.2rem;
-    background-color: #1e88e5;
+    background-color: #457b9d;
     color: white;
     border: none;
     border-radius: 4px;
@@ -1116,7 +1168,7 @@ footer {
   }
   
   .planner-btn:hover {
-    background-color: #1565c0;
+    background-color: #1d3557;
   }
   
   /* Trip Planner Form Styles */
@@ -1178,12 +1230,12 @@ footer {
   }
   
   .btn.primary {
-    background-color: #1e88e5;
+    background-color: #457b9d;
     color: white;
   }
   
   .btn.primary:hover {
-    background-color: #1565c0;
+    background-color: #1d3557;
   }
   
   .btn.secondary {
@@ -1241,7 +1293,7 @@ footer {
   }
   
   .itinerary-day h3 {
-    color: #1e88e5;
+    color: #457b9d;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid #eee;
     margin-bottom: 1rem;
@@ -1371,3 +1423,16 @@ footer {
       margin-bottom: 0.5rem;
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+

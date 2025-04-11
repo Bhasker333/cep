@@ -15,59 +15,14 @@
         .then(data => document.getElementById('header').innerHTML = data);
 </script>
 <body>
-    <!-- Navigation Bar
-    <nav class="navbar">
-        <div class="logo">
-            <a href="index.html">
-                <h1>Beyond Everest</h1>
-               // ADD LOGO IMAGE HERE
-            </a>
-        </div>
-        <div class="nav-links">
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">Discover <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="culture.html">Culture & Traditions</a>
-                        <a href="food.html">Nepali Cuisine</a>
-                        <a href="festivals.html">Festivals</a>
-                        <a href="dresses.html">Traditional Attire</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Destinations <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="mountains.html">Mountains</a>
-                        <a href="cities.html">Cities</a>
-                        <a href="temples.html">Temples</a>
-                        <a href="lakes.html">Lakes & Rivers</a>
-                        <a href="parks.html">National Parks</a>
-                        <a href="hidden-gems.html">Hidden Gems</a>
-                        <a href="heritage.html">UNESCO World Heritage</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Adventures <i class="fas fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="trekking.html">Trekking Routes</a>
-                        <a href="adventure.html">Adventure Sports</a>
-                    </div>
-                </li>
-                <li><a href="travel-guide.html">Travel Guide</a></li>
-                <li><a href="plan.html">Plan Your Trip</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div class="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-    </nav> -->
+    
 
     <!-- Hero Section with 3D Effect -->
     <section class="hero">
+        <div class="hero-background">
+            <!-- Background images will be controlled by CSS -->
+            <div class="overlay"></div>
+        </div>
         <div class="hero-content">
             <h1>Explore the Land of Himalaya</h1>
             <p>Discover the breathtaking landscapes, rich culture, and unforgettable adventures of Nepal</p>
@@ -76,8 +31,6 @@
                 <a href="#featured" class="cta-secondary">Explore Highlights</a>
             </div>
         </div>
-        <div id="hero-3d-scene"></div>
-        <!-- The 3D scene of mountains will be rendered here by JavaScript -->
     </section>
 
     <!-- Weather Widget -->
@@ -110,9 +63,9 @@
                     <img src="images/everest-base-camp.jpg" alt="Everest Base Camp Trek">
                 </div>
                 <div class="card-content">
-                    <h3>Everest Base Camp Trek</h3>
+                    <h3>Everest Base Camp Trek and Others</h3>
                     <p>Experience the journey to the foot of the world's tallest mountain through breathtaking landscapes.</p>
-                    <a href="trekking.html#everest" class="read-more">Explore Trek</a>
+                    <a href="trekking.html" class="read-more">Explore Trek</a>
                 </div>
             </div>
             
@@ -125,7 +78,7 @@
                 <div class="card-content">
                     <h3>Kathmandu Durbar Square</h3>
                     <p>Discover ancient palaces, temples, and courtyards showcasing Nepal's rich architectural heritage.</p>
-                    <a href="heritage.html#kathmandu-durbar" class="read-more">Discover More</a>
+                    <a href="heritage.html" class="read-more">Discover More</a>
                 </div>
             </div>
             
@@ -138,7 +91,7 @@
                 <div class="card-content">
                     <h3>Pokhara's Phewa Lake</h3>
                     <p>Enjoy serene boat rides with stunning views of the Annapurna range reflecting in crystal clear waters.</p>
-                    <a href="lakes.html#phewa" class="read-more">Visit Lake</a>
+                    <a href="lakes.html" class="read-more">Visit Lake</a>
                 </div>
             </div>
             
@@ -151,7 +104,7 @@
                 <div class="card-content">
                     <h3>Dashain Festival</h3>
                     <p>Experience Nepal's biggest festival celebrating victory of good over evil with unique traditions.</p>
-                    <a href="festivals.html#dashain" class="read-more">Learn About Dashain</a>
+                    <a href="festivals.html" class="read-more">Learn About Dashain</a>
                 </div>
             </div>
         </div>
@@ -223,48 +176,6 @@
 
 
 
-
-    <form id="trip-planner-form">
-        <div class="form-group">
-            <label for="start-date">Start Date</label>
-            <input type="date" id="start-date" name="start-date" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="end-date">End Date</label>
-            <input type="date" id="end-date" name="end-date" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="travelers">Number of Travelers</label>
-            <input type="number" id="travelers" name="travelers" min="1" value="1" required>
-        </div>
-        
-        <div class="form-group">
-            <label>Interests (select all that apply)</label>
-            <div class="interest-options">
-                <label><input type="checkbox" name="interests" value="culture"> Culture</label>
-                <label><input type="checkbox" name="interests" value="trekking"> Trekking</label>
-                <label><input type="checkbox" name="interests" value="adventure"> Adventure</label>
-                <label><input type="checkbox" name="interests" value="nature"> Nature</label>
-                <label><input type="checkbox" name="interests" value="food"> Food</label>
-                <label><input type="checkbox" name="interests" value="heritage"> Heritage</label>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label for="budget">Budget Level</label>
-            <select id="budget" name="budget" required>
-                <option value="budget">Budget</option>
-                <option value="comfort" selected>Comfort</option>
-                <option value="luxury">Luxury</option>
-            </select>
-        </div>
-        
-        <button type="submit" class="btn primary">Generate Itinerary</button>
-    </form>
-    
-    <div id="itinerary-results" class="results-container"></div>
 
 
 
@@ -377,68 +288,7 @@
         </div>
     </section>
 
-    <!-- Footer
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h2>Beyond Everest</h2>
-                <p>Your gateway to the wonders of Nepal</p>
-            </div>
-            
-            <div class="footer-links">
-                <div class="link-group">
-                    <h3>Explore</h3>
-                    <ul>
-                        <li><a href="culture.html">Culture</a></li>
-                        <li><a href="mountains.html">Mountains</a></li>
-                        <li><a href="cities.html">Cities</a></li>
-                        <li><a href="heritage.html">UNESCO Sites</a></li>
-                        <li><a href="hidden-gems.html">Hidden Gems</a></li>
-                    </ul>
-                </div>
-                
-                <div class="link-group">
-                    <h3>Plan</h3>
-                    <ul>
-                        <li><a href="travel-guide.html">Travel Guide</a></li>
-                        <li><a href="plan.html">Trip Planner</a></li>
-                        <li><a href="trekking.html">Trekking Info</a></li>
-                        <li><a href="festivals.html">Festival Calendar</a></li>
-                    </ul>
-                </div>
-                
-                <div class="link-group">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-social">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="https://facebook.com/beyondeverest" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com/beyondeverest" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com/beyondeverest" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://youtube.com/beyondeverest" target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 Beyond Everest. All rights reserved.</p>
-            <ul class="footer-legal">
-                <li><a href="terms.html">Terms of Service</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="cookies.html">Cookie Policy</a></li>
-            </ul>
-        </div>
-    </footer>
-     -->
+    
 
     <!-- Flight Search Modal -->
     <div id="flight-modal" class="modal">

@@ -147,7 +147,6 @@ function initMap() {
     if (!mapContainer) return;
     
     // Replace with your actual Map API key
-    const mapApiKey = 'AIzaSyDiE5JzRnO5WCeChnjrNSDWo68ZBtV8gMo';
     
     // Example for Google Maps
     const map = new google.maps.Map(mapContainer, {

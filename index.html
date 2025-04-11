@@ -52,6 +52,39 @@
         </div>
     </div>
 
+    <script>
+        const apiKey = "3fade62dc5230fad5b1507164daac77c"; // Replace with your OpenWeatherMap API key
+        const locations = {
+            "kathmandu-weather": "Kathmandu",
+            "pokhara-weather": "Pokhara",
+            "lukla-weather": "Lukla"
+        };
+    
+        const fetchWeather = async (cityId, cityName) => {
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},NP&appid=${apiKey}&units=metric`;
+    
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const weatherDiv = document.querySelector(`#${cityId} .weather-info`);
+                if (data.main) {
+                    weatherDiv.innerHTML = `
+                        Temp: ${data.main.temp}°C <br>
+                        ${data.weather[0].description}
+                    `;
+                } else {
+                    weatherDiv.innerHTML = "Weather data not found.";
+                }
+            } catch (error) {
+                console.error("Error fetching weather:", error);
+                document.querySelector(`#${cityId} .weather-info`).innerText = "Error fetching data.";
+            }
+        };
+    
+        Object.entries(locations).forEach(([id, name]) => fetchWeather(id, name));
+    </script>
+    
+
     <!-- Featured Highlights Section -->
     <section id="featured" class="featured">
         <h2>Featured Highlights</h2>
@@ -183,7 +216,7 @@
 
     
 
-    <!-- Trip Planner Section -->
+    <!-- Trip Planner Section 
     <section class="trip-planner">
         <h2>Plan Your Perfect Trip</h2>
         <div class="planner-tools">
@@ -217,13 +250,14 @@
         </div>
     </section>
 
-    <!-- Map Section -->
+     Map Section 
     <section class="map-section">
         <h2>Interactive Map of Nepal</h2>
         <div id="nepal-map" style="width: 100%; height: 500px;">
-            <!-- Map will be loaded here by JavaScript -->
+            <!-- Map will be loaded here by JavaScript 
         </div>
-    </section>
+    </section>-->
+ 
 
     <!-- Testimonials Section -->
     <section class="testimonials">

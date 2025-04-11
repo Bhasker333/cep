@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountains of Nepal - Beyond Everest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #457b9d;
+            --accent-color: #ffffff;
+            --dark-color: #1d3557;
+            --light-color: #f8f9fa;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('/api/placeholder/1200/800') no-repeat center center/cover;
+            color: var(--accent-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--accent-color);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-color);
+            color: var(--dark-color);
+        }
+
+        /* Introduction Section */
+        .intro {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Famous Mountains Section */
+        .mountains {
+            padding: 80px 0;
+            background-color: #f1faee;
+        }
+
+        .mountain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .mountain-card {
+            background: var(--accent-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .mountain-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .mountain-img {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .mountain-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .mountain-card:hover .mountain-img img {
+            transform: scale(1.1);
+        }
+
+        .mountain-info {
+            padding: 20px;
+        }
+
+        .mountain-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .mountain-info .elevation {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .mountain-info p {
+            margin-bottom: 15px;
+        }
+
+        .mountain-info .read-more {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .mountain-info .read-more i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .mountain-info .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Planning Section */
+        .planning {
+            padding: 80px 0;
+        }
+
+        .planning-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .planning-item {
+            padding: 30px;
+            background: var(--accent-color);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .planning-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .planning-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--secondary-color);
+            color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .planning-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .planning-item p {
+            margin-bottom: 20px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: #f1faee;
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+
+        .accordion-item {
+            background: var(--accent-color);
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .accordion-title {
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.active {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        /* Resources Section */
+        .resources {
+            padding: 80px 0;
+        }
+
+        .resources-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            margin: 0 10px 10px;
+            background: var(--light-color);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active {
+            background: var(--secondary-color);
+            color: var(--accent-color);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            background: var(--accent-color);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .resource-list {
+            list-style-type: none;
+        }
+
+        .resource-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-list a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .resource-list a i {
+            margin-right: 10px;
+        }
+
+        .resource-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background-color: #f1faee;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(29, 53, 87, 0.8);
+            color: var(--accent-color);
+            padding: 10px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 50px auto 0;
+            background: var(--accent-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--secondary-color);
+            color: var(--accent-color);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background: var(--dark-color);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: var(--accent-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #c1121f;
+        }
+
+        /* Season Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .modal-content {
+            background-color: var(--accent-color);
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            animation: modalopen 0.4s;
+        }
+
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-60px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        .close-modal:hover {
+            color: var(--primary-color);
+        }
+
+        /* Map section */
+        .map-section {
+            padding: 80px 0;
+        }
+
+        .map-container {
+            height: 500px;
+            background: var(--accent-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 50px;
+            position: relative;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 5px;
+            max-width: 300px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+        }
+
+        .map-overlay h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .map-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .mountain-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+
+            .planning-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 90%;
+                margin: 30% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Majestic Mountains of Nepal</h1>
+        <p>Discover the breathtaking peaks, sacred heights, and unforgettable adventures waiting for you in the Himalayan paradise.</p>
+        <div>
+            <a href="#planning" class="btn">Plan Your Trip</a>
+            <a href="#mountains" class="btn btn-outline">Explore Mountains</a>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro">
+        <div class="container">
+            <h2 class="section-title">Nepal: Kingdom of Mountains</h2>
+            <div class="intro-content">
+                <p>Nepal is home to eight of the world's fourteen highest peaks above 8,000 meters, including the majestic Mount Everest. The Himalayan range stretches across the northern border of Nepal, offering not just spectacular beauty but also cultural significance, adventure opportunities, and spiritual experiences.</p>
+                <p>These mountains are not just geological marvels but living landscapes where ancient traditions, diverse ecosystems, and adventurous spirits converge. Whether you're planning to conquer the heights or simply admire their magnificence from a distance, Nepal's mountains promise an experience like no other.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Famous Mountains Section -->
+    <section id="mountains" class="mountains">
+        <div class="container">
+            <h2 class="section-title">Famous Mountains & Peaks</h2>
+            <div class="mountain-grid">
+                <!-- Mountain 1 -->
+                <div class="mountain-card">
+                    <div class="mountain-img">
+                        <img src="/api/placeholder/400/320" alt="Mount Everest">
+                    </div>
+                    <div class="mountain-info">
+                        <h3>Mount Everest (Sagarmatha)</h3>
+                        <span class="elevation">Elevation: 8,848.86 m (29,031.7 ft)</span>
+                        <p>The world's highest peak, known as "Sagarmatha" in Nepali and "Chomolungma" in Tibetan. First conquered by Sir Edmund Hillary and Tenzing Norgay in 1953.</p>
+                        <a href="https://en.wikipedia.org/wiki/Mount_Everest" target="_blank" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Mountain 2 -->
+                <div class="mountain-card">
+                    <div class="mountain-img">
+                        <img src="/api/placeholder/400/320" alt="Kanchenjunga">
+                    </div>
+                    <div class="mountain-info">
+                        <h3>Kanchenjunga</h3>
+                        <span class="elevation">Elevation: 8,586 m (28,169 ft)</span>
+                        <p>The third highest mountain in the world, located on the border of Nepal and India. Its name means "Five Treasures of Snow" referring to its five peaks.</p>
+                        <a href="https://en.wikipedia.org/wiki/Kangchenjunga" target="_blank" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Mountain 3 -->
+                <div class="mountain-card">
+                    <div class="mountain-img">
+                        <img src="/api/placeholder/400/320" alt="Lhotse">
+                    </div>
+                    <div class="mountain-info">
+                        <h3>Lhotse</h3>
+                        <span class="elevation">Elevation: 8,516 m (27,940 ft)</span>
+                        <p>Connected to Everest via the South Col, Lhotse is the fourth highest mountain in the world. Its name means "South Peak" in Tibetan.</p>
+                        <a href="https://en.wikipedia.org/wiki/Lhotse" target="_blank" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Mountain 4 -->
+                <div class="mountain-card">
+                    <div class="mountain-img">
+                        <img src="/api/placeholder/400/320" alt="Makalu">
+                    </div>
+                    <div class="mountain-info">
+                        <h3>Makalu</h3>
+                        <span class="elevation">Elevation: 8,485 m (27,838 ft)</span>
+                        <p>The fifth highest mountain in the world, known for its pyramid shape. One of the most challenging 8000m peaks to climb due to its steep pitches and knife-edge ridges.</p>
+                        <a href="https://en.wikipedia.org/wiki/Makalu" target="_blank" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Mountain 5 -->
+                <div class="mountain-card">
+                    <div class="mountain-img">
+                        <img src="/api/placeholder/400/320" alt="Annapurna">
+                    </div>
+                    <div class="mountain-info">
+                        <h3>Annapurna</h3>
+                        <span class="elevation">Elevation: 8,091 m (26,545 ft)</span>
+                        <p>A massif with multiple peaks, Annapurna I is the 10th highest in the world. The name means "Goddess of Harvests" and its circuit trek is one of the most popular in Nepal.</p>
+                        <a href="https://en.wikipedia.org/wiki/Annapurna" target="_blank" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Mountain 6 -->
+                <div class="mountain-card">
+                    <div class="mountain-img">
+                        <img src="/api/placeholder/400/320" alt="Ama Dablam">
+                    </div>
+                    <div class="mountain-info">
+                        <h3>Ama Dablam</h3>
+                        <span class="elevation">Elevation: 6,812 m (22,349 ft)</span>
+                        <p>Known as the "Matterhorn of the Himalayas" for its distinctive shape. The name means "Mother's necklace" and is one of the most aesthetically pleasing mountains.</p>
+                        <a href="https://en.wikipedia.org/wiki/Ama_Dablam" target="_blank" class="read-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trip Planning Section -->
+    <section id="planning" class="planning">
+        <div class="container">
+            <h2 class="section-title">Plan Your Mountain Adventure</h2>
+            <div class="planning-content">
+                <!-- Planning Item 1 -->
+                <div class="planning-item">
+                    <div class="planning-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Best Time to Visit</h3>
+                    <p>The best seasons for mountain exploration in Nepal are Spring (March-May) and Autumn (September-November), offering clear skies and moderate temperatures.</p>
+                    <button class="btn season-btn" data-season="spring">Spring Details</button>
+                    <button class="btn season-btn" data-season="autumn">Autumn Details</button>
+                </div>
+                
+                <!-- Planning Item 2 -->
+                <div class="planning-item">
+                    <div class="planning-icon">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <h3>Permits & Documentation</h3>
+                    <p>Different mountain regions require specific permits. Trekking permits, TIMS card, and conservation area permits are mandatory for most routes.</p>
+                    <a href="https://www.welcomenepal.com/plan-your-trip/trekking-permits.html" target="_blank" class="btn">Check Requirements</a>
+                </div>
+                
+                <!-- Planning Item 3 -->
+                <div class="planning-item">
+                    <div class="planning-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3>Guided Tours & Expeditions</h3>
+                    <p>Connect with experienced guides and trek operators who can tailor your mountaineering experience based on your skill level and preferences.</p>
+                    <a href="#contact" class="btn">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Mountains of Nepal Map</h2>
+            <div class="map-container">
+                <div class="map-overlay">
+                    <h3>Mountain Regions</h3>
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #e63946;"></div>
+                            <span>8000m+ Peaks</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #457b9d;"></div>
+                            <span>Popular Trekking Routes</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #1d3557;"></div>
+                            <span>National Parks</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="/api/placeholder/1200/500" alt="Map of Nepal Mountains" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        Do I need special training to trek in Nepal? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>It depends on your destination. For popular treks like Everest Base Camp or Annapurna Circuit, good physical fitness is required but no technical climbing skills are needed. However, for peak climbing or expeditions above 6,000m, prior mountaineering experience and training are essential.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        What about altitude sickness? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Altitude sickness is a real concern when trekking in Nepal. Proper acclimatization is key - ascend slowly, stay hydrated, and consider medications like Diamox after consulting with your doctor. Most reputable guides structure itineraries with acclimatization days built in.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        What equipment do I need? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Essential equipment includes good hiking boots, warm layers, waterproof clothing, sleeping bag rated for low temperatures, backpack, trekking poles, sun protection, and a first aid kit. For higher altitude treks, additional specialized gear may be required. Many items can be rented in Kathmandu or Pokhara.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        Is it safe to trek solo? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>While many trails in Nepal are safe for solo trekkers, it's generally recommended to hire at least a porter-guide for safety, especially if you're unfamiliar with the area. Remote areas present risks of getting lost, altitude sickness, or weather changes. Always register your trek with the appropriate authorities.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        What is the accommodation like on treks? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>On popular trekking routes, tea houses provide basic accommodation with shared facilities. In remote areas, camping might be necessary. Luxury lodges are available on certain routes like Everest and Annapurna. During peak seasons, accommodations can fill quickly, so advance booking or trekking with a guide who can arrange lodging is recommended.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources">
+        <div class="container">
+            <h2 class="section-title">Helpful Resources</h2>
+            <div class="resources-tabs">
+                <button class="tab-btn active" data-tab="guides">Travel Guides</button>
+                <button class="tab-btn" data-tab="agencies">Trekking Agencies</button>
+                <button class="tab-btn" data-tab="emergency">Emergency Contacts</button>
+                <button class="tab-btn" data-tab="equipment">Equipment Checklist</button>
+            </div>
+            
+            <!-- Travel Guides Tab -->
+            <div class="tab-content active" id="guides">
+                <h3>Recommended Travel Guides & Information</h3>
+                <ul class="resource-list">
+                    <li><a href="https://www.welcomenepal.com/" target="_blank"><i class="fas fa-link"></i> Nepal Tourism Board - Official Website</a></li>
+                    <li><a href="https://www.lonelyplanet.com/nepal" target="_blank"><i class="fas fa-book"></i> Lonely Planet Nepal Guide</a></li>
+                    <li><a href="https://www.himalayanwonders.com/" target="_blank"><i class="fas fa-mountain"></i> Himalayan Wonders - Comprehensive Trekking Information</a></li>
+                    <li><a href="https://www.himalayantrekkers.com/" target="_blank"><i class="fas fa-hiking"></i> Himalayan Trekkers - Trek Routes & Guides
+                        <li><a href="https://www.himalayantrekkers.com/" target="_blank"><i class="fas fa-hiking"></i> Himalayan Trekkers - Trek Routes & Guides</a></li>
+                    <li><a href="https://www.nepalhikingteam.com/blog/" target="_blank"><i class="fas fa-blog"></i> Nepal Hiking Team Blog - Latest Updates</a></li>
+                </ul>
+            </div>
+            
+            <!-- Trekking Agencies Tab -->
+            <div class="tab-content" id="agencies">
+                <h3>Reliable Trekking Agencies</h3>
+                <ul class="resource-list">
+                    <li><a href="https://nepaltrekking.com/" target="_blank"><i class="fas fa-users"></i> Nepal Trekking - Established 1975</a></li>
+                    <li><a href="https://www.himalayanguides.com/" target="_blank"><i class="fas fa-medal"></i> Himalayan Guides - Award Winning Services</a></li>
+                    <li><a href="https://www.adventurehimalaya.com/" target="_blank"><i class="fas fa-flag"></i> Adventure Himalaya - Specializing in Climbing Expeditions</a></li>
+                    <li><a href="https://www.nepalintrepidtreks.com/" target="_blank"><i class="fas fa-compass"></i> Nepal Intrepid Treks - Eco-friendly Trekking</a></li>
+                    <li><a href="https://www.khumbuadventures.com/" target="_blank"><i class="fas fa-map-marked"></i> Khumbu Adventures - Local Sherpa Guides</a></li>
+                </ul>
+            </div>
+            
+            <!-- Emergency Contacts Tab -->
+            <div class="tab-content" id="emergency">
+                <h3>Emergency Information & Contacts</h3>
+                <ul class="resource-list">
+                    <li><a href="tel:+977-1-4261910"><i class="fas fa-phone-alt"></i> Tourist Police: +977-1-4261910</a></li>
+                    <li><a href="tel:+977-1-4244121"><i class="fas fa-hospital"></i> CIWEC Hospital (Specializes in Altitude Sickness): +977-1-4244121</a></li>
+                    <li><a href="https://www.nepalhealthcare.org/" target="_blank"><i class="fas fa-first-aid"></i> Nepal Mountaineering Association Rescue: +977-1-4434525</a></li>
+                    <li><a href="https://www.facebook.com/EmbassyKathmandu/" target="_blank"><i class="fas fa-flag-usa"></i> U.S. Embassy in Nepal: +977-1-4234000</a></li>
+                    <li><a href="https://www.helicopterrescuenepal.com/" target="_blank"><i class="fas fa-helicopter"></i> Helicopter Rescue Services Nepal</a></li>
+                </ul>
+            </div>
+            
+            <!-- Equipment Checklist Tab -->
+            <div class="tab-content" id="equipment">
+                <h3>Essential Trekking Equipment</h3>
+                <ul class="resource-list">
+                    <li><i class="fas fa-socks"></i> <strong>Clothing:</strong> Moisture-wicking base layers, insulating mid-layers, waterproof outer layer, hiking pants, thermal socks, gloves, warm hat, sun hat</li>
+                    <li><i class="fas fa-shoe-prints"></i> <strong>Footwear:</strong> Waterproof hiking boots (broken in), camp shoes/sandals, gaiters for snow/rain</li>
+                    <li><i class="fas fa-campground"></i> <strong>Sleeping:</strong> Sleeping bag (-15°C to -20°C for high altitude), sleeping bag liner, inflatable pillow</li>
+                    <li><i class="fas fa-first-aid"></i> <strong>Health:</strong> First aid kit, altitude sickness medication, water purification tablets, sunscreen, lip balm, insect repellent, personal medications</li>
+                    <li><i class="fas fa-backpack"></i> <strong>Gear:</strong> Backpack (60-70L), rain cover, trekking poles, headlamp with extra batteries, multi-tool knife</li>
+                    <li><i class="fas fa-camera"></i> <strong>Miscellaneous:</strong> Camera, power bank, adapters, cash, copy of passport, permits, and insurance documents</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">Mountain Gallery</h2>
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Everest Base Camp">
+                    <div class="gallery-caption">Everest Base Camp at sunrise</div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Annapurna Circuit">
+                    <div class="gallery-caption">Thorong La Pass, Annapurna Circuit</div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Ama Dablam">
+                    <div class="gallery-caption">Ama Dablam viewed from Dingboche</div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Annapurna Base Camp">
+                    <div class="gallery-caption">Annapurna Sanctuary</div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Langtang Valley">
+                    <div class="gallery-caption">Langtang Valley Trek</div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Mardi Himal">
+                    <div class="gallery-caption">Mardi Himal Trek - Base Camp</div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Poon Hill">
+                    <div class="gallery-caption">Sunrise at Poon Hill</div>
+                </div>
+                
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/400" alt="Manaslu Circuit">
+                    <div class="gallery-caption">Manaslu Circuit Trek</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-form">
+                <form id="inquiry-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">I'm Interested In</label>
+                        <select id="interest" class="form-control">
+                            <option value="trekking">Trekking Packages</option>
+                            <option value="expedition">Mountain Expeditions</option>
+                            <option value="customized">Customized Tour</option>
+                            <option value="information">General Information</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Season Info Modals -->
+    <div id="season-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="spring-info" class="season-info">
+                <h3>Spring Season (March-May)</h3>
+                <p>Spring is one of the most popular seasons for mountain expeditions in Nepal. The weather begins to warm after winter, and the clear skies offer spectacular views.</p>
+                <ul>
+                    <li><strong>Temperature:</strong> 15-20°C (59-68°F) in lower elevations, -15 to 0°C (5-32°F) at higher altitudes</li>
+                    <li><strong>Precipitation:</strong> Minimal in early spring, possibility of pre-monsoon showers in late May</li>
+                    <li><strong>Highlights:</strong> Blooming rhododendron forests, clear visibility, moderate temperatures</li>
+                    <li><strong>Challenges:</strong> More crowded trails, especially in April-May</li>
+                </ul>
+                <p>Spring is ideal for high-altitude treks like Everest Base Camp and for summit attempts on major peaks, as the jet stream moves northward, creating a window of relatively stable weather.</p>
+            </div>
+            <div id="autumn-info" class="season-info">
+                <h3>Autumn Season (September-November)</h3>
+                <p>Autumn is generally considered the best time for trekking in Nepal. The monsoon rains have cleared the air of dust, offering pristine mountain views.</p>
+                <ul>
+                    <li><strong>Temperature:</strong> 15-24°C (59-75°F) in lower elevations, -10 to 5°C (14-41°F) at higher altitudes</li>
+                    <li><strong>Precipitation:</strong> Minimal, with clear skies most days</li>
+                    <li><strong>Highlights:</strong> Crystal clear visibility, harvest festivals, stable weather</li>
+                    <li><strong>Challenges:</strong> Most crowded season, accommodation may require advance booking</li>
+                </ul>
+                <p>The comfortable temperatures and clear skies make autumn perfect for all trekking routes. October is especially popular due to the Dashain and Tihar festivals that bring cultural experiences alongside natural beauty.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-title').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('active');
+                
+                // Toggle icon
+                const icon = button.querySelector('i');
+                if (content.classList.contains('active')) {
+                    icon.className = 'fas fa-chevron-up';
+                } else {
+                    icon.className = 'fas fa-chevron-down';
+                }
+                
+                // Close other open accordions
+                document.querySelectorAll('.accordion-content').forEach(item => {
+                    if (item !== content && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        item.previousElementSibling.querySelector('i').className = 'fas fa-chevron-down';
+                    }
+                });
+            });
+        });
+        
+        // Tabs functionality
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and tabs
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                
+                // Add active class to current button and tab
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Season Modal
+        const modal = document.getElementById('season-modal');
+        const seasonButtons = document.querySelectorAll('.season-btn');
+        const closeModal = document.querySelector('.close-modal');
+        const springInfo = document.getElementById('spring-info');
+        const autumnInfo = document.getElementById('autumn-info');
+        
+        seasonButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const season = button.getAttribute('data-season');
+                
+                // Show the modal
+                modal.style.display = 'block';
+                
+                // Show the appropriate season info
+                if (season === 'spring') {
+                    springInfo.style.display = 'block';
+                    autumnInfo.style.display = 'none';
+                } else if (season === 'autumn') {
+                    springInfo.style.display = 'none';
+                    autumnInfo.style.display = 'block';
+                }
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Form submission (prevent default)
+        document.getElementById('inquiry-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will get back to you soon.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Your Visit - Beyond Everest</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<script>
+    fetch('../header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header').innerHTML = data;
+      });
+    </script>
+    
+    <div id="header"></div>
+
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Plan Your Nepal Adventure</h1>
+                <p>Discover the mystical land of mountains, culture, and tradition</p>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search for destinations, activities...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="trip-planner">
+            <div class="planner-tabs">
+                <button class="tab-btn active" data-tab="when-to-visit">When to Visit</button>
+                <button class="tab-btn" data-tab="where-to-go">Where to Go</button>
+                <button class="tab-btn" data-tab="what-to-do">What to Do</button>
+                <button class="tab-btn" data-tab="travel-essentials">Travel Essentials</button>
+            </div>
+
+            <div class="tab-content">
+                <div id="when-to-visit" class="tab-pane active">
+                    <h2>Best Time to Visit Nepal</h2>
+                    <div class="season-slider">
+                        <div class="season-card">
+                            <div class="season-img spring"></div>
+                            <h3>Spring (March-May)</h3>
+                            <p>Perfect for trekking and mountain views. Rhododendrons in bloom across hillsides.</p>
+                            <div class="season-highlights">
+                                <span class="highlight">Moderate Temperature</span>
+                                <span class="highlight">Clear Skies</span>
+                                <span class="highlight">Festival Season</span>
+                            </div>
+                        </div>
+                        <div class="season-card">
+                            <div class="season-img autumn"></div>
+                            <h3>Autumn (Sept-Nov)</h3>
+                            <p>The most popular season. Crystal clear mountain views and stable weather conditions.</p>
+                            <div class="season-highlights">
+                                <span class="highlight">Perfect Weather</span>
+                                <span class="highlight">Dashain & Tihar</span>
+                                <span class="highlight">Peak Season</span>
+                            </div>
+                        </div>
+                        <div class="season-card">
+                            <div class="season-img winter"></div>
+                            <h3>Winter (Dec-Feb)</h3>
+                            <p>Cold in mountains but perfect for lower altitude treks. Less crowded trails.</p>
+                            <div class="season-highlights">
+                                <span class="highlight">Clear Views</span>
+                                <span class="highlight">Less Crowded</span>
+                                <span class="highlight">Lower Prices</span>
+                            </div>
+                        </div>
+                        <div class="season-card">
+                            <div class="season-img monsoon"></div>
+                            <h3>Monsoon (June-Aug)</h3>
+                            <p>Lush green landscapes but rain can obstruct mountain views. Good for rain shadow areas.</p>
+                            <div class="season-highlights">
+                                <span class="highlight">Green Landscapes</span>
+                                <span class="highlight">Budget Friendly</span>
+                                <span class="highlight">Cultural Focus</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="festival-calendar">
+                        <h3>Major Festivals Calendar</h3>
+                        <div class="calendar-container" id="festival-calendar">
+                            <!-- Calendar will be dynamically populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="where-to-go" class="tab-pane">
+                    <h2>Discover Nepal's Diverse Regions</h2>
+                    <div class="region-grid">
+                        <div class="region-card" data-region="mountain">
+                            <div class="region-img mountains"></div>
+                            <h3>Himalayan Region</h3>
+                            <p>Home to 8 of the world's 14 highest peaks including Mt. Everest.</p>
+                            <a href="#" class="btn-explore">Explore Mountains</a>
+                        </div>
+                        <div class="region-card" data-region="valley">
+                            <div class="region-img kathmandu"></div>
+                            <h3>Kathmandu Valley</h3>
+                            <p>Cultural heart with UNESCO World Heritage sites and ancient temples.</p>
+                            <a href="#" class="btn-explore">Explore Kathmandu</a>
+                        </div>
+                        <div class="region-card" data-region="terai">
+                            <div class="region-img chitwan"></div>
+                            <h3>Terai Region</h3>
+                            <p>Subtropical plains with national parks and wildlife sanctuaries.</p>
+                            <a href="#" class="btn-explore">Explore Terai</a>
+                        </div>
+                        <div class="region-card" data-region="hills">
+                            <div class="region-img hills"></div>
+                            <h3>Hilly Region</h3>
+                            <p>Rolling hills with charming villages and panoramic mountain views.</p>
+                            <a href="#" class="btn-explore">Explore Hills</a>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-spotlight">
+                        <h3>Popular Destinations</h3>
+                        <div class="destination-slider" id="destination-slider">
+                            <!-- Destinations will be dynamically populated by JS -->
+                        </div>
+                    </div>
+                    
+                    <div class="interactive-map">
+                        <h3>Interactive Nepal Map</h3>
+                        <div id="nepal-map" class="map-container">
+                            <!-- Map placeholder - will be replaced by JS -->
+                            <div class="map-placeholder">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <p>Interactive map loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="what-to-do" class="tab-pane">
+                    <h2>Experiences in Nepal</h2>
+                    
+                    <div class="experience-categories">
+                        <button class="category-btn active" data-category="all">All</button>
+                        <button class="category-btn" data-category="adventure">Adventure</button>
+                        <button class="category-btn" data-category="culture">Cultural</button>
+                        <button class="category-btn" data-category="spiritual">Spiritual</button>
+                        <button class="category-btn" data-category="wildlife">Wildlife</button>
+                        <button class="category-btn" data-category="food">Culinary</button>
+                    </div>
+                    
+                    <div class="experience-grid">
+                        <div class="experience-card" data-category="adventure">
+                            <div class="experience-img trekking"></div>
+                            <h3>Trekking</h3>
+                            <p>From easy walks to challenging expeditions in the mighty Himalayas.</p>
+                            <a href="#" class="btn-details">View Treks</a>
+                        </div>
+                        <div class="experience-card" data-category="adventure">
+                            <div class="experience-img rafting"></div>
+                            <h3>White Water Rafting</h3>
+                            <p>Navigate thrilling rapids on Nepal's pristine rivers.</p>
+                            <a href="#" class="btn-details">View Rafting</a>
+                        </div>
+                        <div class="experience-card" data-category="culture">
+                            <div class="experience-img heritage"></div>
+                            <h3>Heritage Tours</h3>
+                            <p>Explore ancient cities, temples, and traditional villages.</p>
+                            <a href="#" class="btn-details">View Heritage</a>
+                        </div>
+                        <div class="experience-card" data-category="spiritual">
+                            <div class="experience-img meditation"></div>
+                            <h3>Meditation Retreats</h3>
+                            <p>Find inner peace in monasteries and spiritual centers.</p>
+                            <a href="#" class="btn-details">View Retreats</a>
+                        </div>
+                        <div class="experience-card" data-category="wildlife">
+                            <div class="experience-img safari"></div>
+                            <h3>Jungle Safari</h3>
+                            <p>Encounter rare wildlife in Nepal's national parks.</p>
+                            <a href="#" class="btn-details">View Safaris</a>
+                        </div>
+                        <div class="experience-card" data-category="food">
+                            <div class="experience-img cooking"></div>
+                            <h3>Cooking Classes</h3>
+                            <p>Learn to prepare authentic Nepali dishes from local chefs.</p>
+                            <a href="#" class="btn-details">View Classes</a>
+                        </div>
+                    </div>
+
+                    <div class="itinerary-builder">
+                        <h3>Custom Itinerary Builder</h3>
+                        <div class="itinerary-form">
+                            <div class="form-group">
+                                <label for="trip-duration">Trip Duration</label>
+                                <select id="trip-duration">
+                                    <option value="3-5">3-5 days</option>
+                                    <option value="6-10">6-10 days</option>
+                                    <option value="11-15">11-15 days</option>
+                                    <option value="16+">16+ days</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="travel-style">Travel Style</label>
+                                <select id="travel-style">
+                                    <option value="adventure">Adventure</option>
+                                    <option value="culture">Cultural</option>
+                                    <option value="relaxed">Relaxed</option>
+                                    <option value="mixed">Mixed</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget-range">Budget Range</label>
+                                <select id="budget-range">
+                                    <option value="budget">Budget</option>
+                                    <option value="moderate">Moderate</option>
+                                    <option value="luxury">Luxury</option>
+                                </select>
+                            </div>
+                            <button id="build-itinerary" class="btn-primary">Create My Itinerary</button>
+                        </div>
+                        <div id="suggested-itinerary" class="itinerary-result">
+                            <!-- Itinerary will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="travel-essentials" class="tab-pane">
+                    <h2>Nepal Travel Essentials</h2>
+                    
+                    <div class="essentials-grid">
+                        <div class="essential-card">
+                            <div class="essential-icon"><i class="fas fa-passport"></i></div>
+                            <h3>Visa Information</h3>
+                            <div class="essential-content">
+                                <p>Most visitors can obtain a visa on arrival at Tribhuvan International Airport or at land border crossings.</p>
+                                <div class="visa-options">
+                                    <div class="visa-type">
+                                        <h4>15 Days</h4>
+                                        <p>$30 USD</p>
+                                    </div>
+                                    <div class="visa-type">
+                                        <h4>30 Days</h4>
+                                        <p>$50 USD</p>
+                                    </div>
+                                    <div class="visa-type">
+                                        <h4>90 Days</h4>
+                                        <p>$125 USD</p>
+                                    </div>
+                                </div>
+                                <p>Requirements: Passport valid for at least 6 months, passport-size photo, and visa fee in cash.</p>
+                                <a href="#" class="btn-details">Detailed Requirements</a>
+                            </div>
+                        </div>
+                        
+                        <div class="essential-card">
+                            <div class="essential-icon"><i class="fas fa-plane-arrival"></i></div>
+                            <h3>Getting There</h3>
+                            <div class="essential-content">
+                                <p>International flights arrive at Tribhuvan International Airport in Kathmandu.</p>
+                                <h4>Major Airlines:</h4>
+                                <ul class="airlines-list">
+                                    <li>Nepal Airlines</li>
+                                    <li>Turkish Airlines</li>
+                                    <li>Qatar Airways</li>
+                                    <li>Emirates</li>
+                                    <li>Air India</li>
+                                </ul>
+                                <a href="#" class="btn-details">Flight Information</a>
+                            </div>
+                        </div>
+                        
+                        <div class="essential-card">
+                            <div class="essential-icon"><i class="fas fa-bus"></i></div>
+                            <h3>Local Transportation</h3>
+                            <div class="essential-content">
+                                <div class="transport-options">
+                                    <div class="transport-type">
+                                        <h4>Taxis</h4>
+                                        <p>Available in major cities. Always negotiate fare before boarding.</p>
+                                    </div>
+                                    <div class="transport-type">
+                                        <h4>Public Buses</h4>
+                                        <p>Inexpensive but often crowded. Tourist buses available for major routes.</p>
+                                    </div>
+                                    <div class="transport-type">
+                                        <h4>Domestic Flights</h4>
+                                        <p>Best for reaching remote areas quickly. Book in advance.</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn-details">Transportation Guide</a>
+                            </div>
+                        </div>
+                        
+                        <div class="essential-card">
+                            <div class="essential-icon"><i class="fas fa-suitcase"></i></div>
+                            <h3>What to Pack</h3>
+                            <div class="essential-content" id="packing-list">
+                                <!-- Will be dynamically populated based on season selected -->
+                                <p>Select your travel season for customized packing recommendations:</p>
+                                <div class="season-selector">
+                                    <button class="season-btn" data-season="spring">Spring</button>
+                                    <button class="season-btn" data-season="summer">Summer/Monsoon</button>
+                                    <button class="season-btn" data-season="autumn">Autumn</button>
+                                    <button class="season-btn" data-season="winter">Winter</button>
+                                </div>
+                                <div class="packing-content">
+                                    <p>Select a season above to see recommendations</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="essential-card">
+                            <div class="essential-icon"><i class="fas fa-heartbeat"></i></div>
+                            <h3>Health & Safety</h3>
+                            <div class="essential-content">
+                                <h4>Recommended Vaccinations:</h4>
+                                <p>Hepatitis A & B, Typhoid, Japanese Encephalitis, Rabies</p>
+                                
+                                <h4>Altitude Sickness:</h4>
+                                <p>A concern for high-altitude trekking. Acclimatize properly and recognize symptoms.</p>
+                                
+                                <h4>Travel Insurance:</h4>
+                                <p>Highly recommended, should include emergency evacuation coverage for trekkers.</p>
+                                
+                                <a href="#" class="btn-details">Health Guidelines</a>
+                            </div>
+                        </div>
+                        
+                        <div class="essential-card">
+                            <div class="essential-icon"><i class="fas fa-money-bill-wave"></i></div>
+                            <h3>Money Matters</h3>
+                            <div class="essential-content">
+                                <h4>Currency:</h4>
+                                <p>Nepalese Rupee (NPR)</p>
+                                
+                                <div id="currency-converter" class="currency-tool">
+                                    <input type="number" id="currency-amount" placeholder="Enter amount">
+                                    <select id="currency-from">
+                                        <option value="USD">USD</option>
+                                        <option value="EUR">EUR</option>
+                                        <option value="GBP">GBP</option>
+                                    </select>
+                                    <span>to NPR</span>
+                                    <div id="conversion-result">0 NPR</div>
+                                </div>
+                                
+                                <h4>ATMs:</h4>
+                                <p>Available in cities and major tourist areas. Carry cash for remote regions.</p>
+                                
+                                <h4>Credit Cards:</h4>
+                                <p>Accepted at upscale establishments in cities, but cash is preferred elsewhere.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-contacts">
+                        <h3>Emergency Contacts</h3>
+                        <div class="contacts-container">
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div class="contact-info">
+                                    <h4>Police</h4>
+                                    <p>100</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-ambulance"></i>
+                                <div class="contact-info">
+                                    <h4>Ambulance</h4>
+                                    <p>102</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-hospital"></i>
+                                <div class="contact-info">
+                                    <h4>Tourist Police</h4>
+                                    <p>+977-1-4247041</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-assistance">
+            <h2>Need Help Planning?</h2>
+            <div class="help-options">
+                <div class="help-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Chat with Local Expert</h3>
+                    <p>Get personalized recommendations from our Nepal specialists</p>
+                    <button class="btn-secondary" id="open-chat">Start Chat</button>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Request Custom Plan</h3>
+                    <p>Tell us your interests and we'll create a tailored itinerary</p>
+                    <button class="btn-secondary" id="custom-plan">Request Plan</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="chat-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Chat with Nepal Expert</h3>
+            <div class="chat-container">
+                <div class="chat-messages">
+                    <div class="message received">
+                        <div class="message-content">
+                            <p>Hello! I'm your Nepal travel specialist. How can I help plan your trip?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="user-message" placeholder="Type your question...">
+                    <button id="send-message"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="plan-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Request Custom Travel Plan</h3>
+            <form id="custom-plan-form" class="plan-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="travel-dates">Travel Dates</label>
+                        <input type="text" id="travel-dates" placeholder="MM/YYYY or Flexible">
+                    </div>
+                    <div class="form-group">
+                        <label for="group-size">Group Size</label>
+                        <input type="number" id="group-size" min="1" value="2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="interests">Interests (Select all that apply)</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="trekking"> Trekking</label>
+                        <label><input type="checkbox" value="culture"> Culture & Heritage</label>
+                        <label><input type="checkbox" value="wildlife"> Wildlife</label>
+                        <label><input type="checkbox" value="adventure"> Adventure Sports</label>
+                        <label><input type="checkbox" value="spiritual"> Spiritual Experiences</label>
+                        <label><input type="checkbox" value="food"> Food & Cuisine</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Information</label>
+                    <textarea id="message" rows="4" placeholder="Tell us about your dream Nepal experience..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

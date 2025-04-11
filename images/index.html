@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Everest - Discover Nepal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.152.2/three.min.js"></script>
+</head>
+<div id="header"></div>
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+</script>
+<body>
+    
+
+    <!-- Hero Section with 3D Effect -->
+    <section class="hero">
+        <div class="hero-background">
+            <!-- Background images will be controlled by CSS -->
+            <div class="overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Explore the Land of Himalaya</h1>
+            <p>Discover the breathtaking landscapes, rich culture, and unforgettable adventures of Nepal</p>
+            <div class="cta-buttons">
+                <a href="plan.html" class="cta-primary">Plan Your Journey</a>
+                <a href="#featured" class="cta-secondary">Explore Highlights</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weather Widget -->
+    <div class="weather-widget">
+        <h3>Current Weather</h3>
+        <div id="weather-data">
+            <div id="kathmandu-weather" class="weather-location">
+                <h4>Kathmandu</h4>
+                <div class="weather-info">Loading...</div>
+            </div>
+            <div id="pokhara-weather" class="weather-location">
+                <h4>Pokhara</h4>
+                <div class="weather-info">Loading...</div>
+            </div>
+            <div id="lukla-weather" class="weather-location">
+                <h4>Lukla</h4>
+                <div class="weather-info">Loading...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Highlights Section -->
+    <section id="featured" class="featured">
+        <h2>Featured Highlights</h2>
+        <div class="featured-grid">
+            <!-- Feature Card 1 -->
+            <div class="feature-card">
+                <div class="card-image">
+                    <!-- ADD IMAGE: Everest Base Camp Trek -->
+                    <img src="images/everest-base-camp.jpg" alt="Everest Base Camp Trek">
+                </div>
+                <div class="card-content">
+                    <h3>Everest Base Camp Trek and Others</h3>
+                    <p>Experience the journey to the foot of the world's tallest mountain through breathtaking landscapes.</p>
+                    <a href="trekking.html" class="read-more">Explore Trek</a>
+                </div>
+            </div>
+            
+            <!-- Feature Card 2 -->
+            <div class="feature-card">
+                <div class="card-image">
+                    <!-- ADD IMAGE: Kathmandu Durbar Square -->
+                    <img src="images/kathmandu-durbar.jpg" alt="Kathmandu Durbar Square">
+                </div>
+                <div class="card-content">
+                    <h3>Kathmandu Durbar Square</h3>
+                    <p>Discover ancient palaces, temples, and courtyards showcasing Nepal's rich architectural heritage.</p>
+                    <a href="heritage.html" class="read-more">Discover More</a>
+                </div>
+            </div>
+            
+            <!-- Feature Card 3 -->
+            <div class="feature-card">
+                <div class="card-image">
+                    <!-- ADD IMAGE: Phewa Lake, Pokhara -->
+                    <img src="images/phewa-lake.jpg" alt="Phewa Lake, Pokhara">
+                </div>
+                <div class="card-content">
+                    <h3>Pokhara's Phewa Lake</h3>
+                    <p>Enjoy serene boat rides with stunning views of the Annapurna range reflecting in crystal clear waters.</p>
+                    <a href="lakes.html" class="read-more">Visit Lake</a>
+                </div>
+            </div>
+            
+            <!-- Feature Card 4 -->
+            <div class="feature-card">
+                <div class="card-image">
+                    <!-- ADD IMAGE: Dashain Festival -->
+                    <img src="images/dashain.jpg" alt="Dashain Festival">
+                </div>
+                <div class="card-content">
+                    <h3>Dashain Festival</h3>
+                    <p>Experience Nepal's biggest festival celebrating victory of good over evil with unique traditions.</p>
+                    <a href="festivals.html" class="read-more">Learn About Dashain</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2>Explore Nepal By Category</h2>
+        <div class="category-grid">
+            <!-- Category 1 -->
+            <a href="culture.html" class="category-card">
+                <div class="category-icon"><i class="fas fa-theater-masks"></i></div>
+                <h3>Culture & Traditions</h3>
+            </a>
+            
+            <!-- Category 2 -->
+            <a href="mountains.html" class="category-card">
+                <div class="category-icon"><i class="fas fa-mountain"></i></div>
+                <h3>Mountains & Peaks</h3>
+            </a>
+            
+            <!-- Category 3 -->
+            <a href="temples.html" class="category-card">
+                <div class="category-icon"><i class="fas fa-place-of-worship"></i></div>
+                <h3>Temples & Spirituality</h3>
+            </a>
+            
+            <!-- Category 4 -->
+            <a href="food.html" class="category-card">
+                <div class="category-icon"><i class="fas fa-utensils"></i></div>
+                <h3>Nepali Cuisine</h3>
+            </a>
+            
+            <!-- Category 5 -->
+            <a href="adventure.html" class="category-card">
+                <div class="category-icon"><i class="fas fa-hiking"></i></div>
+                <h3>Adventure & Sports</h3>
+            </a>
+            
+            <!-- Category 6 -->
+            <a href="festivals.html" class="category-card">
+                <div class="category-icon"><i class="fas fa-calendar-alt"></i></div>
+                <h3>Festivals & Events</h3>
+            </a>
+        </div>
+    </section>
+
+    <!-- Travel Guide Section -->
+    <section class="travel-guide">
+        <div class="guide-content">
+            <h2>First Time in Nepal?</h2>
+            <p>Everything you need to know for a perfect journey through the Himalayan nation.</p>
+            <ul class="guide-list">
+                <li><i class="fas fa-check-circle"></i> Visa requirements and entry procedures</li>
+                <li><i class="fas fa-check-circle"></i> Best times to visit different regions</li>
+                <li><i class="fas fa-check-circle"></i> Health and safety tips</li>
+                <li><i class="fas fa-check-circle"></i> Local customs and etiquette</li>
+                <li><i class="fas fa-check-circle"></i> Recommended itineraries for different durations</li>
+            </ul>
+            <a href="travel-guide.html" class="guide-button">Read Complete Guide</a>
+        </div>
+        <div class="guide-image">
+            <!-- ADD IMAGE: Nepal Travel Guide -->
+            <img src="images/travel-guide.svg" alt="Nepal Travel Guide">
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- Trip Planner Section -->
+    <section class="trip-planner">
+        <h2>Plan Your Perfect Trip</h2>
+        <div class="planner-tools">
+            <div class="planner-card">
+                <i class="fas fa-plane-departure"></i>
+                <h3>Flights</h3>
+                <p>Find and book flights to Nepal from anywhere in the world.</p>
+                <button id="flight-search-btn" class="planner-btn">Search Flights</button>
+            </div>
+            
+            <div class="planner-card">
+                <i class="fas fa-hotel"></i>
+                <h3>Accommodations</h3>
+                <p>Discover places to stay, from luxury hotels to cozy homestays.</p>
+                <button id="hotel-search-btn" class="planner-btn">Find Stays</button>
+            </div>
+            
+            <div class="planner-card">
+                <i class="fas fa-route"></i>
+                <h3>Itineraries</h3>
+                <p>Curated travel plans for different durations and interests.</p>
+                <a href="plan.html#itineraries" class="planner-btn">View Itineraries</a>
+            </div>
+            
+            <div class="planner-card">
+                <i class="fas fa-hiking"></i>
+                <h3>Guided Tours</h3>
+                <p>Expert-led experiences with local guides and porters.</p>
+                <a href="plan.html#guided-tours" class="planner-btn">Explore Tours</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h2>Interactive Map of Nepal</h2>
+        <div id="nepal-map" style="width: 100%; height: 500px;">
+            <!-- Map will be loaded here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Traveler Stories</h2>
+        <div class="testimonial-slider">
+            <!-- Testimonial 1 -->
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"The trek to Annapurna Base Camp was life-changing. The guides were knowledgeable, the views breathtaking, and the local tea houses gave us a genuine taste of Nepali hospitality."</p>
+                </div>
+                <div class="testimonial-author">
+                    <!-- ADD IMAGE: Testimonial Author 1 -->
+                    <img src="images/testimonial-1.jpg" alt="Sarah Johnson">
+                    <div>
+                        <h4>Sarah Johnson</h4>
+                        <p>United States</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"Experiencing Dashain festival with a local family in Kathmandu was the highlight of my trip. The cultural immersion and warmth of the Nepali people made me feel at home thousands of miles away."</p>
+                </div>
+                <div class="testimonial-author">
+                    <!-- ADD IMAGE: Testimonial Author 2 -->
+                    <img src="images/testimonial-2.jpg" alt="Marco Bianchi">
+                    <div>
+                        <h4>Marco Bianchi</h4>
+                        <p>Italy</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"The paragliding experience in Pokhara with views of the Annapurna range and Phewa Lake was absolutely stunning. Nepal offers adventure that you can't find anywhere else."</p>
+                </div>
+                <div class="testimonial-author">
+                    <!-- ADD IMAGE: Testimonial Author 3 -->
+                    <img src="images/testimonial-3.jpg" alt="Aisha Patel">
+                    <div>
+                        <h4>Aisha Patel</h4>
+                        <p>Australia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for travel tips, seasonal guides, and exclusive deals.</p>
+            <form id="newsletter-form">
+                <input type="email" id="email" placeholder="Your email address" required>
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    
+
+    <!-- Flight Search Modal -->
+    <div id="flight-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Search Flights</h2>
+            <form id="flight-search-form">
+                <div class="form-group">
+                    <label for="origin">From:</label>
+                    <input type="text" id="origin" placeholder="City or Airport" required>
+                </div>
+                <div class="form-group">
+                    <label for="destination">To:</label>
+                    <input type="text" id="destination" placeholder="Kathmandu (KTM)" value="Kathmandu (KTM)" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="departure-date">Departure:</label>
+                        <input type="date" id="departure-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="return-date">Return:</label>
+                        <input type="date" id="return-date">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="passengers">Passengers:</label>
+                    <select id="passengers">
+                        <option value="1">1 Adult</option>
+                        <option value="2">2 Adults</option>
+                        <option value="3">3 Adults</option>
+                        <option value="4">4 Adults</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-btn">Search Flights</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hotel Search Modal -->
+    <div id="hotel-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Find Accommodations</h2>
+            <form id="hotel-search-form">
+                <div class="form-group">
+                    <label for="hotel-location">Location:</label>
+                    <select id="hotel-location" required>
+                        <option value="">Select Location</option>
+                        <option value="kathmandu">Kathmandu</option>
+                        <option value="pokhara">Pokhara</option>
+                        <option value="chitwan">Chitwan</option>
+                        <option value="nagarkot">Nagarkot</option>
+                        <option value="lumbini">Lumbini</option>
+                        <option value="lukla">Lukla</option>
+                        <option value="namche">Namche Bazaar</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="check-in">Check-in:</label>
+                        <input type="date" id="check-in" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out">Check-out:</label>
+                        <input type="date" id="check-out" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="rooms">Rooms:</label>
+                        <select id="rooms">
+                            <option value="1">1 Room</option>
+                            <option value="2">2 Rooms</option>
+                            <option value="3">3 Rooms</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Guests:</label>
+                        <select id="guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="search-btn">Find Accommodations</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include Footer -->
+<div id="footer"></div>
+<script>
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiE5JzRnO5WCeChnjrNSDWo68ZBtV8gMo&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>

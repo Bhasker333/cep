@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festivals of Nepal - Beyond Everest</title>
+    
+    <div id="header"></div>
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+</script>
+    
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #457b9d;
+            --accent-color: #ffffff;
+            --dark-color: #1d3557;
+            --light-color: #f8f9fa;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .banner {
+            background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), url('/api/placeholder/1200/400') center/cover no-repeat;
+            color: var(--accent-color);
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+
+        .banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .festivals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .festival-card {
+            background-color: var(--accent-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .festival-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .festival-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .festival-content {
+            padding: 20px;
+        }
+
+        .festival-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .festival-content p {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .festival-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            background-color: var(--primary-color);
+        }
+
+        .festival-details {
+            background-color: var(--accent-color);
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+        }
+
+        .festival-details h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .festival-details img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .festival-details p {
+            margin-bottom: 20px;
+        }
+
+        .festival-details ul {
+            margin-bottom: 20px;
+            margin-left: 20px;
+        }
+
+        .festival-details li {
+            margin-bottom: 10px;
+        }
+
+        .plan-visit {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 50px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .plan-visit h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .plan-visit p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .travel-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .tip-card {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: left;
+        }
+
+        .tip-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-color);
+        }
+
+        .external-link {
+            color: var(--secondary-color);
+            font-weight: bold;
+            text-decoration: underline;
+            transition: var(--transition);
+        }
+
+        .external-link:hover {
+            color: var(--primary-color);
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        #back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #back-to-top:hover {
+            background-color: var(--dark-color);
+        }
+
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 2.5rem;
+            }
+            
+            .festival-details {
+                padding: 20px;
+            }
+            
+            .festivals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="container">
+            <h1>Festivals of Nepal</h1>
+            <p>Immerse yourself in the vibrant cultural celebrations that define Nepal's rich heritage and spirituality. From the grandeur of Dashain to the lights of Tihar, discover the diverse festivals that showcase Nepal's unique traditions.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="festivals-grid">
+            <div class="festival-card" id="dashain">
+                <img src="/api/placeholder/400/200" alt="Dashain Festival in Nepal">
+                <div class="festival-content">
+                    <div class="festival-meta">
+                        <span>October (Kartik)</span>
+                        <span>15 Days</span>
+                    </div>
+                    <h3>Dashain Festival</h3>
+                    <p>Experience Nepal's biggest festival celebrating victory of good over evil with unique traditions.</p>
+                    <a href="#dashain-details" class="read-more" data-festival="dashain">Learn About Dashain</a>
+                </div>
+            </div>
+
+            <div class="festival-card" id="tihar">
+                <img src="/api/placeholder/400/200" alt="Tihar Festival in Nepal">
+                <div class="festival-content">
+                    <div class="festival-meta">
+                        <span>October/November</span>
+                        <span>5 Days</span>
+                    </div>
+                    <h3>Tihar (Diwali)</h3>
+                    <p>The festival of lights honoring Goddess Laxmi, animals, and brotherly bonds with beautiful illuminations.</p>
+                    <a href="#tihar-details" class="read-more" data-festival="tihar">Learn About Tihar</a>
+                </div>
+            </div>
+
+            <div class="festival-card" id="holi">
+                <img src="/api/placeholder/400/200" alt="Holi Festival in Nepal">
+                <div class="festival-content">
+                    <div class="festival-meta">
+                        <span>March (Falgun/Chaitra)</span>
+                        <span>1-2 Days</span>
+                    </div>
+                    <h3>Holi</h3>
+                    <p>The colorful spring festival where people spray colored powders and water to celebrate the triumph of good.</p>
+                    <a href="#holi-details" class="read-more" data-festival="holi">Learn About Holi</a>
+                </div>
+            </div>
+
+            <div class="festival-card" id="losar">
+                <img src="/api/placeholder/400/200" alt="Losar Festival in Nepal">
+                <div class="festival-content">
+                    <div class="festival-meta">
+                        <span>February/March</span>
+                        <span>3 Days</span>
+                    </div>
+                    <h3>Losar</h3>
+                    <p>Tibetan New Year celebrated by Sherpa, Tamang, and Tibetan communities with traditional ceremonies.</p>
+                    <a href="#losar-details" class="read-more" data-festival="losar">Learn About Losar</a>
+                </div>
+            </div>
+
+            <div class="festival-card" id="indra-jatra">
+                <img src="/api/placeholder/400/200" alt="Indra Jatra Festival in Nepal">
+                <div class="festival-content">
+                    <div class="festival-meta">
+                        <span>September (Bhadra/Ashwin)</span>
+                        <span>8 Days</span>
+                    </div>
+                    <h3>Indra Jatra</h3>
+                    <p>Kathmandu's most important street festival honoring rain god Indra with chariot processions and mask dances.</p>
+                    <a href="#indra-jatra-details" class="read-more" data-festival="indra-jatra">Learn About Indra Jatra</a>
+                </div>
+            </div>
+
+            <div class="festival-card" id="teej">
+                <img src="/api/placeholder/400/200" alt="Teej Festival in Nepal">
+                <div class="festival-content">
+                    <div class="festival-meta">
+                        <span>August/September</span>
+                        <span>3 Days</span>
+                    </div>
+                    <h3>Teej</h3>
+                    <p>Women's festival marked by fasting, dancing in red sarees, and prayers for marital happiness and prosperity.</p>
+                    <a href="#teej-details" class="read-more" data-festival="teej">Learn About Teej</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="festival-details" id="dashain-details" style="display: none;">
+            <h2>Dashain Festival</h2>
+            <img src="/api/placeholder/800/400" alt="Dashain celebration in Nepal">
+            <p>Dashain is the longest and most auspicious festival in the Nepalese annual calendar, celebrated with great enthusiasm by Nepalis of all castes throughout the country. The fifteen-day celebration occurs during the bright lunar fortnight ending on the day of the full moon in September or October.</p>
+            
+            <p>This festival celebrates the victory of good over evil, specifically the goddess Durga's triumph over the demon Mahishasura. Dashain emphasizes the importance of family bonds, with people returning to their ancestral homes to receive blessings from elders.</p>
+
+            <h3>Key Traditions:</h3>
+            <ul>
+                <li><strong>Ghatasthapana (Day 1):</strong> The festival begins with sowing jamara (barley seeds) in a sacred spot, marking the beginning of the celebration.</li>
+                <li><strong>Fulpati (Day 7):</strong> Sacred flowers, plants, and royal kalash are carried in a procession from Gorkha to Kathmandu.</li>
+                <li><strong>Maha Ashtami (Day 8):</strong> Animal sacrifices and worship of Kali take place on this day.</li>
+                <li><strong>Maha Navami (Day 9):</strong> Official celebrations and more sacrifices to Durga occur.</li>
+                <li><strong>Vijaya Dashami (Day 10):</strong> The most important day, when elders apply tika (a mixture of rice, yogurt, and vermilion) to the foreheads of younger family members and give blessings.</li>
+            </ul>
+
+            <h3>Experience Dashain as a Visitor:</h3>
+            <p>For travelers, Dashain offers a unique opportunity to witness Nepal's cultural richness. You can observe rituals at major temples, see the flying of ceremonial kites (symbolizing messages to the gods), and witness the giant bamboo swings (ping) constructed in many villages. While many businesses close during this period, the festival atmosphere is captivating.</p>
+
+            <h3>When to Visit:</h3>
+            <p>Dashain usually falls in September-October (in the Nepali month of Kartik), with dates changing yearly according to the lunar calendar. Check the exact dates before planning your trip.</p>
+
+            <p>For more information about Dashain, visit the <a href="https://en.wikipedia.org/wiki/Dashain" target="_blank" class="external-link">Wikipedia page on Dashain</a>.</p>
+        </div>
+
+        <div class="festival-details" id="tihar-details" style="display: none;">
+            <h2>Tihar (Diwali) Festival</h2>
+            <img src="/api/placeholder/800/400" alt="Tihar celebration with lights in Nepal">
+            <p>Tihar, also known as Deepawali or the festival of lights, is the second most important festival in Nepal after Dashain. This five-day celebration honors different deities and animals, with each day having its own significance and rituals. The festival typically falls in October or November.</p>
+            
+            <p>Unlike Dashain, which focuses on family reunions, Tihar celebrates the relationship between humans, gods, and animals. Houses are illuminated with oil lamps, candles, and colorful electric lights to welcome Laxmi, the goddess of wealth and prosperity.</p>
+
+            <h3>The Five Days of Tihar:</h3>
+            <ul>
+                <li><strong>Kaag Tihar (Day 1):</strong> Dedicated to crows, the messengers of death, who are offered food to avert grief and death.</li>
+                <li><strong>Kukur Tihar (Day 2):</strong> Dogs are worshipped and adorned with flower garlands, tikka, and delicious food as recognition of their loyalty.</li>
+                <li><strong>Gai Tihar & Laxmi Puja (Day 3):</strong> Morning worshipping of cows (symbols of wealth) and evening worship of Goddess Laxmi with elaborate decorations and lights.</li>
+                <li><strong>Goru Tihar & Mha Puja (Day 4):</strong> Oxen are honored in the morning, and in the evening, Newari communities celebrate Mha Puja (self-worship).</li>
+                <li><strong>Bhai Tika (Day 5):</strong> Sisters apply colorful tikas to their brothers' foreheads, praying for their long life and prosperity.</li>
+            </ul>
+
+            <h3>Experience Tihar as a Visitor:</h3>
+            <p>Visiting Nepal during Tihar is a visual treat. The entire country glows with lights and oil lamps, and streets are decorated with rangoli (colorful designs). You can witness traditional Deusi-Bhailo performances, where groups sing and dance from house to house collecting money and food.</p>
+
+            <h3>When to Visit:</h3>
+            <p>Tihar usually falls in October-November, about two weeks after Dashain concludes. The exact dates vary according to the lunar calendar.</p>
+
+            <p>Learn more about this beautiful festival at the <a href="https://en.wikipedia.org/wiki/Tihar_(festival)" target="_blank" class="external-link">Wikipedia page on Tihar</a>.</p>
+        </div>
+
+        <div class="festival-details" id="holi-details" style="display: none;">
+            <h2>Holi Festival</h2>
+            <img src="/api/placeholder/800/400" alt="Holi celebration with colors in Nepal">
+            <p>Holi, known as the festival of colors, is one of Nepal's most vibrant and playful celebrations. This spring festival marks the end of winter and the victory of good over evil. In Nepal, Holi is celebrated with great enthusiasm, particularly in the Terai region and urban areas.</p>
+            
+            <p>The festival revolves around the mythological story of Holika and Prahlad, symbolizing the triumph of devotion over evil. What makes Holi special is the breaking down of social barriers – people of all ages, genders, and social status come together to celebrate by splashing colored powders and water on each other.</p>
+
+            <h3>Holi Celebrations in Nepal:</h3>
+            <ul>
+                <li><strong>Regional Variations:</strong> In the Kathmandu Valley, Holi is celebrated a day earlier than in the Terai region.</li>
+                <li><strong>Chir Pole:</strong> In some parts of Nepal, a ceremonial pole (chir) decorated with colorful cloth is installed at Durbar Square at the beginning of the festival and taken down at the end.</li>
+                <li><strong>Colors and Water:</strong> People roam the streets with bags of colored powder (abir) and water balloons, applying colors to friends and strangers alike.</li>
+                <li><strong>Music and Dance:</strong> Traditional and modern music fills the streets as people dance and celebrate together.</li>
+                <li><strong>Special Foods:</strong> Festive foods like malpua (sweet pancakes) and gujiya (sweet dumplings) are prepared and shared.</li>
+            </ul>
+
+            <h3>Experience Holi as a Visitor:</h3>
+            <p>Holi offers travelers a chance to participate in one of Nepal's most enjoyable celebrations. If you plan to join in, wear clothes you don't mind getting stained, protect your camera equipment, and consider applying oil to your skin and hair beforehand to make color removal easier. Remember that synthetic colors can sometimes cause skin irritation.</p>
+
+            <h3>When to Visit:</h3>
+            <p>Holi falls on the full moon day in the month of Falgun (February/March). The celebration lasts for a day in Kathmandu and two days in the Terai region.</p>
+
+            <p>Discover more about Holi at the <a href="https://en.wikipedia.org/wiki/Holi" target="_blank" class="external-link">Wikipedia page on Holi</a>.</p>
+        </div>
+
+        <div class="festival-details" id="losar-details" style="display: none;">
+            <h2>Losar Festival</h2>
+            <img src="/api/placeholder/800/400" alt="Losar celebration in Nepal">
+            <p>Losar is the Tibetan New Year celebration observed by Nepal's Tibetan, Sherpa, and Tamang communities. This ancient festival combines Tibetan Buddhist traditions with pre-Buddhist Bon rituals and marks the beginning of a new year with purification and renewal practices.</p>
+            
+            <p>There are three different Losar celebrations in Nepal: Tamu Losar (Gurung New Year), Sonam Losar (Tamang New Year), and Gyalpo Losar (Sherpa/Tibetan New Year), each celebrated at different times by different ethnic groups.</p>
+
+            <h3>Key Losar Traditions:</h3>
+            <ul>
+                <li><strong>Preparation:</strong> Homes are thoroughly cleaned to sweep away bad fortune, and families prepare special foods like khapse (deep-fried pastries).</li>
+                <li><strong>Monastic Rituals:</strong> Monasteries perform special rituals to drive away negative forces from the previous year.</li>
+                <li><strong>Guthuk Soup:</strong> A special noodle soup containing dough balls with hidden symbolic items is eaten the day before Losar.</li>
+                <li><strong>First Day:</strong> Reserved for family gatherings with traditional foods and offerings to household shrines.</li>
+                <li><strong>Second and Third Days:</strong> Visiting friends, relatives, and monasteries with continued celebrations.</li>
+            </ul>
+
+            <h3>Experience Losar as a Visitor:</h3>
+            <p>Travelers interested in Losar should head to Tibetan settlements like Boudhanath in Kathmandu, Namche Bazaar in the Everest region, or Tibetan refugee camps in Pokhara. You'll witness spectacular monastery ceremonies, traditional dance performances, and colorful processions. The celebration provides insight into the rich Himalayan Buddhist culture.</p>
+
+            <h3>When to Visit:</h3>
+            <p>Tamu Losar falls in late December, Sonam Losar in January/February, and Gyalpo Losar in February/March, according to the Tibetan lunar calendar.</p>
+
+            <p>Learn more about this cultural celebration at the <a href="https://en.wikipedia.org/wiki/Losar" target="_blank" class="external-link">Wikipedia page on Losar</a>.</p>
+        </div>
+
+        <div class="festival-details" id="indra-jatra-details" style="display: none;">
+            <h2>Indra Jatra Festival</h2>
+            <img src="/api/placeholder/800/400" alt="Indra Jatra celebration in Kathmandu">
+            <p>Indra Jatra is one of Kathmandu's most spectacular street festivals, marking the end of the monsoon season. This eight-day celebration honors Indra, the Hindu god of rain and the king of heaven, and also commemorates the founding of the Kathmandu Valley. The festival is primarily celebrated by the Newar community in Kathmandu Durbar Square.</p>
+            
+            <p>What makes Indra Jatra unique is its blend of religious devotion, historical reenactments, and cultural performances. The festival also includes the appearance of the living goddess Kumari, who is brought out of her temple in a ceremonial chariot procession.</p>
+
+            <h3>Key Indra Jatra Traditions:</h3>
+            <ul>
+                <li><strong>Raising of the Yosin Pole:</strong> The festival begins with the erection of a wooden pole (Yosin or Linga) at Hanuman Dhoka, symbolizing a flag staff for Indra.</li>
+                <li><strong>Kumari Jatra:</strong> The living goddess Kumari is paraded through the streets of Kathmandu in her chariot, accompanied by Ganesh and Bhairav chariots.</li>
+                <li><strong>Lakhe Dances:</strong> Performers wear masks representing demons and dance through the streets to traditional music.</li>
+                <li><strong>Mask Dances:</strong> Various traditional masked dances depicting deities and historical characters are performed.</li>
+                <li><strong>Dagin:</strong> Traditional display of lights in memory of deceased family members.</li>
+            </ul>
+
+            <h3>Experience Indra Jatra as a Visitor:</h3>
+            <p>For visitors, Indra Jatra offers an incredible opportunity to witness living heritage. The best viewing spots are around Kathmandu Durbar Square, particularly Hanuman Dhoka and Kumari Ghar. The evening performances with traditional lighting create a magical atmosphere. Expect large crowds, especially during the Kumari procession.</p>
+
+            <h3>When to Visit:</h3>
+            <p>Indra Jatra typically falls in September, during the Nepali month of Bhadra/Ashwin. The festival lasts for eight days, with the main celebrations concentrated in the middle days.</p>
+
+            <p>Discover more about this ancient festival at the <a href="https://en.wikipedia.org/wiki/Yenya" target="_blank" class="external-link">Wikipedia page on Indra Jatra (Yenya)</a>.</p>
+        </div>
+
+        <div class="festival-details" id="teej-details" style="display: none;">
+            <h2>Teej Festival</h2>
+            <img src="/api/placeholder/800/400" alt="Women celebrating Teej festival in Nepal">
+            <p>Teej is a significant festival for Hindu women in Nepal, dedicated to the goddess Parvati and celebrating her union with Lord Shiva. This three-day festival is characterized by fasting, dancing, singing, and prayer. Women dress in red saris (the color of marriage and good fortune) and participate in various rituals seeking marital happiness, longevity for their husbands, and prosperity for their families.</p>
+            
+            <p>The festival has profound cultural significance as it highlights women's strength and devotion. For unmarried women, it's an occasion to pray for a good husband, while married women pray for their husband's well-being and a harmonious marital life.</p>
+
+            <h3>The Three Days of Teej:</h3>
+            <ul>
+                <li><strong>Dar Khane Din (Day 1):</strong> Women gather at their parents' homes for a feast with traditional foods before the fasting begins.</li>
+                <li><strong>Fasting Day (Day 2):</strong> Strict fasting without even water, along with visiting Shiva temples, singing, dancing, and wearing red attire.</li>
+                <li><strong>Rishi Panchami (Day 3):</strong> Worship of the Sapta Rishis (seven sages) and ritual bathing with special leaves and roots to purify from sins.</li>
+            </ul>
+
+            <h3>Experience Teej as a Visitor:</h3>
+            <p>Visitors can observe the vibrant Teej processions where women in red saris sing and dance through the streets on their way to Shiva temples. The Pashupatinath Temple in Kathmandu sees thousands of devotees during Teej. The festival showcases traditional Nepali women's folk songs and dances that are rarely performed at other times.</p>
+
+            <h3>When to Visit:</h3>
+            <p>Teej usually falls in August-September, during the Nepali month of Bhadra. The exact dates change yearly according to the lunar calendar.</p>
+
+            <p>Learn more about this women-centric festival at the <a href="https://en.wikipedia.org/wiki/Teej" target="_blank" class="external-link">Wikipedia page on Teej</a>.</p>
+        </div>
+
+        <div class="plan-visit">
+            <div class="container">
+                <h2>Plan Your Festival Visit to Nepal</h2>
+                <p>Immerse yourself in Nepal's vibrant cultural festivities by planning your trip around these colorful celebrations. Here's what you need to know to make the most of your festival experience in Nepal.</p>
+                
+                <div class="travel-tips">
+                    <div class="tip-card">
+                        <h3>Best Time to Visit</h3>
+                        <p>September to November is the peak festival season with Dashain and Tihar. Spring (March) brings Holi, while winter (December-February) features several ethnic new year celebrations.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h3>Festival Calendar</h3>
+                        <p>Nepal follows lunar calendars, so festival dates change yearly. Always check current dates before planning your trip. Most major festivals occur between September and May.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h3>Accommodation</h3>
+                        <p>Book accommodations well in advance for major festivals like Dashain and Tihar. Consider homestays for an authentic festival experience with a local family.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h3>Transportation</h3>
+                        <p>Public transportation gets limited during major festivals. Plan accordingly and consider private transportation options. Many Nepalis travel during Dashain, making transportation crowded.</p>
+                    </div>
+                </div>
+                
+                <h3>Useful Resources</h3>
+                <p>For the most up-to-date information on festival dates and celebrations, visit these resources:</p>
+                <ul>
+                    <li><a href="https://www.welcomenepal.com" target="_blank" class="external-link">Nepal Tourism Board</a></li>
+                    <li><a href="https://www.nepalhighlandtreks.com/nepal-festivals" target="_blank" class="external-link">Nepal Highland Treks Festival Guide</a></li>
+                    <li><a href="https://www.insidehimalayas.com" target="_blank" class="external-link">Inside Himalayas</a></li>
+                </ul>
+                
+                <button id="contact-btn" class="btn">Contact for Festival Tours</button>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" id="back-to-top" style="display: none;">↑</a>
+
+    <script>
+        // Festival details toggle
+        const readMoreLinks = document.querySelectorAll('.read-more');
+        const festivalDetails = document.querySelectorAll('.festival-details');
+        
+        readMoreLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Hide all festival details
+                festivalDetails.forEach(detail => {
+                    detail.style.display = 'none';
+                });
+                
+                // Show the selected festival details
+                const festivalId = this.getAttribute('href').substring(1);
+                document.getElementById(festivalId).style.display = 'block';
+                
+                // Scroll to the details
+                document.getElementById(festivalId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Complete the back-to-top button script
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopButton.style.display = 'flex';
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.style.display = 'none';
+        backToTopButton.classList.remove('visible');
+    }
+});
+
+backToTopButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Contact button functionality
+document.getElementById('contact-btn').addEventListener('click', function() {
+    alert('Thank you for your interest! Please email us at info@nepalfestivals.com to inquire about festival tours.');
+});
+</script>
+
+<div id="footer"></div>
+<script>
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+</script>
+
+</body>
+</html>

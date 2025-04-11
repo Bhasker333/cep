@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Everest - Cultural Heritage of Nepal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section (you mentioned you already have this) -->
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Beyond Everest</h1>
+                    <!-- ADD LOGO IMAGE HERE -->
+                </a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Discover <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="culture.html">Culture & Traditions</a>
+                            <a href="food.html">Nepali Cuisine</a>
+                            <a href="festivals.html">Festivals</a>
+                            <a href="dresses.html">Traditional Attire</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Destinations <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="mountains.html">Mountains</a>
+                            <a href="cities.html">Cities</a>
+                            <a href="temples.html">Temples</a>
+                            <a href="lakes.html">Lakes & Rivers</a>
+                            <a href="parks.html">National Parks</a>
+                            <a href="hidden-gems.html">Hidden Gems</a>
+                            <a href="heritage.html">UNESCO World Heritage</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Adventures <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="trekking.html">Trekking Routes</a>
+                            <a href="adventure.html">Adventure Sports</a>
+                        </div>
+                    </li>
+                    <li><a href="travel-guide.html">Travel Guide</a></li>
+                    <li><a href="plan.html">Plan Your Trip</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/culture-hero.jpg');">
+        <div class="hero-content">
+            <h1>Cultural Heritage of Nepal</h1>
+            <p>Discover the rich tapestry of traditions, festivals, and customs that have shaped this Himalayan nation for centuries.</p>
+            <div class="hero-buttons">
+                <a href="#cultural-diversity" class="btn btn-primary">Explore Cultures</a>
+                <a href="#festivals" class="btn btn-outline">Festival Calendar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Diversity Section -->
+    <section id="cultural-diversity" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cultural Diversity</h2>
+                <p>Nepal is a mosaic of ethnic groups, languages, and traditions coexisting in harmony. Learn about the major cultural groups that contribute to Nepal's unique identity.</p>
+            </div>
+
+            <div class="culture-filters">
+                <button class="culture-filter active" data-theme="all">All</button>
+                <button class="culture-filter" data-theme="himalayan">Himalayan</button>
+                <button class="culture-filter" data-theme="valley">Valley</button>
+                <button class="culture-filter" data-theme="terai">Terai</button>
+                <button class="culture-filter" data-theme="eastern">Eastern</button>
+                <button class="culture-filter" data-theme="western">Western</button>
+            </div>
+
+            <div class="culture-grid">
+                <!-- Newari Culture -->
+                <div class="culture-card fade-in" data-theme="valley">
+                    <div class="culture-card-img">
+                        <img src="../images/newari-culture.jpg" alt="Newari Culture">
+                    </div>
+                    <div class="culture-card-content">
+                        <h3>Newari Culture</h3>
+                        <div class="culture-info">
+                            <span class="culture-info-item">Kathmandu Valley</span>
+                            <span class="culture-info-item">Newari Language</span>
+                        </div>
+                        <p>The indigenous people of the Kathmandu Valley, the Newars have an incredibly rich cultural heritage dating back over two millennia. Known for their exceptional craftsmanship, art, architecture, and cuisine, the Newari community has played a significant role in shaping Nepal's cultural landscape.</p>
+                        <p>Their pagoda-style architecture can be seen in numerous temples across the valley, while their wood carving, stone sculpture, and metal work show unparalleled artistry. The Newars celebrate numerous festivals including Indra Jatra, Yenya, and Bisket Jatra, featuring vibrant processions, masked dances, and traditional music.</p>
+                        <a href="https://en.wikipedia.org/wiki/Newar" class="read-more" target="_blank">Explore Newari Traditions</a>
+                    </div>
+                </div>
+
+                <!-- Sherpa Culture -->
+                <div class="culture-card fade-in" data-theme="himalayan">
+                    <div class="culture-card-img">
+                        <img src="../images/sherpa-culture.jpg" alt="Sherpa Culture">
+                    </div>
+                    <div class="culture-card-content">
+                        <h3>Sherpa Culture</h3>
+                        <div class="culture-info">
+                            <span class="culture-info-item">Everest Region</span>
+                            <span class="culture-info-item">Sherpa Language</span>
+                        </div>
+                        <p>World-renowned for their mountaineering skills, Sherpas are indigenous people of the high Himalayan regions. Originally from Tibet, Sherpas follow Tibetan Buddhism and have deep spiritual connections to the mountains they call home.</p>
+                        <p>Their culture revolves around respect for nature, particularly mountains which they consider sacred. Sherpa communities are known for their colorful festivals, distinctive clothing, and traditional dances. Key celebrations include Losar (New Year) and Mani Rimdu, a 19-day festival featuring masked dances at Tengboche Monastery. Their warmth and hospitality have become legendary among trekkers in the Everest region.</p>
+                        <a href="https://en.wikipedia.org/wiki/Sherpa_people" class="read-more" target="_blank">Discover Sherpa Heritage</a>
+                    </div>
+                </div>
+
+                <!-- Tharu Culture -->
+                <div class="culture-card fade-in" data-theme="terai">
+                    <div class="culture-card-img">
+                        <img src="../images/tharu-culture.jpg" alt="Tharu Culture">
+                    </div>
+                    <div class="culture-card-content">
+                        <h3>Tharu Culture</h3>
+                        <div class="culture-info">
+                            <span class="culture-info-item">Terai Lowlands</span>
+                            <span class="culture-info-item">Tharu Language</span>
+                        </div>
+                        <p>Indigenous to the Terai plains, the Tharu people are one of Nepal's oldest ethnic groups. Having lived in the once malaria-infested regions, they developed natural resistance to the disease, allowing them to cultivate the fertile lands when others could not.</p>
+                        <p>Known for their unique architecture featuring mud and thatch houses with intricate wall paintings, the Tharu have distinct cultural practices including the Jhamta dance, colorful embroidery, and traditional tattoo art. Their festivals celebrate nature's cycles, with Maghi (harvest celebration) and Jitiya (festival for children's well-being) being major events. Their agricultural knowledge and traditional medicinal practices reflect a deep connection to the land.</p>
+                        <a href="https://en.wikipedia.org/wiki/Tharu_people" class="read-more" target="_blank">Learn About Tharu Traditions</a>
+                    </div>
+                </div>
+
+                <!-- Tamang Culture -->
+                <div class="culture-card fade-in" data-theme="eastern">
+                    <div class="culture-card-img">
+                        <img src="../images/tamang-culture.jpg" alt="Tamang Culture">
+                    </div>
+                    <div class="culture-card-content">
+                        <h3>Tamang Culture</h3>
+                        <div class="culture-info">
+                            <span class="culture-info-item">Central Himalayas</span>
+                            <span class="culture-info-item">Tamang Language</span>
+                        </div>
+                        <p>The Tamang people, predominantly residing in the central Himalayan regions around Kathmandu Valley, are known for their rich musical traditions and distinctive circular dance called Tamang Selo. Their culture reflects Tibetan influence while maintaining its unique character.</p>
+                        <p>Practicing a form of Buddhism mixed with shamanic rituals, Tamangs observe numerous festivals including Sonam Lhosar (New Year) with feasting, dancing, and traditional costume displays. Their traditional homes feature distinctive architecture, and their skilled craftsmanship in carpets, bamboo products, and thanka paintings showcases their artistic heritage. The Tamang community plays a vital role in Nepali music, with many popular folk songs originating from their cultural traditions.</p>
+                        <a href="https://en.wikipedia.org/wiki/Tamang" class="read-more" target="_blank">Experience Tamang Culture</a>
+                    </div>
+                </div>
+
+                <!-- Gurung Culture -->
+                <div class="culture-card fade-in" data-theme="western">
+                    <div class="culture-card-img">
+                        <img src="../images/gurung-culture.jpg" alt="Gurung Culture">
+                    </div>
+                    <div class="culture-card-content">
+                        <h3>Gurung Culture</h3>
+                        <div class="culture-info">
+                            <span class="culture-info-item">Annapurna Region</span>
+                            <span class="culture-info-item">Gurung Language</span>
+                        </div>
+                        <p>Inhabiting the middle hills of Nepal, particularly around the Annapurna mountain range, Gurungs are known for their bravery as Gurkha soldiers and their rich cultural traditions. Their communities are characterized by stone houses with thatched roofs nestled in terraced hillsides.</p>
+                        <p>The Gurung culture features shamanic traditions alongside Buddhist and Hindu practices. Their Tamu Lhosar (New Year) festival is celebrated with traditional dance, music, and feasting. The Rodhi, a traditional gathering place for young people, plays an important role in preserving cultural songs and dances. Gurungs are famous for their honey hunting tradition, where skilled individuals collect honey from cliff-side beehives using traditional methods passed down through generations.</p>
+                        <a href="https://en.wikipedia.org/wiki/Gurung_people" class="read-more" target="_blank">Explore Gurung Heritage</a>
+                    </div>
+                </div>
+
+                <!-- Rai Culture -->
+                <div class="culture-card fade-in" data-theme="eastern">
+                    <div class="culture-card-img">
+                        <img src="../images/rai-culture.jpg" alt="Rai Culture">
+                    </div>
+                    <div class="culture-card-content">
+                        <h3>Rai Culture</h3>
+                        <div class="culture-info">
+                            <span class="culture-info-item">Eastern Hills</span>
+                            <span class="culture-info-item">Rai Languages</span>
+                        </div>
+                        <p>The Rai people of eastern Nepal consist of various sub-groups, each with their own dialect, traditions, and customs. Known for their complex animistic belief systems, Rais practice Kirat religion which venerates nature and ancestors.</p>
+                        <p>Sakela (Sakewa) is their major festival, celebrated with circular dances mimicking bird and animal movements to honor Mother Nature. Their traditional attire features distinctive jewelry and embroidery, while their homes often incorporate bamboo and wood construction techniques. Rais have a rich oral tradition of myths and stories, and their community bonds are strengthened through rituals led by village shamans called Bijuwas. Their traditional farming practices and forest management reflect a sustainable relationship with
+                             their natural environment. Music plays a central role in Rai culture, with the unique rhythms of their drums and traditional instruments accompanying ceremonies and celebrations throughout the year.</p>
+                            <a href="https://en.wikipedia.org/wiki/Rai_people" class="read-more" target="_blank">Discover Rai Traditions</a>
+                        </div>
+                    </div>
+    
+                    <!-- Limbu Culture -->
+                    <div class="culture-card fade-in" data-theme="eastern">
+                        <div class="culture-card-img">
+                            <img src="../images/limbu-culture.jpg" alt="Limbu Culture">
+                        </div>
+                        <div class="culture-card-content">
+                            <h3>Limbu Culture</h3>
+                            <div class="culture-info">
+                                <span class="culture-info-item">Eastern Nepal</span>
+                                <span class="culture-info-item">Limbu Language</span>
+                            </div>
+                            <p>The Limbu people, also known as Yakthung, are indigenous to the easternmost regions of Nepal. They are known for their distinctive writing system called Sirijonga and their rich cultural practices that blend animism with nature worship.</p>
+                            <p>Central to Limbu culture is the Mundhum, their sacred oral text containing myths, history, and ritual instructions. Like the Rai, they celebrate Sakela festivals, but also observe Chasok Tangnam, a harvest thanksgiving ceremony. Limbus are famous for their Chyabrung dance, performed with a double-headed drum, and Ke lang, a traditional sword dance. Their traditional homes feature distinctive architectural elements, and their communities are organized around the Tumyang system, a traditional form of governance headed by village chiefs.</p>
+                            <a href="https://en.wikipedia.org/wiki/Limbu_people" class="read-more" target="_blank">Learn About Limbu Heritage</a>
+
+                        </div>
+                    </div>
+    
+                    <!-- Magar Culture -->
+                    <div class="culture-card fade-in" data-theme="western">
+                        <div class="culture-card-img">
+                            <img src="../images/magar-culture.jpg" alt="Magar Culture">
+                        </div>
+                        <div class="culture-card-content">
+                            <h3>Magar Culture</h3>
+                            <div class="culture-info">
+                                <span class="culture-info-item">Western Hills</span>
+                                <span class="culture-info-item">Magar Language</span>
+                            </div>
+                            <p>The Magar people are one of Nepal's largest ethnic groups, predominantly living in the western and mid-western hills. Known for their martial traditions as Gurkha soldiers, Magars have maintained their distinctive cultural identity throughout the centuries.</p>
+                            <p>Their traditional Kauda dance, performed in circular formation with songs that narrate historical events and folk tales, is central to community gatherings. Maghe Sankranti and Bhume Puja (earth worship ritual) are important festivals in Magar culture. Traditional Magar homes feature stone construction with distinctive roofing techniques. Their society was traditionally organized around the Athara Magarant (Eighteen Magar Kingdoms), and many communities still maintain their traditional governance systems alongside national structures.</p>
+                            <a href="https://en.wikipedia.org/wiki/Magar_people" class="read-more" target="_blank">Explore Magar Traditions</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Festivals Section -->
+        <section id="festivals" class="section section-dark">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Festivals of Nepal</h2>
+                    <p>Nepal celebrates numerous festivals throughout the year, many with ancient origins that blend religious devotion with cultural celebration.</p>
+                </div>
+    
+                <div class="festival-timeline">
+                    <div class="timeline-controls">
+                        <button class="timeline-nav prev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="timeline-months">
+                            <span class="timeline-month active" data-month="jan">January</span>
+                            <span class="timeline-month" data-month="feb">February</span>
+                            <span class="timeline-month" data-month="mar">March</span>
+                            <span class="timeline-month" data-month="apr">April</span>
+                            <span class="timeline-month" data-month="may">May</span>
+                            <span class="timeline-month" data-month="jun">June</span>
+                            <span class="timeline-month" data-month="jul">July</span>
+                            <span class="timeline-month" data-month="aug">August</span>
+                            <span class="timeline-month" data-month="sep">September</span>
+                            <span class="timeline-month" data-month="oct">October</span>
+                            <span class="timeline-month" data-month="nov">November</span>
+                            <span class="timeline-month" data-month="dec">December</span>
+                        </div>
+                        <button class="timeline-nav next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+    
+                    <div class="festival-content">
+                        <!-- January Festivals -->
+                        <div class="festival-month active" data-month="jan">
+                            <div class="festival-item">
+                                <div class="festival-image">
+                                    <img src="../images/maghe-sankranti.jpg" alt="Maghe Sankranti">
+                                </div>
+                                <div class="festival-details">
+                                    <h3>Maghe Sankranti</h3>
+                                    <div class="festival-date">Mid-January</div>
+                                    <p>This festival marks the end of the winter solstice and celebrates the beginning of longer days. People take ritual baths in sacred rivers and consume special foods including sesame seeds, sweet potatoes, and ghee. For the Tharu and Magar communities, this is a major celebration with cultural performances and feasting.</p>
+                                </div>
+                            </div>
+                            <div class="festival-item">
+                                <div class="festival-image">
+                                    <img src="../images/sonam-lhosar.jpg" alt="Sonam Lhosar">
+                                </div>
+                                <div class="festival-details">
+                                    <h3>Sonam Lhosar</h3>
+                                    <div class="festival-date">Late January</div>
+                                    <p>The Tamang New Year celebration features colorful processions, traditional dances, and elaborate feasts. Families gather to exchange gifts and blessings, while monasteries hold special prayer ceremonies. In Kathmandu, large public celebrations include cultural performances and traditional food stalls.</p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Rest of the months and festivals would follow with similar structure -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Traditional Arts Section -->
+        <section id="traditional-arts" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Traditional Arts & Crafts</h2>
+                    <p>Nepal's artistic heritage spans millennia, with techniques passed down through generations of master craftspeople.</p>
+                </div>
+    
+                <div class="arts-slider">
+                    <div class="arts-slide">
+                        <div class="arts-image">
+                            <img src="../images/thangka-painting.jpg" alt="Thangka Painting">
+                        </div>
+                        <div class="arts-description">
+                            <h3>Thangka Painting</h3>
+                            <p>These intricate Buddhist scroll paintings depict deities, mandalas, and religious scenes. Created using ground mineral pigments on cotton or silk, thangkas serve as meditation aids and teaching tools. The creation process follows strict traditional guidelines, with artists often spending months or even years on a single piece.</p>
+                            <a href="#" class="btn btn-sm">Learn Thangka History</a>
+                        </div>
+                    </div>
+    
+                    <!-- Additional arts slides would follow -->
+                </div>
+            </div>
+        </section>
+    
+        <!-- World Heritage Sites Section -->
+        <section id="heritage-sites" class="section section-light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>UNESCO World Heritage Sites</h2>
+                    <p>Nepal is home to ten UNESCO World Heritage sites, including seven in the Kathmandu Valley alone.</p>
+                </div>
+    
+                <div class="heritage-sites-grid">
+                    <!-- Heritage sites would be listed here -->
+                </div>
+            </div>
+        </section>
+    
+        <!-- Newsletter Section -->
+        <section class="newsletter section-dark">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated on Nepal's Cultural Calendar</h2>
+                    <p>Subscribe to receive information about upcoming festivals, cultural events, and travel opportunities.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Footer Section (you mentioned you already have this) -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>Beyond Everest</h3>
+                        <p>Exploring the hidden treasures of Nepal beyond the famous peaks.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="culture.html">Culture</a></li>
+                            <li><a href="destinations.html">Destinations</a></li>
+                            <li><a href="adventures.html">Adventures</a></li>
+                            <li><a href="cuisine.html">Cuisine</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Travel Guide</a></li>
+                            <li><a href="#">Packing List</a></li>
+                            <li><a href="#">Visa Information</a></li>
+                            <li><a href="#">Health & Safety</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact Us</h3>
+                        <address>
+                            <p><i class="fas fa-map-marker-alt"></i> Thamel, Kathmandu, Nepal</p>
+                            <p><i class="fas fa-phone"></i> +977 1 4XXXXXX</p>
+                            <p><i class="fas fa-envelope"></i> info@beyondeverest.com</p>
+                        </address>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Beyond Everest. All rights reserved.</p>
+                    <ul class="footer-legal">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    
+        <script src="script.js"></script>
+    </body>
+    </html>

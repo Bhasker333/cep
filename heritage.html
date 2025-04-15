@@ -44,10 +44,11 @@
 
         /* Hero section */
         .hero {
-            background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), url('/api/placeholder/1200/600') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('images/heritagehero.png') no-repeat center center/cover;
             color: var(--accent-color);
             padding: 100px 20px;
             text-align: center;
+            height: 300px;
         }
 
         .hero h1 {
@@ -551,7 +552,7 @@
             <div id="site-detail" class="site-detail">
                 <div id="kathmandu-durbar-square-detail" class="site-detail-content">
                     <div class="site-detail-img">
-                        <img src="/api/placeholder/600/400" alt="Kathmandu Durbar Square Detailed">
+                        <img src="images/ktm.png" alt="Kathmandu Durbar Square Detailed">
                     </div>
                     <div class="site-detail-info">
                         <h3>Kathmandu Durbar Square</h3>
@@ -594,7 +595,7 @@
 
                 <div id="pashupatinath-temple-detail" class="site-detail-content">
                     <div class="site-detail-img">
-                        <img src="/api/placeholder/600/400" alt="Pashupatinath Temple Detailed">
+                        <img src="images/pashupati.png" alt="Pashupatinath Temple Detailed">
                     </div>
                     <div class="site-detail-info">
                         <h3>Pashupatinath Temple</h3>
@@ -637,7 +638,7 @@
 
                 <div id="boudhanath-stupa-detail" class="site-detail-content">
                     <div class="site-detail-img">
-                        <img src="/api/placeholder/600/400" alt="Boudhanath Stupa Detailed">
+                        <img src="images/b" alt="Boudhanath Stupa Detailed">
                     </div>
                     <div class="site-detail-info">
                         <h3>Boudhanath Stupa</h3>
@@ -738,7 +739,7 @@
                     <p>Use this map to plan your heritage tour across Nepal. The Kathmandu Valley contains seven UNESCO World Heritage Sites within a 15 km radius, making it one of the densest concentrations of cultural heritage anywhere in the world.</p>
                 </div>
                 <div class="map-image">
-                    <img src="/api/placeholder/800/400" alt="Map of Heritage Sites in Nepal">
+                    <img src="images/heritahemap.png" alt="Map of Heritage Sites in Nepal">
                 </div>
             </div>
         </div>
@@ -828,121 +829,163 @@
         function createAdditionalSiteDetails() {
             // This function creates details for the other heritage sites
             const siteDetailData = {
-                'swayambhunath': {
-                    title: 'Swayambhunath (Monkey Temple)',
-                    intro: 'Swayambhunath, also known as the Monkey Temple, is an ancient religious complex atop a hill in the Kathmandu Valley. It features a central stupa with Buddha\'s eyes painted on all four sides, surrounded by various shrines and temples.',
-                    history: 'According to legend, the Kathmandu Valley was once a lake, and the hill where Swayambhunath stands emerged naturally when the bodhisattva Manjushri drained the lake. The stupa is believed to be over 2,000 years old, though most structures date from around the 5th century CE. It remains one of the oldest Buddhist sites in Nepal.',
-                    attractions: [
-                        '<strong>Main Stupa:</strong> The central white dome with Buddha\'s eyes and the golden spire.',
-                        '<strong>Prayer Wheels:</strong> Bronze cylinders inscribed with prayers that visitors spin as they walk around the stupa.',
-                        '<strong>Harati Temple:</strong> Dedicated to the goddess of children and smallpox.',
-                        '<strong>Buddha Statues:</strong> Various Buddha statues around the complex.',
-                        '<strong>The Viewpoint:</strong> Panoramic views of Kathmandu Valley.'
-                    ],
-                    cultural: 'Swayambhunath holds significance for both Buddhists and Hindus, exemplifying Nepal\'s religious harmony. The resident monkeys are considered holy and associated with Manjushri. The site plays an important role in various Buddhist and Newari festivals throughout the year.',
-                    visitor: [
-                        '<strong>Entry Fee:</strong> NPR 200 for foreigners',
-                        '<strong>Opening Hours:</strong> 5 AM to 7 PM daily',
-                        '<strong>Best Time to Visit:</strong> Sunrise for spiritual atmosphere and panoramic views',
-                        '<strong>Access:</strong> 365 steps from the eastern entrance, or by road to the western entrance'
-                    ]
-                },
-                'bhaktapur-durbar-square': {
-                    title: 'Bhaktapur Durbar Square',
-                    intro: 'Bhaktapur Durbar Square is the plaza in front of the old royal palace of the former Bhaktapur Kingdom. Known as the best-preserved of the three Durbar Squares in the Kathmandu Valley, it offers an authentic glimpse into medieval Nepal.',
-                    history: 'The square was built during the reign of the Malla dynasty in the 15th century. Bhaktapur was once the largest of the three Newar kingdoms of the Kathmandu Valley and was its capital until the 15th century. The city was positioned on the trade route between Tibet and India, which contributed to its prosperity.',
-                    attractions: [
-                        '<strong>55-Window Palace:</strong> A masterpiece of wood carving with its 55 intricately carved windows.',
-                        '<strong>Golden Gate:</strong> The most richly decorated entrance with gilded torana (decorative gateway).',
-                        '<strong>Lion\'s Gate:</strong> Guarded by stone statues of warriors on each side.',
-                        '<strong>Mini Pashupatinath Temple:</strong> A replica of the famous Pashupatinath Temple.',
-                        '<strong>Nyatapola Temple:</strong> A five-story pagoda temple, the tallest in Nepal.'
-                    ],
-                    cultural: 'Bhaktapur is renowned for its arts and crafts, traditional pottery, and wood carving. The city hosts several important festivals, including Bisket Jatra (Nepali New Year) and Gai Jatra (Cow Festival). The square remains the heart of Bhaktapur\'s social and religious life.',
-                    visitor: [
-                        '<strong>Entry Fee:</strong> NPR 1500 for foreigners (covers entire Bhaktapur city)',
-                        '<strong>Opening Hours:</strong> 8 AM to 7 PM daily',
-                        '<strong>Best Time to Visit:</strong> Morning hours for photography',
-                        '<strong>Highlight:</strong> Visit the nearby Pottery Square to see traditional pottery making'
-                    ]
-                },
-                'patan-durbar-square': {
-                    title: 'Patan Durbar Square',
-                    intro: 'Patan Durbar Square is situated at the center of Lalitpur (Patan) city, one of the three ancient cities in the Kathmandu Valley. Known for its stunning display of Newari architecture, it houses the ancient royal palace and numerous temples and statues.',
-                    history: 'Patan is believed to have been founded in the 3rd century BCE by the Kirat dynasty, making it one of the oldest known Buddhist cities. Most of the current buildings date from the 1600s during the Malla period. Patan was an independent kingdom until the 18th century when it was conquered by Prithvi Narayan Shah during the unification of Nepal.',
-                    attractions: [
-                        '<strong>Patan Museum:</strong> Located in the former royal palace, housing an excellent collection of religious art.',
-                        '<strong>Krishna Temple:</strong> Built in 1637, this stone temple with 21 spires is dedicated to Lord Krishna.',
-                        '<strong>Golden Temple (Hiranya Varna Mahavihara):</strong> A Buddhist monastery known for its golden facades.',
-                        '<strong>Mul Chowk:</strong> The central courtyard of the palace with intricate carvings.',
-                        '<strong>Sundari Chowk:</strong> Features the elaborately carved Tusha Hiti stone bath.'
-                    ],
-                    cultural: 'Patan is considered the center of arts and crafts in Nepal, particularly known for its metalwork, stone carving, and wood carving traditions. The city celebrates numerous festivals, with Rato Machhindranath Jatra being the most important, featuring a tall chariot procession through the city streets.',
-                    visitor: [
-                        '<strong>Entry Fee:</strong> NPR 1000 for foreigners',
-                        '<strong>Opening Hours:</strong> 7 AM to 7 PM daily',
-                        '<strong>Best Time to Visit:</strong> Early morning or late afternoon',
-                        '<strong>Must-See:</strong> The Patan Museum is considered one of the best museums in South Asia'
-                    ]
-                },
-                'changu-narayan-temple': {
-                    title: 'Changu Narayan Temple',
-                    intro: 'Changu Narayan is an ancient Hindu temple dedicated to Lord Vishnu. Located on a hilltop in Bhaktapur district, it is considered the oldest temple in Nepal and showcases some of the finest examples of stone, wood, and metal craftsmanship in the Kathmandu Valley.',
-                    history: 'The temple is believed to have been built in the 4th century, though inscriptions date from the 5th century. The current structure dates mostly from the 13th century after being rebuilt following a fire. The temple houses the oldest stone inscription in Nepal, dating to 464 CE, which is an important source for the history of the Licchavi period.',
-                    attractions: [
-                        '<strong>Main Temple:</strong> Two-tiered pagoda-style temple with intricate wood carvings on the struts.',
-                        '<strong>Stone Sculptures:</strong> Including the Vishnu Vikranta (Vishnu as Vamana) and Narasimha (man-lion avatar of Vishnu).',
-                        '<strong>Garuda Statue:</strong> A 5th-century stone statue of Garuda, Vishnu\'s mount, kneeling in front of the temple.',
-                        '<strong>Shiva-Parvati Temple:</strong> A smaller shrine within the complex.',
-                        '<strong>Stone Inscriptions:</strong> Ancient inscriptions in stone dating back to the Licchavi period.'
-                    ],
-                    cultural: 'Changu Narayan is a living heritage site where religious practices have continued uninterrupted for centuries. The temple complex is surrounded by a traditional Newari village whose inhabitants have been preserving the temple\'s artistic and cultural traditions for generations.',
-                    visitor: [
-                        '<strong>Entry Fee:</strong> NPR 300 for foreigners',
-                        '<strong>Opening Hours:</strong> 6 AM to 7 PM daily',
-                        '<strong>Best Time to Visit:</strong> Morning hours for clear views of the valley',
-                        '<strong>Special Note:</strong> The site was affected by the 2015 earthquake but has been largely restored'
-                    ]
-                },
-                'lumbini': {
-                    title: 'Lumbini',
-                    intro: 'Lumbini is the birthplace of Lord Buddha (Siddhartha Gautama) and one of the most sacred pilgrimage sites for Buddhists worldwide. This UNESCO World Heritage Site includes the sacred garden where Buddha was born, the Maya Devi Temple, and numerous monasteries built by different countries.',
-                    history: 'According to Buddhist tradition, Queen Maya Devi gave birth to Siddhartha Gautama in 623 BCE while en route to her parent\'s home. The exact location was rediscovered in 1896 when a pillar erected by Emperor Ashoka in 249 BCE was found, confirming the site\'s authenticity. In modern times, Lumbini has been developed as an international pilgrimage and peace center.',
-                    attractions: [
-                        '<strong>Maya Devi Temple:</strong> Housing the exact birthplace of Buddha, marked by a stone.',
-                        '<strong>Ashoka Pillar:</strong> Erected by Emperor Ashoka in 249 BCE, confirming the birthplace of Buddha.',
-                        '<strong>Sacred Garden:</strong> A peaceful area surrounding the Maya Devi Temple.',
-                        '<strong>The Lumbini Monastic Zone:</strong> Divided into east and west zones with monasteries built by various Buddhist countries.',
-                        '<strong>World Peace Pagoda:</strong> A white stupa built by Japanese Buddhists.'
-                    ],
-                    cultural: 'Lumbini is a symbol of peace and harmony, attracting pilgrims from around the world. The site represents the universal values associated with Buddha\'s teachings - peace, non-violence, and compassion. The development of Lumbini as an international pilgrimage site follows the master plan designed by Japanese architect Kenzo Tange.',
-                    visitor: [
-                        '<strong>Entry Fee:</strong> NPR 200 for foreigners',
-                        '<strong>Opening Hours:</strong> Sunrise to sunset daily',
-                        '<strong>Best Time to Visit:</strong> November to February for pleasant weather',
-                        '<strong>Getting There:</strong> Domestic flights to Bhairahawa airport, then a 30-minute drive'
-                    ]
-                },
-                'janaki-mandir': {
-                    title: 'Janaki Mandir',
-                    intro: 'Janaki Mandir (Temple) is a Hindu temple dedicated to goddess Sita, located in Janakpur in southern Nepal. Built in an elaborate Rajput style, this dazzling white structure is one of the most beautiful temples in Nepal and a significant pilgrimage site for Hindus.',
-                    history: 'The temple was built in 1911 by Queen Brisabhanu Kunwari of Tikamgarh, India, and took nine years to complete. It marks the site where King Janak is said to have found the infant Sita while plowing a field, and later where she was married to Lord Ram, as described in the Hindu epic Ramayana.',
-                    attractions: [
-                        '<strong>Main Temple:</strong> A three-story structure with 60 rooms, featuring breathtaking architecture with Rajput-style domes and arches.',
-                        '<strong>Intricate Carvings:</strong> The temple walls and windows feature detailed carvings depicting scenes from the Ramayana.',
-                        '<strong>Central Sanctum:</strong> Houses images of Sita and Ram.',
-                        '<strong>Vivah Mandap:</strong> The sacred place believed to be where Sita and Ram were married.',
-                        '<strong>Surrounding Gardens:</strong> Beautiful gardens and ponds surrounding the temple.'
-                    ],
-                    cultural: 'Janaki Mandir is the center of the Mithila culture in Nepal. It plays a crucial role during Ram Navami and Vivah Panchami festivals, which celebrate the birth of Lord Ram and the marriage of Ram and Sita respectively. The temple attracts thousands of pilgrims from both Nepal and India during these festivals.',
-                    visitor: [
-                        '<strong>Entry Fee:</strong> Free (small donation appreciated)',
-                        '<strong>Opening Hours:</strong> 5 AM to 9 PM daily',
-                        '<strong>Best Time to Visit:</strong> November to December during Vivah Panchami',
-                        '<strong>Getting There:</strong> Accessible by road from Kathmandu (8-10 hours) or flights to Janakpur airport'
-                    ]
-                }
-            };
+    'swayambhunath': {
+        title: 'Swayambhunath (Monkey Temple)',
+        intro: 'Swayambhunath, also known as the Monkey Temple, is an ancient religious complex atop a hill in the Kathmandu Valley. It features a central stupa with Buddha\'s eyes painted on all four sides, surrounded by various shrines and temples.',
+        mainImage: '/images/swayambhunath-main.jpg',
+        galleryImages: [
+            '/images/swayambhunath-stupa.jpg',
+            '/images/swayambhunath-buddha-eyes.jpg',
+            '/images/swayambhunath-monkeys.jpg',
+            '/images/swayambhunath-panorama.jpg'
+        ],
+        history: 'According to legend, the Kathmandu Valley was once a lake, and the hill where Swayambhunath stands emerged naturally when the bodhisattva Manjushri drained the lake. The stupa is believed to be over 2,000 years old, though most structures date from around the 5th century CE. It remains one of the oldest Buddhist sites in Nepal.',
+        attractions: [
+            '<strong>Main Stupa:</strong> The central white dome with Buddha\'s eyes and the golden spire.',
+            '<strong>Prayer Wheels:</strong> Bronze cylinders inscribed with prayers that visitors spin as they walk around the stupa.',
+            '<strong>Harati Temple:</strong> Dedicated to the goddess of children and smallpox.',
+            '<strong>Buddha Statues:</strong> Various Buddha statues around the complex.',
+            '<strong>The Viewpoint:</strong> Panoramic views of Kathmandu Valley.'
+        ],
+        cultural: 'Swayambhunath holds significance for both Buddhists and Hindus, exemplifying Nepal\'s religious harmony. The resident monkeys are considered holy and associated with Manjushri. The site plays an important role in various Buddhist and Newari festivals throughout the year.',
+        visitor: [
+            '<strong>Entry Fee:</strong> NPR 200 for foreigners',
+            '<strong>Opening Hours:</strong> 5 AM to 7 PM daily',
+            '<strong>Best Time to Visit:</strong> Sunrise for spiritual atmosphere and panoramic views',
+            '<strong>Access:</strong> 365 steps from the eastern entrance, or by road to the western entrance'
+        ]
+    },
+    'bhaktapur-durbar-square': {
+        title: 'Bhaktapur Durbar Square',
+        intro: 'Bhaktapur Durbar Square is the plaza in front of the old royal palace of the former Bhaktapur Kingdom. Known as the best-preserved of the three Durbar Squares in the Kathmandu Valley, it offers an authentic glimpse into medieval Nepal.',
+        mainImage: '/images/bhaktapur-main.jpg',
+        galleryImages: [
+            '/images/bhaktapur-55-window.jpg',
+            '/images/bhaktapur-golden-gate.jpg',
+            '/images/bhaktapur-nyatapola.jpg',
+            '/images/bhaktapur-pottery.jpg'
+        ],
+        history: 'The square was built during the reign of the Malla dynasty in the 15th century. Bhaktapur was once the largest of the three Newar kingdoms of the Kathmandu Valley and was its capital until the 15th century. The city was positioned on the trade route between Tibet and India, which contributed to its prosperity.',
+        attractions: [
+            '<strong>55-Window Palace:</strong> A masterpiece of wood carving with its 55 intricately carved windows.',
+            '<strong>Golden Gate:</strong> The most richly decorated entrance with gilded torana (decorative gateway).',
+            '<strong>Lion\'s Gate:</strong> Guarded by stone statues of warriors on each side.',
+            '<strong>Mini Pashupatinath Temple:</strong> A replica of the famous Pashupatinath Temple.',
+            '<strong>Nyatapola Temple:</strong> A five-story pagoda temple, the tallest in Nepal.'
+        ],
+        cultural: 'Bhaktapur is renowned for its arts and crafts, traditional pottery, and wood carving. The city hosts several important festivals, including Bisket Jatra (Nepali New Year) and Gai Jatra (Cow Festival). The square remains the heart of Bhaktapur\'s social and religious life.',
+        visitor: [
+            '<strong>Entry Fee:</strong> NPR 1500 for foreigners (covers entire Bhaktapur city)',
+            '<strong>Opening Hours:</strong> 8 AM to 7 PM daily',
+            '<strong>Best Time to Visit:</strong> Morning hours for photography',
+            '<strong>Highlight:</strong> Visit the nearby Pottery Square to see traditional pottery making'
+        ]
+    },
+    'patan-durbar-square': {
+        title: 'Patan Durbar Square',
+        intro: 'Patan Durbar Square is situated at the center of Lalitpur (Patan) city, one of the three ancient cities in the Kathmandu Valley. Known for its stunning display of Newari architecture, it houses the ancient royal palace and numerous temples and statues.',
+        mainImage: '/images/patan-main.jpg',
+        galleryImages: [
+            '/images/patan-krishna-temple.jpg',
+            '/images/patan-golden-temple.jpg',
+            '/images/patan-museum.jpg',
+            '/images/patan-courtyard.jpg'
+        ],
+        history: 'Patan is believed to have been founded in the 3rd century BCE by the Kirat dynasty, making it one of the oldest known Buddhist cities. Most of the current buildings date from the 1600s during the Malla period. Patan was an independent kingdom until the 18th century when it was conquered by Prithvi Narayan Shah during the unification of Nepal.',
+        attractions: [
+            '<strong>Patan Museum:</strong> Located in the former royal palace, housing an excellent collection of religious art.',
+            '<strong>Krishna Temple:</strong> Built in 1637, this stone temple with 21 spires is dedicated to Lord Krishna.',
+            '<strong>Golden Temple (Hiranya Varna Mahavihara):</strong> A Buddhist monastery known for its golden facades.',
+            '<strong>Mul Chowk:</strong> The central courtyard of the palace with intricate carvings.',
+            '<strong>Sundari Chowk:</strong> Features the elaborately carved Tusha Hiti stone bath.'
+        ],
+        cultural: 'Patan is considered the center of arts and crafts in Nepal, particularly known for its metalwork, stone carving, and wood carving traditions. The city celebrates numerous festivals, with Rato Machhindranath Jatra being the most important, featuring a tall chariot procession through the city streets.',
+        visitor: [
+            '<strong>Entry Fee:</strong> NPR 1000 for foreigners',
+            '<strong>Opening Hours:</strong> 7 AM to 7 PM daily',
+            '<strong>Best Time to Visit:</strong> Early morning or late afternoon',
+            '<strong>Must-See:</strong> The Patan Museum is considered one of the best museums in South Asia'
+        ]
+    },
+    'changu-narayan-temple': {
+        title: 'Changu Narayan Temple',
+        intro: 'Changu Narayan is an ancient Hindu temple dedicated to Lord Vishnu. Located on a hilltop in Bhaktapur district, it is considered the oldest temple in Nepal and showcases some of the finest examples of stone, wood, and metal craftsmanship in the Kathmandu Valley.',
+        mainImage: '/images/changu-narayan-main.jpg',
+        galleryImages: [
+            '/images/changu-narayan-temple.jpg',
+            '/images/changu-narayan-carvings.jpg',
+            '/images/changu-narayan-garuda.jpg',
+            '/images/changu-narayan-panorama.jpg'
+        ],
+        history: 'The temple is believed to have been built in the 4th century, though inscriptions date from the 5th century. The current structure dates mostly from the 13th century after being rebuilt following a fire. The temple houses the oldest stone inscription in Nepal, dating to 464 CE, which is an important source for the history of the Licchavi period.',
+        attractions: [
+            '<strong>Main Temple:</strong> Two-tiered pagoda-style temple with intricate wood carvings on the struts.',
+            '<strong>Stone Sculptures:</strong> Including the Vishnu Vikranta (Vishnu as Vamana) and Narasimha (man-lion avatar of Vishnu).',
+            '<strong>Garuda Statue:</strong> A 5th-century stone statue of Garuda, Vishnu\'s mount, kneeling in front of the temple.',
+            '<strong>Shiva-Parvati Temple:</strong> A smaller shrine within the complex.',
+            '<strong>Stone Inscriptions:</strong> Ancient inscriptions in stone dating back to the Licchavi period.'
+        ],
+        cultural: 'Changu Narayan is a living heritage site where religious practices have continued uninterrupted for centuries. The temple complex is surrounded by a traditional Newari village whose inhabitants have been preserving the temple\'s artistic and cultural traditions for generations.',
+        visitor: [
+            '<strong>Entry Fee:</strong> NPR 300 for foreigners',
+            '<strong>Opening Hours:</strong> 6 AM to 7 PM daily',
+            '<strong>Best Time to Visit:</strong> Morning hours for clear views of the valley',
+            '<strong>Special Note:</strong> The site was affected by the 2015 earthquake but has been largely restored'
+        ]
+    },
+    'lumbini': {
+        title: 'Lumbini',
+        intro: 'Lumbini is the birthplace of Lord Buddha (Siddhartha Gautama) and one of the most sacred pilgrimage sites for Buddhists worldwide. This UNESCO World Heritage Site includes the sacred garden where Buddha was born, the Maya Devi Temple, and numerous monasteries built by different countries.',
+        mainImage: '/images/lumbini-main.jpg',
+        galleryImages: [
+            '/images/lumbini-maya-devi.jpg',
+            '/images/lumbini-ashoka-pillar.jpg',
+            '/images/lumbini-peace-pagoda.jpg',
+            '/images/lumbini-monasteries.jpg'
+        ],
+        history: 'According to Buddhist tradition, Queen Maya Devi gave birth to Siddhartha Gautama in 623 BCE while en route to her parent\'s home. The exact location was rediscovered in 1896 when a pillar erected by Emperor Ashoka in 249 BCE was found, confirming the site\'s authenticity. In modern times, Lumbini has been developed as an international pilgrimage and peace center.',
+        attractions: [
+            '<strong>Maya Devi Temple:</strong> Housing the exact birthplace of Buddha, marked by a stone.',
+            '<strong>Ashoka Pillar:</strong> Erected by Emperor Ashoka in 249 BCE, confirming the birthplace of Buddha.',
+            '<strong>Sacred Garden:</strong> A peaceful area surrounding the Maya Devi Temple.',
+            '<strong>The Lumbini Monastic Zone:</strong> Divided into east and west zones with monasteries built by various Buddhist countries.',
+            '<strong>World Peace Pagoda:</strong> A white stupa built by Japanese Buddhists.'
+        ],
+        cultural: 'Lumbini is a symbol of peace and harmony, attracting pilgrims from around the world. The site represents the universal values associated with Buddha\'s teachings - peace, non-violence, and compassion. The development of Lumbini as an international pilgrimage site follows the master plan designed by Japanese architect Kenzo Tange.',
+        visitor: [
+            '<strong>Entry Fee:</strong> NPR 200 for foreigners',
+            '<strong>Opening Hours:</strong> Sunrise to sunset daily',
+            '<strong>Best Time to Visit:</strong> November to February for pleasant weather',
+            '<strong>Getting There:</strong> Domestic flights to Bhairahawa airport, then a 30-minute drive'
+        ]
+    },
+    'janaki-mandir': {
+        title: 'Janaki Mandir',
+        intro: 'Janaki Mandir (Temple) is a Hindu temple dedicated to goddess Sita, located in Janakpur in southern Nepal. Built in an elaborate Rajput style, this dazzling white structure is one of the most beautiful temples in Nepal and a significant pilgrimage site for Hindus.',
+        mainImage: '/images/janaki-mandir-main.jpg',
+        galleryImages: [
+            '/images/janaki-mandir-facade.jpg',
+            '/images/janaki-mandir-dome.jpg',
+            '/images/janaki-mandir-interior.jpg',
+            '/images/janaki-mandir-carvings.jpg'
+        ],
+        history: 'The temple was built in 1911 by Queen Brisabhanu Kunwari of Tikamgarh, India, and took nine years to complete. It marks the site where King Janak is said to have found the infant Sita while plowing a field, and later where she was married to Lord Ram, as described in the Hindu epic Ramayana.',
+        attractions: [
+            '<strong>Main Temple:</strong> A three-story structure with 60 rooms, featuring breathtaking architecture with Rajput-style domes and arches.',
+            '<strong>Intricate Carvings:</strong> The temple walls and windows feature detailed carvings depicting scenes from the Ramayana.',
+            '<strong>Central Sanctum:</strong> Houses images of Sita and Ram.',
+            '<strong>Vivah Mandap:</strong> The sacred place believed to be where Sita and Ram were married.',
+            '<strong>Surrounding Gardens:</strong> Beautiful gardens and ponds surrounding the temple.'
+        ],
+        cultural: 'Janaki Mandir is the center of the Mithila culture in Nepal. It plays a crucial role during Ram Navami and Vivah Panchami festivals, which celebrate the birth of Lord Ram and the marriage of Ram and Sita respectively. The temple attracts thousands of pilgrims from both Nepal and India during these festivals.',
+        visitor: [
+            '<strong>Entry Fee:</strong> Free (small donation appreciated)',
+            '<strong>Opening Hours:</strong> 5 AM to 9 PM daily',
+            '<strong>Best Time to Visit:</strong> November to December during Vivah Panchami',
+            '<strong>Getting There:</strong> Accessible by road from Kathmandu (8-10 hours) or flights to Janakpur airport'
+        ]
+    }
+};
             
             // Create HTML for each site
             const siteDetailContainer = document.getElementById('site-detail');
@@ -957,6 +1000,10 @@
                     <div class="site-detail-img">
                         <img src="/api/placeholder/600/400" alt="${data.title} Detailed">
                     </div>
+
+
+
+
                     <div class="site-detail-info">
                         <h3>${data.title}</h3>
                         <p>${data.intro}</p>

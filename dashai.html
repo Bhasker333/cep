@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashain & Tihar - Nepal's Cultural Celebrations</title>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #457b9d;
+            --accent-color: #ffffff;
+            --dark-color: #1d3557;
+            --light-color: #f8f9fa;
+            --light-bg: #f1f5f9;
+            --border-radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --font-heading: 'Montserrat', 'Segoe UI', sans-serif;
+            --font-body: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.8)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: var(--accent-color);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, var(--light-color), transparent);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+            font-size: 2.5rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            height: 4px;
+            width: 80px;
+            background: var(--secondary-color);
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+        }
+        
+        .card {
+            background: var(--accent-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .card-img {
+            height: 230px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-title {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-box {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .festival-day {
+            background-color: var(--accent-color);
+            border-left: 5px solid var(--primary-color);
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            transition: var(--transition);
+        }
+        
+        .festival-day:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .festival-day h3 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+        }
+        
+        .festival-day h3::before {
+            content: "•";
+            margin-right: 10px;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+        
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .food-item {
+            background: var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .food-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .food-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--light-bg);
+        }
+        
+        .food-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .food-item:hover .food-img img {
+            transform: scale(1.1);
+        }
+        
+        .food-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 30px;
+            margin: 40px 0;
+            background-color: rgba(230, 57, 70, 0.05);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-size: 1.1rem;
+        }
+        
+        .alternate-bg {
+            background-color: var(--light-bg);
+        }
+        
+        .tips-card {
+            background: var(--accent-color);
+            border-radius: var(--border-radius);
+            padding: 0;
+            box-shadow: var(--shadow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tips-card-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+        
+        .tips-card ul {
+            list-style-position: inside;
+            margin-top: 15px;
+        }
+        
+        .tips-card li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        .tips-card li::before {
+            content: "→";
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .resources-card {
+            background-color: var(--accent-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .resources-list {
+            list-style-type: none;
+            margin-top: 20px;
+        }
+        
+        .resources-list li {
+            margin-bottom: 15px;
+            transition: var(--transition);
+            padding: 10px;
+            border-radius: var(--border-radius);
+        }
+        
+        .resources-list li:hover {
+            background-color: var(--light-bg);
+            transform: translateX(5px);
+        }
+        
+        .resources-list a {
+            display: flex;
+            align-items: center;
+        }
+        
+        .resources-list span {
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: var(--accent-color);
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+        
+        .footer-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 992px) {
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .food-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .food-img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Dashain & Tihar Festivals</h1>
+            <p>Experience Nepal's most vibrant and culturally significant festivals that bring families together in celebrations lasting for weeks.</p>
+        </div>
+    </div>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Overview</h2>
+            <div class="info-box">
+                <p>Dashain and Tihar are Nepal's two biggest festivals, celebrated annually with immense enthusiasm. Dashain spans 15 days in September/October, followed by Tihar (the festival of lights) about two weeks later. Both festivals hold profound religious and cultural significance for Nepali people, celebrating the victory of good over evil and bringing families together in joyous celebrations.</p>
+            </div>
+            
+            <div class="two-col">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">When to Experience</h3>
+                    <ul style="list-style-position: inside; margin-bottom: 25px; padding-left: 15px;">
+                        <li><strong>Dashain:</strong> September-October (during Ashwin/Kartik months in Nepali calendar)</li>
+                        <li><strong>Tihar:</strong> October-November (follows Dashain by about two weeks)</li>
+                        <li><strong>Duration:</strong> Dashain (15 days), Tihar (5 days)</li>
+                    </ul>
+                    <p>The exact dates vary each year as they are determined by the lunar calendar. These festivals transform Nepal into a vibrant display of traditions, with streets and homes decorated with colorful lights and ornaments.</p>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="/api/placeholder/600/400" alt="Dashain celebration with family gathering">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge">Cultural Heritage</span>
+                        <h3 class="card-title">Cultural Significance</h3>
+                        <p>These festivals represent the victory of good over evil and are times for family reunions, receiving blessings from elders, and indulging in festive foods and activities. They strengthen family bonds and community ties while preserving ancient traditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section alternate-bg">
+        <div class="container">
+            <h2 class="section-title">Dashain Festival</h2>
+            <p class="subtitle">Dashain celebrates the victory of Goddess Durga over the demon Mahishasura, symbolizing the triumph of good over evil. It's the longest and most anticipated festival in Nepal.</p>
+            
+            <div class="card">
+                <div class="card-img">
+                    <img src="/api/placeholder/800/400" alt="Dashain tika ceremony with family members">
+                </div>
+                <div class="card-content">
+                    <span class="badge">15-Day Celebration</span>
+                    <h3 class="card-title">The 15 Days of Dashain</h3>
+                    <p>Each day of Dashain has its own significance and rituals. The most important days are Ghatasthapana (first day), Fulpati (seventh day), Maha Ashtami (eighth day), Maha Navami (ninth day), and Vijaya Dashami (tenth day). Families reunite, homes are cleaned and decorated, and special meals are prepared throughout the festival period.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 25px; text-align: center;">Key Days of Dashain</h3>
+                
+                <div class="festival-day">
+                    <h3>Day 1: Ghatasthapana (घटस्थापना)</h3>
+                    <p>The festival begins with planting barley seeds in a bed of sand in a clay pot, which will grow into yellow grass called "jamara" by the tenth day. This ritual is performed in a special room where the goddess Durga is invoked. The sprouted jamara symbolizes prosperity and is used in blessing ceremonies later.</p>
+                </div>
+                
+                <div class="festival-day">
+                    <h3>Day 7: Fulpati (फूलपाती)</h3>
+                    <p>Sacred plants including banana stalks, jamara, and belpatra (wood apple leaves) are brought in a decorated palanquin from Gorkha to Kathmandu's Hanuman Dhoka Royal Palace, accompanied by a military parade. This day marks the beginning of the main Dashain celebrations.</p>
+                </div>
+                
+                <div class="festival-day">
+                    <h3>Day 8: Maha Ashtami (महाअष्टमी)</h3>
+                    <p>Known as the day of sacrifice, many devotees sacrifice animals (especially male buffaloes) to Goddess Durga. The Taleju Temple in Kathmandu, normally closed to the public, opens on this one day each year. The sacrifices symbolize devotion and the triumph over ego.</p>
+                </div>
+                
+                <div class="festival-day">
+                    <h3>Day 9: Maha Navami (महानवमी)</h3>
+                    <p>This day is dedicated to Durga Bhawani. Military units perform sacrifices to honor the goddess. Many families also conduct sacrifices or prepare special meat dishes on this day. Government offices perform official sacrifices at major temples.</p>
+                </div>
+                
+                <div class="festival-day">
+                    <h3>Day 10: Vijaya Dashami (विजया दशमी)</h3>
+                    <p>The most important day when families gather and younger members receive tika (colored rice paste mark on forehead) and jamara from elders along with blessings. This tradition continues for the next five days as people visit relatives. Family bonds are strengthened through this ritual of respect and blessing.</p>
+                </div>
+                
+                <div class="festival-day">
+                    <h3>Day 15: Kojagrat Purnima (कोजाग्रत पूर्णिमा)</h3>
+                    <p>The full moon marks the end of Dashain. This night is dedicated to Goddess Laxmi (wealth). Many people stay awake playing cards and celebrating through the night. Special prayers are offered to Laxmi for prosperity in the coming year.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 30px; text-align: center;">Dashain Activities & Traditions</h3>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="/api/placeholder/400/300" alt="People flying colorful kites during Dashain">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Kite Flying</h3>
+                            <p>Colorful kites dot the sky during Dashain, symbolizing messages to the gods. It's believed that flying kites brings prosperity and helps guide departed souls to heaven. Children and adults alike enjoy this tradition, with neighborhoods coming alive with kites of various colors and designs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="/api/placeholder/400/300" alt="Traditional bamboo swing (ping) with people enjoying">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Ping (Bamboo Swings)</h3>
+                            <p>Temporary bamboo swings called "ping" are constructed in villages. These tall swings represent the connection between heaven and earth. Young people gather around these swings, waiting for their turn to soar high into the sky, symbolically reaching toward heaven.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="/api/placeholder/400/300" alt="Family playing traditional card games during Dashain">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Card Games</h3>
+                            <p>Families and friends gather to play cards during the festive period. Gambling is traditionally permitted during Dashain as it's believed to please Goddess Laxmi. These gatherings are not just about games but also serve as a time for sharing stories and strengthening bonds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Tihar Festival</h2>
+            <p class="subtitle">Also known as Deepawali or the Festival of Lights, Tihar is celebrated for five days with lights, colors, and prayers to different deities. Houses glow with oil lamps, candles, and electric lights.</p>
+            
+            <div class="card">
+                <div class="card-img">
+                    <img src="/api/placeholder/800/400" alt="Home decorated with oil lamps and flowers during Tihar">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Festival of Lights</span>
+                    <h3 class="card-title">The 5 Days of Tihar</h3>
+                    <p>Each day of Tihar is dedicated to worshipping different deities: crows, dogs, cows, oxen, and brothers. Houses are decorated with oil lamps, candles, and colorful rangoli patterns. The festival illuminates homes and hearts, creating a magical atmosphere throughout Nepal.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 25px; text-align: center;">Key Days of Tihar</h3>
+                
+                <div class="festival-day">
+                    <h3>Day 1: Kaag Tihar (काग तिहार) - Crow Worship</h3>
+                    <p>The festival begins by honoring crows, the messengers of death. People offer food to crows on their rooftops, seeking to avert grief and death in their homes. Crows are believed to bring news from the realm of the dead and are respected as divine messengers.</p>
+                </div>
+                
+                <div class="festival-day">
+                    <h3>Day 2: Kukur Tihar (कुकुर तिहार) - Dog Worship</h3>
+                    <p>Dogs are worshipped as loyal guardians and messengers of Yama (the god of death). They're adorned with flower garlands, tika, and offered special treats. This day recognizes the loyal companionship and protective nature of dogs throughout human history.</p>
+                </div>
+                
+                <div class="festival-day">
+                    <h3>Day 3: Gai Tihar & Laxmi Puja (गाई तिहार र लक्ष्मी पूजा)</h3>
+                    <p>Morning is dedicated to cows, symbols of wealth and maternal figures. Evening features Laxmi Puja, when homes are cleaned and illuminated with oil lamps to welcome Goddess Laxmi, the deity of wealth and prosperity. This is considered the most important night of Tihar.</p>
+                </div>
+                
+                <div class="festival-day">
+                    <h3>Day 4: Govardhan Puja & Mha Puja (गोवर्धन पूजा र म्ह: पूजा)</h3>
+                    <p>For many Hindus, this day involves worshipping oxen. In the Newar community, it's also New Year's Day featuring Mha Puja (self-worship), a ritual purifying and blessing one's body and soul for the coming year. A special mandala is created for each family member during this ceremony.</p>
+                </div>
+                
+                <div class="festival-day">
+                    <h3>Day 5: Bhai Tika (भाई टीका)</h3>
+                    <p>The final day celebrates the sacred bond between brothers and sisters. Sisters apply colorful tika to their brothers' foreheads, pray for their long life, and offer gifts. Brothers give gifts and promise protection in return. This ritual strengthens family bonds and honors sibling relationships.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 30px; text-align: center;">Tihar Activities & Traditions</h3>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="/api/placeholder/400/300" alt="Colorful rangoli patterns at entrance of home">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Rangoli (Aipan)</h3>
+                            <p>Beautiful designs made with colored rice, flour, sand, or flower petals decorate entrances to welcome the goddess Laxmi. These intricate patterns symbolize prosperity and spiritual connection, featuring geometric designs, flowers, and auspicious symbols.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="/api/placeholder/400/300" alt="Group of Deusi Bhailo performers with traditional instruments">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Deusi Bhailo</h3>
+                            <p>Groups go door-to-door singing traditional Deusi and Bhailo songs, offering blessings to households in exchange for money, food, or treats. These cultural performances bring communities together and spread joy throughout neighborhoods.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="/api/placeholder/400/300" alt="Beautiful arrangement of oil lamps during Tihar evening">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Lighting Diyo</h3>
+                            <p>Oil lamps (diyo) illuminate houses, creating a magical atmosphere across neighborhoods and symbolically guiding Goddess Laxmi to blessed homes. The warm glow of these lamps transforms cities and villages into enchanting displays of light and hope.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section alternate-bg">
+        <div class="container">
+            <h2 class="section-title">Festival Foods</h2>
+            <p class="subtitle">These festivals are incomplete without special delicacies prepared to celebrate the occasion. Families spend days preparing traditional dishes that are shared with relatives and neighbors.</p>
+            
+            <div class="two-col">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 25px;">Dashain Specialties</h3>
+                    
+                    <div class="food-item">
+                        <div class="food-img">
+                            <img src="/api/placeholder/150/150" alt="Traditional Nepali mutton curry">
+                        </div>
+                        <div>
+                            <h4>Khasi ko Masu (Mutton Curry)</h4>
+                            <p>Spicy slow-cooked goat meat curry, a must-have during Dashain celebrations. This rich dish is prepared with aromatic spices and often served with rice or traditional Nepali bread.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="food-item">
+                        <div class="food-img">
+                            <img src="/api/placeholder/150/150" alt="Freshly made sel roti">
+                        </div>
+                        <div>
+                            <h4>Sel Roti</h4>
+                            <p>Ring-shaped sweet rice bread, deep-fried and crispy on the outside, soft inside. This traditional bread is made from soaked rice flour mixed with sugar, butter, and spices, then formed into circular shapes and fried.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="food-item">
+                        <div class="food-img">
+                            <img src="/api/placeholder/150/150" alt="Aloo tama curry dish">
+                        </div>
+                        <div>
+                            <h4>Aloo Tama</h4>
+                            <p>Potato and bamboo shoot curry with black-eyed beans, tangy and flavorful. This unique combination creates a distinctive taste that has been part of Nepali cuisine for generations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="food-item">
+                    <div class="food-img">
+                        <img src="/api/placeholder/150/150" alt="Assortment of traditional Nepali sweets">
+                    </div>
+                    <div>
+                        <h4>Mithai (Sweets)</h4>
+                        <p>Various traditional sweets including laddu, barfi, and jeri made from milk, sugar, and nuts. These colorful confections are essential during Tihar and are offered to deities before being shared with family and guests.</p>
+                    </div>
+                </div>
+                
+                <div class="food-item">
+                    <div class="food-img">
+                        <img src="/api/placeholder/150/150" alt="Freshly made shakarpara sweets">
+                    </div>
+                    <div>
+                        <h4>Shakarpara</h4>
+                        <p>Deep-fried sweet pastry made from flour, sugar, and ghee, popular during Tihar. These diamond-shaped treats have a delightful crunch and subtle sweetness that makes them perfect for festive occasions.</p>
+                    </div>
+                </div>
+                
+                <div class="food-item">
+                    <div class="food-img">
+                        <img src="/api/placeholder/150/150" alt="Traditional Newari Samaybaji platter">
+                    </div>
+                    <div>
+                        <h4>Samaybaji</h4>
+                        <p>Newari festival platter with beaten rice, spiced meat, boiled egg, soybeans, and more. This elaborate dish represents the rich culinary heritage of the Newari community and showcases a perfect balance of flavors and textures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Religious Significance</h2>
+        <p class="subtitle">Beyond the celebrations and feasts, these festivals carry deep spiritual meaning and reinforce cultural values that have been passed down through generations.</p>
+        
+        <div class="two-col">
+            <div class="card">
+                <div class="card-img">
+                    <img src="/api/placeholder/500/300" alt="Goddess Durga statue in temple setting">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Hindu Mythology</span>
+                    <h3 class="card-title">Dashain</h3>
+                    <p>Dashain celebrates the victory of Goddess Durga over the demon king Mahishasura. The festival symbolizes the triumph of good over evil. The first nine days represent the battle between Durga and Mahishasura, while the tenth day marks the victory.</p>
+                    <p>People visit temples dedicated to Goddess Durga, particularly Shaktipeeths (places sacred to the divine feminine). Animal sacrifices are traditionally performed to honor the goddess, though this practice is declining in urban areas.</p>
+                    <p>The goddess Durga, depicted with multiple arms holding various weapons, represents divine feminine power that protects the universe from evil forces and maintains cosmic order.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img">
+                    <img src="/api/placeholder/500/300" alt="Goddess Laxmi statue with oil lamps">
+                </div>
+                <div class="card-content">
+                    <span class="badge">Divine Worship</span>
+                    <h3 class="card-title">Tihar</h3>
+                    <p>Tihar honors various deities and aspects of life. The worship of animals acknowledges their contribution to human life and their spiritual significance. The festival culminates in celebrating the brother-sister relationship.</p>
+                    <p>The most important ritual is Laxmi Puja, dedicated to the goddess of wealth and prosperity. Homes and businesses are thoroughly cleaned and decorated with oil lamps to guide Laxmi to bestow blessings of prosperity.</p>
+                    <p>The worship of animals during Tihar reflects Nepal's holistic worldview that recognizes the interconnectedness of all living beings. Even household items and vehicles are adorned with flowers and blessed during this period.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quote">
+            <p>"These festivals are not just religious ceremonies but serve as occasions for family reunions, renewal of community ties, and expressions of gratitude to deities, animals, and family members who make life prosperous and meaningful. They represent the living heritage of Nepal that continues to evolve while preserving ancient traditions."</p>
+        </div>
+    </div>
+</section>
+
+<section class="section alternate-bg">
+    <div class="container">
+        <h2 class="section-title">Tips for Travelers</h2>
+        <p class="subtitle">If you're planning to experience these magnificent festivals in Nepal, here are some practical suggestions to help you make the most of your visit.</p>
+        
+        <div class="grid">
+            <div class="tips-card">
+                <div class="card-img">
+                    <img src="/api/placeholder/400/250" alt="Tourist respectfully participating in cultural ceremony">
+                </div>
+                <div class="tips-card-content">
+                    <h3 class="card-title">Cultural Etiquette</h3>
+                    <ul>
+                        <li>Dress modestly when visiting temples or attending ceremonies</li>
+                        <li>Always remove shoes before entering homes or temples</li>
+                        <li>If invited to a home celebration, bringing sweets or fruits is appreciated</li>
+                        <li>Ask permission before photographing ceremonies or people</li>
+                        <li>When receiving tika, accept it with both hands as a sign of respect</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tips-card">
+                <div class="card-img">
+                    <img src="/api/placeholder/400/250" alt="Calendar marking festival dates">
+                </div>
+                <div class="tips-card-content">
+                    <h3 class="card-title">Planning Your Visit</h3>
+                    <ul>
+                        <li>Book accommodations at least 2-3 months in advance</li>
+                        <li>Expect transportation delays during peak festival days</li>
+                        <li>Many businesses close during major festival days</li>
+                        <li>Consider visiting Kathmandu Durbar Square during Dashain</li>
+                        <li>Plan to stay through both festivals for the complete experience</li>
+                        <li>Pack comfortable walking shoes for temple visits</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tips-card">
+                <div class="card-img">
+                    <img src="/api/placeholder/400/250" alt="Panoramic view of Kathmandu during festival season">
+                </div>
+                <div class="tips-card-content">
+                    <h3 class="card-title">Best Places to Experience</h3>
+                    <ul>
+                        <li>Kathmandu Valley temples for authentic Dashain rituals</li>
+                        <li>Thamel area during Tihar evening illuminations</li>
+                        <li>Patan Durbar Square for traditional celebrations</li>
+                        <li>Bhaktapur for authentic cultural experiences</li>
+                        <li>Pokhara for a more relaxed festival atmosphere</li>
+                        <li>Local villages for genuine rural celebrations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="back-to-top" id="backToTop">↑</div>
+
+<script>
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+</body>
+</html>

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trekking in Nepal - Beyond Everest</title>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
     <div id="header"></div>
 <script>
     fetch('header.html')
@@ -43,17 +44,21 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/trek.jpg') center/cover no-repeat;
-            color: var(--accent-color);
-            padding: 100px 0;
-            text-align: center;
-            margin-bottom: 40px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.658);
         }
 
         .hero p {
@@ -331,33 +336,68 @@
             padding-bottom: 10px;
         }
 
-        .checklist-items {
+       .checklist {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
-
+        
+        .checklist-category {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .checklist-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .checklist-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
         .checklist-item {
             display: flex;
             align-items: center;
         }
-
-        .checklist-item input {
-            margin-right: 10px;
+        
+        .checklist-item input[type="checkbox"] {
+            margin-right: 0.8rem;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
         }
-
-        .contact-section {
-            background-color: var(--secondary-color);
+        
+        .checklist-item label {
+            cursor: pointer;
+        }
+        
+        .download-btn {
+            display: block;
+            background-color: var(--primary-color);
             color: var(--accent-color);
-            padding: 60px 0;
-            margin: 60px 0 0;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 2rem auto 0;
+            transition: var(--transition);
+        }
+        
+        .download-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
+
+        <--.....................-->
 
         @media (max-width: 768px) {
             .contact-grid {
@@ -482,7 +522,6 @@
             <img src="images/Everest trek/tents-at-everest-base-camp-1204.jpg" alt="Everest Base Camp Trek" class="trek-image">
             <img src="images/Everest trek/stunning-image of treker.jpg" alt="Everest Base Camp Trek" class="trek-image">
             <img src="images/Everest trek/people having treking.jpg" alt="Everest Base Camp Trek" class="trek-image">
-            <img src="images/Everest trek/toomas-tartes-rpJAiQqpcRo-unsplash.jpg" alt="Everest Base Camp Trek" class="trek-image">
             <img src="images/Everest trek/Image from trekker.jpg" alt="Everest Base Camp Trek" class="trek-image">
             <div class="trek-content">
                 <h3>Everest Base Camp Trek</h3>
@@ -933,10 +972,10 @@
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="#" class="btn" onclick="downloadChecklist()">Download Printable Checklist</a>
-        </div>
+        <button class="download-btn" onclick="downloadChecklist()">Download Selected Items</button>
     </section>
+
+        
 
     <!-- Health & Safety Section -->
     <section class="container">
@@ -1594,10 +1633,111 @@
             }
         }
         
-        // Function to download checklist
-        function downloadChecklist() {
-            alert('Checklist PDF would download here in a real implementation.');
+       
+        // Wait for jsPDF to load
+        window.onload = function() {
+            window.jsPDF = window.jspdf.jsPDF;
         }
+        
+        // Function to download selected checklist items as PDF
+        function downloadChecklist() {
+            // Create new PDF document
+            const doc = new jsPDF();
+            
+            // Set up document properties
+            doc.setFont("helvetica");
+            doc.setFontSize(22);
+            doc.setTextColor(29, 53, 87); // Dark color
+            
+            // Add title
+            doc.text("Nepal Trekking Equipment Checklist", 105, 20, { align: "center" });
+            
+            // Add date
+            const today = new Date();
+            doc.setFontSize(10);
+            doc.text("Generated on: " + today.toLocaleDateString(), 20, 30);
+            
+            let yPosition = 40;
+            let itemsSelected = false;
+            
+            // Add subtitle
+            doc.setFontSize(12);
+            doc.setTextColor(69, 123, 157); // Secondary color
+            doc.text("Your Selected Equipment:", 20, yPosition);
+            yPosition += 10;
+            
+            // Categories and their items
+            const categories = {
+                "Clothing": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                "Footwear": [10, 11, 12],
+                "Equipment": [13, 14, 15, 16, 17, 18, 19, 20],
+                "Documentation": [21, 22, 23, 24]
+            };
+            
+            // Process each category
+            for (const [category, itemIds] of Object.entries(categories)) {
+                let categoryAdded = false;
+                
+                // Check each item in the category
+                for (const id of itemIds) {
+                    const checkbox = document.getElementById(`item${id}`);
+                    const label = document.querySelector(`label[for="item${id}"]`).textContent;
+                    
+                    // If item is checked, add it to the PDF
+                    if (checkbox.checked) {
+                        // Add category header if not already added
+                        if (!categoryAdded) {
+                            // Check if we need to add a page break
+                            if (yPosition > 260) {
+                                doc.addPage();
+                                yPosition = 20;
+                            }
+                            
+                            doc.setFontSize(14);
+                            doc.setTextColor(69, 123, 157); // Secondary color
+                            doc.text(category, 20, yPosition);
+                            yPosition += 6;
+                            categoryAdded = true;
+                        }
+                        
+                        // Check if we need to add a page break
+                        if (yPosition > 270) {
+                            doc.addPage();
+                            yPosition = 20;
+                        }
+                        
+                        // Add the item
+                        doc.setFontSize(12);
+                        doc.setTextColor(0, 0, 0);
+                        doc.text(`• ${label}`, 25, yPosition);
+                        yPosition += 7;
+                        itemsSelected = true;
+                    }
+                }
+                
+                // Add spacing after each category if items were added
+                if (categoryAdded) {
+                    yPosition += 5;
+                }
+            }
+            
+            // If no items were selected, show a message
+            if (!itemsSelected) {
+                doc.setFontSize(12);
+                doc.setTextColor(0, 0, 0);
+                doc.text("No items selected. Please check items from the list and try again.", 20, yPosition);
+            } else {
+                // Add footer
+                yPosition = Math.max(yPosition, 270);
+                doc.setFontSize(10);
+                doc.setTextColor(69, 123, 157);
+                doc.text("Plan Your Nepal Adventure - www.nepaladventure.com", 105, 280, { align: "center" });
+            }
+            
+            // Save the PDF
+            doc.save("Nepal_Trekking_Checklist.pdf");
+        }
+ 
         
         // Form submission handler
         document.getElementById('trekking-inquiry').addEventListener('submit', function(e) {

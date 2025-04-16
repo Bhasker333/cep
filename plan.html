@@ -43,11 +43,12 @@
         }
         
         .hero {
-            height: 300px;
+            height:500px !important; /* Force the height with !important */
+            max-height: 500px !important;
             position: relative;
             overflow: hidden;
             border-radius: 10px;
-            margin-bottom: 2rem;
+            margin-bottom:1rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -328,7 +329,13 @@
         }
     </style>
 </head>
+
+
+
 <body>
+
+    
+
     <div class="container">
         <section class="hero">
             <img src="images/planhero.jpg" alt="Nepal Mountains" class="hero-image">
